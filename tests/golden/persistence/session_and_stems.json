@@ -1,0 +1,158 @@
+{
+ "litho_single": {
+  "all_files_non_empty": true,
+  "files": [
+   "runs/w-<date>-<n>.compile.json",
+   "runs/w-<date>-<n>.design.json",
+   "runs/w-<date>-<n>.run.json",
+   "sessions.jsonl",
+   "stem_index.jsonl",
+   "writes/gwy/<stem>.gwy",
+   "writes/ibw/<stem>.ibw",
+   "writes/json/<stem>.json",
+   "writes/npz/<stem>.npz",
+   "writes/xy/<stem>.step05.npz"
+  ],
+  "run_record": {
+   "execution_id": "w-<date>-<n>",
+   "execution_keys": [
+    "captures",
+    "commanded_xy",
+    "compile_settings",
+    "design_snapshot",
+    "execution_id",
+    "started"
+   ],
+   "keys": [
+    "execution",
+    "fingerprint",
+    "recipe"
+   ],
+   "recipe_capture_channels": [
+    "ZSensor",
+    "Deflection",
+    "XSensor",
+    "YSensor"
+   ],
+   "recipe_kind": "write",
+   "recipe_steps": [
+    "check",
+    "move",
+    "settle",
+    "read",
+    "engage",
+    "litho-object",
+    "withdraw",
+    "withdraw"
+   ]
+  },
+  "session": {
+   "aborted": null,
+   "backend": null,
+   "capture_channels": [
+    "output_a_cmd_v"
+   ],
+   "kind": "litho",
+   "label": "objects on <sample>"
+  },
+  "session_keys": [
+   "capture_channels",
+   "design",
+   "id",
+   "kind",
+   "label",
+   "sample",
+   "ts",
+   "written"
+  ],
+  "stem_index": {
+   "keys": [
+    "kind",
+    "run_id",
+    "stem"
+   ],
+   "kind": "litho",
+   "run_id": "litho-<ms>",
+   "stem": "<stem>"
+  },
+  "written": [
+   "wire"
+  ]
+ },
+ "scan_chained_contact": {
+  "all_files_non_empty": true,
+  "files": [
+   "runs/s-<date>-<n>.run.json",
+   "scans/gwy/<stem>.gwy",
+   "scans/ibw/<stem>.ibw",
+   "scans/json/<stem>.json",
+   "scans/npz/<stem>.height.npz",
+   "scans/npz/<stem>.npz",
+   "scans/png/<stem>_deflection.png",
+   "scans/png/<stem>_height.png",
+   "sessions.jsonl",
+   "stem_index.jsonl"
+  ],
+  "run_record": {
+   "execution_id": "s-<date>-<n>",
+   "execution_keys": [
+    "captures",
+    "commanded_xy",
+    "compile_settings",
+    "design_snapshot",
+    "execution_id",
+    "started"
+   ],
+   "keys": [
+    "execution",
+    "fingerprint",
+    "recipe"
+   ],
+   "recipe_capture_channels": [
+    "ZSensor",
+    "Deflection",
+    "UserIn2"
+   ],
+   "recipe_kind": "scan",
+   "recipe_steps": [
+    "check",
+    "setmode",
+    "move",
+    "scan",
+    "withdraw"
+   ]
+  },
+  "session": {
+   "aborted": false,
+   "backend": "hardware",
+   "capture_channels": [
+    "ZSensor",
+    "Deflection"
+   ],
+   "kind": "scan",
+   "label": "1 um contact scan of <sample> (hardware)"
+  },
+  "session_keys": [
+   "aborted",
+   "backend",
+   "capture_channels",
+   "config",
+   "id",
+   "kind",
+   "label",
+   "sample",
+   "ts"
+  ],
+  "stem_index": {
+   "keys": [
+    "kind",
+    "run_id",
+    "stem"
+   ],
+   "kind": "scan",
+   "run_id": "scan-<ms>",
+   "stem": "<stem>"
+  },
+  "written": []
+ }
+}

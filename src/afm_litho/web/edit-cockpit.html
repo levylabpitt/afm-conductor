@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AFM Conductor</title>
+<link rel="stylesheet" href="/static/edit-cockpit.css">
+</head>
+<body>
+  <!-- ============ 1. HEADER ============ -->
+  <header>
+    <h1 class="brand">CONDUCTOR</h1>
+    <!-- One status box; each segment is a chip whose text and class ec-main.js sets. -->
+    <span class="statusbox">
+      <!-- shown by ec-safety.js while the fault latch or a critical park holds -->
+      <span id="faultStatus" class="chip bad" style="display:none">&#9888; FAULT</span>
+      <span id="lithoStatus" class="chip" title="live write progress">litho: idle</span>
+      <span id="src" class="chip" title="current design source">source: mock</span>
+      <span id="ws" class="chip">ws: &mdash;</span>
+      <span id="backendBadge" class="chip badge-twin" title="live backend: GET /api/state backend">twin</span>
+    </span>
+    <span class="spacer"></span>
+    <!-- Config (docs/INSTRUMENT_MODEL_SPEC.md sec 14 item 2): opens the #configDialog
+         modal with every InstrumentModel field, its source and the config file. -->
+    <button id="configBtn" class="hdrbtn" title="Instrument config: every model field, its source, and the config file (POST /api/instrument/override to change a value).">Config</button>
+    <!-- ABORT is safety-critical: never gated on state, and above every dialog and
+         notice (z-index in the CSS; messages have their own row below). It runs the
+         full stop sequence (td_Stop + zero bias, then withdraw the tip).
+         docs/INSTRUMENT_MODEL_SPEC.md sec 4/10. -->
+    <button id="abortBtn" class="stop abort" title="ABORT = safe_park: stop everything and retract the tip (out-of-band AFM_SafePark on hardware + Output.Z verify)">Abort</button>
+  </header>
+
+  <!-- ============ MESSAGE ROW: every banner and notice (ec-banners.js) ============ -->
+  <div id="ecMessageRow" class="msgrow">
+    <span class="msglbl">messages</span>
+    <span class="msgnone">none</span>
+    <div id="ecBannerDock" class="bannerdock">
+  <!-- Guard-refusal notice (docs/INSTRUMENT_MODEL_SPEC.md sec 4; B3 review M2): a
+       synchronous command-guard refusal (amp_gain_mismatch, free_air_missing/stale,
+       tip_voltage_out_of_window, dac_rail_exceeded, setpoint_out_of_band,
+       setpoint_exceeds_sum, sum_missing, object_disabled, unknown_object,
+       model_incomplete, fault_latched, invalid_params) is surfaced HERE with its
+       reason + values, not just logged. An EVENT notice: closing removes it.
+       Populated from ec-instrument.js via the ec-api refusal sink. -->
+  <div id="guardNotice" class="dock-notice err" style="display:none" role="alert">
+    <span id="guardNoticeText"></span>
+    <button id="guardNoticeDismiss" title="close">&times;</button>
+  </div>
+  <div id="designNotice" class="dock-notice" style="display:none" role="status">
+    <span id="designNoticeText" class="designnoticetext"></span>
+    <button id="designNoticeDismiss" title="close">&times;</button>
+  </div>
+    </div>
+    <!-- chips for closed state banners; click one to re-expand it -->
+    <span id="ecBannerChips" class="bannerchips"></span>
+  </div>
+
+  <main>
+    <!-- ============ 2. SCAN IMAGE + PLANNED-PATH OVERLAY (LEFT, all tabs) ==== -->
+    <section class="scanpanel">
+      <!-- Render toolbar: one line above the image, never over it; it scrolls sideways
+           (wheel, or a drag on its empty space) when the pane is too narrow, with a
+           fade and a › at the right edge while more of it is hidden there. -->
+      <div class="rtwrap">
+      <div class="rendertools" id="renderTools">
+        <span class="rtgroup">scan
+          <span class="seg" id="scanViewSeg" role="group" aria-label="scan view">
+            <button class="seg-btn" data-view="live" aria-pressed="false"
+              title="Show only the lines of the frame being scanned">live</button>
+            <button class="seg-btn" data-view="last" aria-pressed="false"
+              title="Show the previous frame, kept by this page when the current one started">last</button>
+            <button class="seg-btn active" data-view="both" aria-pressed="true"
+              title="Paint the incoming lines over the previous frame">both</button>
+          </span></span>
+        <label class="rtgroup" title="Imaging mode of the next approach and scan">mode
+          <select id="mode"><option>contact</option><option>ac</option><option>current</option></select>
+          <span id="modeUnread" class="unreadtag" hidden
+            title="imaging mode unknown until read from the instrument">unread</span></label>
+        <span class="rtgroup">design
+          <span class="seg" role="group" aria-label="design view">
+            <button id="showOutline" class="seg-btn" aria-pressed="false"
+              title="Draw each object's authored outline">outline</button>
+            <button id="showToolpath" class="seg-btn active" aria-pressed="true"
+              title="Preview toolpath: draw every compiled fill pass the tip actually runs (zig-zag rows, funnel sweeps, the interpolated wire), coloured by bias, instead of the authored outline (imported designs only)">tip path</button>
+          </span></span>
+        <span class="rtgroup writtenctl">
+          <label title="Show or hide the written trace on the image"><input type="checkbox" id="showWritten" checked> written</label>
+          <button id="writtenMenu" class="caret" aria-expanded="false" aria-controls="writtenList"
+            title="The past writes of this page: show or hide each one">&#9662;</button></span>
+        <button id="clearTrace" title="Clear the drawn AFM tip-path trace from the display">Clear written trace</button>
+        <label class="rtgroup" title="Show tip: POST /api/tip/show — Igor polls XSensor/YSensor at ~20 Hz and streams the live position (tip_pos). A low-res real-time marker, shown DURING a write/scan; separate from the per-object written path. On the twin the service always streams the twin's position and this box (on by default) shows or hides the marker in this page only.">
+          <input type="checkbox" id="showTip"> tip</label>
+        <button id="zoomAll" title="fit all objects' bounding box">Zoom to all</button>
+        <button id="zoomScan" title="fit the mock scan frame">Zoom to scan</button>
+      </div>
+      <div id="writtenList" class="writtenlist" role="group" aria-label="past writes" hidden></div>
+      </div>
+      <!-- Render body: telemetry beside the square image (or folded to a tab, or a
+           grid under it; ec-renderpane.js picks by the space), the image with its z
+           scale bar, and the line scope aligned to the image's x range. -->
+      <div class="renderbody" id="renderBody">
+        <aside id="ecTelemetry" class="telem" aria-label="telemetry">
+          <div class="telemhdr"><span>telemetry</span>
+            <span id="telemStale" class="telemstale" hidden></span>
+            <button id="telemToggle" class="foldbtn" title="Fold telemetry to a tab"
+              aria-expanded="true">&lsaquo;</button></div>
+          <div id="telemBody" class="telembody"></div>
+          <button id="telemTab" class="telemtab" title="Show telemetry">telemetry &rsaquo;</button>
+        </aside>
+        <div class="imgcol" id="imgCol">
+          <div class="imgrow">
+            <div class="stack">
+              <canvas id="scan"></canvas>
+              <canvas id="overlay"></canvas>
+            </div>
+            <!-- the image's grey mapping: the range it is drawn with, not the view -->
+            <div id="zScale" class="zscale"><canvas id="zScaleCv"></canvas>
+              <button id="zAuto" class="zauto active" aria-pressed="true" hidden
+                title="Grey range: auto is the 2nd to 98th percentile of the shown channel. Drag either end of the bar to set it by hand; this button returns to auto.">auto</button></div>
+          </div>
+          <div id="telemGridSlot" class="telemgridslot"></div>
+          <!-- trace/retrace line scope: the current line of the selected channel, its
+               plot spanning the image's on-screen x range. Hidden in Edit (setTab). -->
+          <div id="scopePanel" class="scopepanel">
+            <div class="scopehdr">
+              <span id="scopeLabel">line scope &middot; ZSensor</span>
+              <span class="scopekey">
+                <span class="scopeswatch sw-trace"></span>trace
+                <span class="scopeswatch sw-retrace"></span>retrace
+              </span>
+              <span id="scopeRange" class="scoperange">&mdash;</span>
+            </div>
+            <canvas id="scope"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="coordbar">
+        <!-- the pointer over the render, in the design's lab µm (ec-main.js) -->
+        <span class="cursorpos" id="cursorPos">cursor &mdash;</span>
+        <span class="cap" id="viewCap">view: &mdash;</span>
+      </div>
+    </section>
+
+    <!-- Drag (or arrow keys) to share the width between the panes; ec-panes.js
+         remembers the position in this browser. -->
+    <div id="paneDivider" class="panedivider" role="separator" aria-orientation="vertical"
+      aria-label="resize the panes" tabindex="0"></div>
+
+    <!-- ============ RIGHT PANEL: tab strip + swappable bodies ============ -->
+    <!-- Tabs switch by CSS display only (see setTab). Nothing is removed from the
+         DOM, so every id below always resolves and every handler always fires
+         regardless of which tab is active. -->
+    <section class="rightpanel">
+      <div class="tabstrip">
+        <button class="tab active" data-tab="scan">Scan</button>
+        <!-- Connect is hidden (docs/UI_LAYOUT_SPEC.md); the tab button and
+             its body stay in the page and setTab("connect") still works. -->
+        <button class="tab" data-tab="connect" hidden>Connect</button>
+        <button class="tab" data-tab="edit">Edit</button>
+        <button class="tab" data-tab="write">Write</button>
+        <button class="tab" data-tab="file">File</button>
+      </div>
+      <div class="rightbody">
+
+        <!-- ---- SHARED OBJECT LIST (Write and Edit) ------------------------ -->
+        <!-- One list, one set of ids, shown by setTab for Write and Edit. The CSS
+             orders it after the tab body, so it sits on the pane's outer edge at
+             the same place and width in both tabs. -->
+        <section class="objpanel" id="objPanel">
+          <div class="panelhdr"><span>objects</span><span class="hdrnote">top writes first</span></div>
+          <div class="objlist" id="objList" title="drag a row to reorder; the top object writes first"></div>
+        </section>
+
+        <!-- ---- SCAN TAB: action column + one field list -------------------- -->
+        <div class="tabbody" id="tabScan">
+          <div class="scancols">
+            <section class="scanbtns">
+              <div class="panelhdr">actions</div>
+              <div class="btncol">
+                <button id="approach">Approach</button>
+                <button id="withdraw" class="heavy">Withdraw</button>
+                <button id="up">Frame Up</button>
+                <button id="down">Frame Down</button>
+                <button id="stop" class="stop" title="Stop the scan and retract the tip (POST /api/scan/abort). Every Stop withdraws -- it never leaves the tip engaged with a stopped Z loop.">Stop</button>
+              </div>
+            </section>
+            <section class="scanfields">
+              <div class="panelhdr"><span>scan settings</span></div>
+              <div class="fieldlist">
+              <div class="fld"><label title="Which captured channel the grayscale image (and the trace/retrace scope) shows. ZSensor = topography (height); Deflection = the error signal.">channel</label>
+                <select id="scanChan" title="ZSensor (height) or Deflection (error) — trace by default; switching re-renders the current frame in the chosen channel">
+                  <option value="height">ZSensor (height)</option>
+                  <option value="error">Deflection (error)</option>
+                </select></div>
+              <div class="fld"><label>size µm</label><input id="size" type="number" value="5" step="0.5" min="0.05"></div>
+              <div class="fld"><label>pts</label><input id="pixels" type="number" value="64" step="1" min="8"></div>
+              <div class="fld"><label>lines</label><input id="lines" type="number" value="64" step="1" min="8"></div>
+              <div class="fld"><label>Hz</label><input id="rate" type="number" value="1" step="0.1" min="0.1"></div>
+              <div class="fld"><label>angle</label><input id="angle" type="number" value="0" step="1"></div>
+              <!-- setpoint hydrates from hub.last_scan_params per mode (sec 4/10);
+                   no literal value= in the served markup so a reload never resets it. -->
+              <div class="fld"><label>setpoint</label><input id="setpoint" type="number" step="0.05"></div>
+              <div class="fld"><label title="Z-loop integral gain (default 10)">I gain</label><input id="igain" type="number" value="10" step="1">
+                <button id="applyGain" title="live-tune the RUNNING Z loop with this I at the current setpoint (POST /api/zgain) — no withdraw">apply gain</button></div>
+              <!-- Settings expected to leave the UI, folded into one row; their
+                   elements and handlers are unchanged. -->
+              <details id="scanMore" class="foldrow">
+                <summary>continuous, guards, relative setpoint, drift</summary>
+              <!-- Continuous imaging: a BACKEND-owned auto-repeat scan loop that
+                   re-images this frame over and over (leave it imaging overnight).
+                   The loop lives in the SERVICE, so it survives a browser reload /
+                   dropped websocket. It only re-images; drift CORRECTION still
+                   needs the "Track and compensate drift" toggle -- the two
+                   compose. Caps blank = unlimited. -->
+              <div class="fld"><label title="Backend-owned auto-repeat scan loop: re-scans this frame continuously so you can watch drift correction accumulate. The loop runs in the service (not this page), so it keeps going across a browser reload.">continuous</label>
+                <input type="checkbox" id="continuous">
+                <span id="contReadout" class="readout">off</span></div>
+              <div class="fld"><label>max frames</label><input id="contMaxFrames" type="number" step="1" min="1" placeholder="∞"></div>
+              <div class="fld"><label>max min</label><input id="contMaxMin" type="number" step="0.5" min="0" placeholder="∞"></div>
+              <div class="fld"><label title="Idle seconds between frames (blank / 0 = back-to-back).">interval s</label><input id="contInterval" type="number" step="1" min="0" placeholder="0"></div>
+              <!-- ---- Z-drive rail-dwell safety guard (safety kernel entry #1) ----
+                   A telemetry WATCHDOG, armed only while continuous imaging runs.
+                   It polls the HV Z-drive (~10 Hz) per scan line and trips on a
+                   rail dwell so a night's unattended run can't sit the piezo at a
+                   rail (-10/+150 V) and depolarize it. Guard B aborts the frame
+                   after 5 consecutive railed lines; Guard A stops after a frame
+                   that railed > 50%. On a trip: stop continuous + withdraw the
+                   tip. See docs/SAFETY_KERNEL_RAIL_DWELL.md. -->
+              <div class="fld"><label title="Z-drive rail-dwell safety guard: while continuous imaging runs it polls the HV Z-drive per line and trips if the piezo sits at a rail (Guard B: 5 consecutive railed lines aborts the frame; Guard A: a frame > 50% railed stops after it), then withdraws the tip. Armed only during continuous imaging.">Z-rail guard</label>
+                <span id="railReadout" class="readout">off</span></div>
+              <!-- ---- Relative (drift-referenced) setpoint -------------------
+                   Contact-mode only. When ON the continuous loop, between every
+                   frame, WITHDRAWS fully, settles, reads the free-air deflection
+                   (the vendor FreeAirDeflection), sets the frame's setpoint to
+                   free_air + the CURRENT scan setpoint, and re-approaches -- so a
+                   drifting laser/lever baseline can never rail the Z servo. There
+                   is no separate offset: the scan setpoint IS the target above
+                   free-air. OFF (default) uses the setpoint as-is (no withdraw).
+                   Adds a few seconds/frame. POST /api/scan/relative. -->
+              <div id="relPanel" class="subgroup">
+                <label class="checkrow" title="Relative setpoint: re-reference to the freshly-measured free-air deflection each frame (withdraw + settle + read + re-approach). The scan setpoint becomes the target force ABOVE free-air. Holds constant contact force through deflection/laser drift. Contact mode only.">
+                  <input type="checkbox" id="relEnable"> <b>Relative setpoint</b></label>
+                <div class="fld"><label title="Settle dwell after the full withdraw, before the free-air read, so the baseline stabilizes (default ~4 s).">settle s</label>
+                  <input id="relSettle" type="number" step="0.5" min="0" value="4"></div>
+                <div id="relReadout" class="empty readout">off · free-air —, setpoint —</div>
+                <div class="note">When on, the scan setpoint becomes the target ABOVE free-air (effective = free-air + scan setpoint), re-referenced each frame. Adds a few seconds/frame. Contact mode only.</div>
+              </div>
+              <!-- ---- Track and compensate drift (imaging setting) ------------
+                   A toggle that keeps the marked electrodes registered against
+                   thermal drift: each completed scan estimates the (dx, dy) of
+                   the sample vs a REFERENCE frame, tracks the ports, and
+                   re-centres the next scan. Always measured + shown; only
+                   mutates when ON. Lives with the continuous loop -- the two
+                   imaging-loop settings compose. -->
+              <div id="driftPanel" class="subgroup">
+                <label class="checkrow" title="On each completed scan: estimate the sample's drift vs the reference frame, shift every electrode port by it (TRACK), and shift the next scan's offset to re-centre (COMPENSATE). Off = measure and display only.">
+                  <input type="checkbox" id="driftEnable"> <b>Track and compensate drift</b></label>
+                <div class="btnrow">
+                  <button id="driftSetRef" title="Snapshot the current (newest) scan as the drift reference; clears the accumulated total. POST /api/drift/reference">Set reference</button>
+                  <span id="driftRefState" class="empty">no reference</span>
+                </div>
+                <div id="driftReadout" class="empty readout">latest: — · total: 0, 0 nm</div>
+              </div>
+              <!-- ---- Design background swap ----------------------------------
+                   Writes a COPY of the loaded design SVG with its background
+                   <image> replaced by the newest scan PNG of the chosen
+                   channel, sized to the scan's physical extent (1 unit = 1 nm).
+                   POST /api/design/background. The select is populated from
+                   the newest scan's sidecar channel list (GET
+                   /api/design/background/channels), falling back to the usual
+                   three when that call has nothing to offer yet.
+                   Hidden: deprecated; the elements and their
+                   handlers stay in the page until the code is removed. -->
+              <div id="designBgPanel" class="subgroup" hidden>
+                <div class="btnrow">
+                  <button id="designBgUpdate" title="Copy the loaded design SVG with its background image swapped for the newest scan PNG of the selected channel, at the scan's physical size. POST /api/design/background">Update design background</button>
+                  <select id="designBgChannel" title="Which scan channel's PNG to use as the background">
+                    <option value="height">height</option>
+                    <option value="deflection">deflection</option>
+                    <option value="amplitude">amplitude</option>
+                  </select>
+                </div>
+                <span id="designBgStatus" class="empty readout">no design background written yet</span>
+              </div>
+              </details>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- ---- CONNECT TAB: electrode PORTS (Phase 1) --------------------- -->
+        <!-- A separate ports list (the shared #objPanel stays hidden on Connect)
+             + per-port settings. Ports are backed by /api/connect/ports* and
+             persisted per-sample, so they survive a reload. -->
+        <div class="tabbody" id="tabConnect" style="display:none">
+          <section class="objpanel" id="portPanel">
+            <div class="panelhdr"><span id="portCount">0 electrodes</span></div>
+            <div class="objlist" id="portList"></div>
+          </section>
+          <section class="setpanel">
+            <!-- placement action pinned at the top, above the per-port fields -->
+            <div id="connectGlobal" class="setbody">
+              <button id="placeElectrode" class="accent" title="Place electrode: toggle on, then press on the scan to drop a port and drag out to aim its connection direction (a plain click faces inward).">Place electrode</button>
+              <div class="empty">Place on → press the scan and drag to aim the direction. With Place off: click an electrode to select, drag to move it, double-click + drag to set its angle; Del deletes. Each dashed circle (diameter = width) is that electrode's clickbox — don't let them overlap.</div>
+            </div>
+            <div class="panelhdr">electrode</div>
+            <div class="setbody">
+              <div class="empty" id="portEmpty">select an electrode to edit its settings</div>
+              <div id="portFields" style="display:none">
+                <h2 id="portName">electrode</h2>
+                <div class="pgroup"><label>Label</label>
+                  <input type="text" id="pLabel"></div>
+                <div class="pgroup"><label>Position x (µm)</label>
+                  <input type="number" id="pPosX" step="0.1"></div>
+                <div class="pgroup"><label>Position y (µm)</label>
+                  <input type="number" id="pPosY" step="0.1"></div>
+                <div class="pgroup"><label title="Direction the connecting wire comes IN from (0 = +x, CCW positive) — the wire's tangent at the pad.">Direction (deg)</label>
+                  <input type="number" id="pDir" step="1"></div>
+                <div class="pgroup"><label>Width (µm)</label>
+                  <input type="number" id="pWidth" step="0.1" min="0"></div>
+                <button id="portDelete" class="stop" title="delete this electrode port (POST /api/connect/ports/delete); Del key also works">Delete electrode</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ---- EDIT TAB: tools, the active tool's options (objects beside) -- -->
+        <!-- The tools have no keyboard shortcuts, so their buttons carry no key
+             hints. -->
+        <div class="tabbody" id="tabEdit" style="display:none">
+          <section class="editcol edittools">
+            <div class="panelhdr">tools</div>
+            <div class="toolpalette">
+              <button class="tool active" data-tool="select" title="Select: click to select; drag the body to move, a box handle to scale (Shift = keep aspect), or the round handle to rotate (Shift = snap 15°)">Select</button>
+              <button class="tool" data-tool="node" title="Node: with a path/shape selected, drag a node (square) to move it, a handle (circle) to bend the curve, or drag the curve itself; a modulated wire edits its base and re-applies the modulation">Node</button>
+              <button class="tool" data-tool="pen" title="Pen: click to place nodes (drag to pull smooth handles); Enter or double-click finishes, Esc cancels — creates a new path">Pen</button>
+              <button class="tool" data-tool="rect" title="Rectangle: click-drag to create a new rectangle object">Rectangle</button>
+              <button id="editDelete" class="stop" title="delete the currently-selected object (POST /api/design/op {op:'delete'})">Delete</button>
+            </div>
+            <!-- Show electrodes is hidden (docs/UI_LAYOUT_SPEC.md); the
+                 checkbox stays so its handlers (drawEditElectrodesLayer, end-node snap)
+                 keep working. -->
+            <label class="checkrow" hidden title="Show the marked electrodes (from the Connect tab) as read-only reference markers — pin, inward direction arrow, width bar, label. While on, drag an open path's END node onto a port along its arrow to snap + bind it.">
+              <input type="checkbox" id="editShowPorts"> Show electrodes</label>
+          </section>
+          <section class="editcol editopts">
+            <div class="panelhdr" id="toolOptsHdr">tool options</div>
+            <div class="editoptsbody">
+              <div class="empty" id="toolOptsNone">this tool has no options</div>
+              <!-- node options: shown only while the Node tool is active (toggled
+                   from ec-tab-edit.js). Type buttons act on the selected node;
+                   Modify runs the ec-bezier ops. -->
+              <div id="nodeToolbar" style="display:none">
+                <div class="nodetools">
+                  <div class="nodecol">
+                    <span class="nodehdr">node type</span>
+                    <button class="ntype" data-kind="cusp" disabled title="Cusp: the two handles move independently (a corner).">cusp</button>
+                    <button class="ntype" data-kind="smooth" disabled title="Smooth: the opposite handle stays collinear but keeps its own length (a smooth join).">smooth</button>
+                    <button class="ntype" data-kind="symmetric" disabled title="Symmetric: the opposite handle mirrors this one exactly (equal length, collinear).">symmetric</button>
+                  </div>
+                  <div class="nodecol">
+                    <span class="nodehdr">modify</span>
+                    <button class="nmod" id="nInsert" title="Insert: double-click a segment to add a node there (splits the curve at that point).">insert</button>
+                    <button class="nmod" id="nDelete" disabled title="Delete: remove the selected node; its neighbours reconnect directly.">delete</button>
+                    <button class="nmod" id="nJoin" disabled title="Join: merge the two ends of an open path into one continuous (closed) path.">join</button>
+                    <button class="nmod" id="nSplit" disabled title="Split: break a closed path open at the selected node (two coincident ends).">split</button>
+                  </div>
+                </div>
+                <div class="optgrp">
+                  <span class="nodehdr">selected node</span>
+                  <!-- Enter or leaving the field moves the node, as a drag does -->
+                  <div class="fl">
+                    <label for="nodeX">x</label><input type="number" id="nodeX" step="0.001" disabled title="the selected node's x (µm)">
+                    <label for="nodeY">y</label><input type="number" id="nodeY" step="0.001" disabled title="the selected node's y (µm)">
+                  </div>
+                </div>
+                <div class="optgrp">
+                  <span class="nodehdr">path</span>
+                  <div class="kv"><span>length</span><b id="nodeLength">&mdash;</b></div>
+                  <div class="kv"><span>nodes</span><b id="nodeCount">&mdash;</b></div>
+                  <div class="kv"><span>closed</span><b id="nodeClosed">&mdash;</b></div>
+                </div>
+                <div class="empty" id="nodeHint">select a path or shape to edit its nodes</div>
+              </div>
+              <!-- select options: shown only while the Select tool is active -->
+              <div id="selectOpts" style="display:none">
+                <!-- Enter or leaving a field applies it through the transform the
+                     box handles use; rotate and skew are amounts to apply, about
+                     the box centre, and read 0 again once applied. -->
+                <div class="optgrp">
+                  <span class="nodehdr">position and size</span>
+                  <div class="fl">
+                    <label for="selX">x</label><input type="number" id="selX" step="0.001" disabled title="left edge of the selection box (µm)">
+                    <label for="selY">y</label><input type="number" id="selY" step="0.001" disabled title="bottom edge of the selection box (µm)">
+                  </div>
+                  <div class="fl">
+                    <label for="selW">w</label><input type="number" id="selW" step="0.001" min="0" disabled title="width of the selection box (µm), scaled from its lower-left corner">
+                    <label for="selH">h</label><input type="number" id="selH" step="0.001" min="0" disabled title="height of the selection box (µm), scaled from its lower-left corner">
+                  </div>
+                  <label class="checkrow"><input type="checkbox" id="selLock" checked> lock aspect</label>
+                </div>
+                <div class="optgrp">
+                  <span class="nodehdr">rotate and skew</span>
+                  <div class="fl">
+                    <label for="selRot" title="rotate (°, counter-clockwise)">&#8635;</label><input type="number" id="selRot" step="1" value="0" disabled title="rotate by this many degrees, counter-clockwise, about the box centre">
+                  </div>
+                  <div class="fl">
+                    <label for="selSkewX">sx</label><input type="number" id="selSkewX" step="1" value="0" disabled title="skew x by this many degrees (x shifts with y) about the box centre">
+                    <label for="selSkewY">sy</label><input type="number" id="selSkewY" step="1" value="0" disabled title="skew y by this many degrees (y shifts with x) about the box centre">
+                  </div>
+                </div>
+                <div class="optgrp">
+                  <span class="nodehdr">clipboard</span>
+                  <div class="cliprow">
+                    <button id="selCopy" title="copy the selected object (Ctrl+C)">copy</button>
+                    <button id="selPaste" title="paste the copied object, offset +1/-1 µm per paste (Ctrl+V)">paste</button>
+                    <button id="selDup" title="copy and paste the selected object in one step">duplicate</button>
+                  </div>
+                </div>
+                <div class="optgrp">
+                  <span class="nodehdr">path</span>
+                  <div class="kv"><span>length</span><b id="selLength">&mdash;</b></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ---- WRITE TAB: run settings, then the selected object's settings -- -->
+        <div class="tabbody" id="tabWrite" style="display:none">
+          <section class="setpanel">
+            <div class="panelhdr"><span>run</span><span class="hdrnote">all enabled objects, top first</span></div>
+            <div id="writeGlobal">
+              <button id="perform" class="accent" title="POST /api/litho/write {objects:[on-screen enabled ids], setpoint_relative, amp_gain} — (re)write every ENABLED object shown on screen (nanowires degrade and get rewritten)">Perform litho</button>
+              <!-- the running write's progress, from litho_progress frames -->
+              <div id="writeProgress" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+              <div id="writeProgressText" class="progresstext">idle</div>
+              <!-- Total write-time estimate (sec 4/10): the TOTAL seconds the service
+                   would spend on the next Write press, from GET /api/litho/estimate --
+                   computed from the SERVICE's enabled set, not this page's copy, so a
+                   stale view shows up as a mismatch. Refreshed on load, on every
+                   design_changed, and after every set_props. -->
+              <div class="pgroup"><label title="Total seconds the next Write would spend, from the service's own enabled set (GET /api/litho/estimate). A mismatch with the on-screen objects means the view is stale.">est. write</label>
+                <span id="writeEstimate" class="measure-ro" title="total write seconds from the service">&mdash;</span></div>
+              <!-- Setpoint is RELATIVE to free air (sec 4/12): the operator types +0.2
+                   the way the scripts do; the service converts setpoint = free_air +
+                   relative at write start. No literal value= so a reload never resets
+                   it -- hydrated from hub.last_write_params.setpoint_relative. -->
+              <div class="pgroup"><label title="litho tip-down setpoint RELATIVE to free air (V above free-air deflection); the service converts to an absolute setpoint = free_air + this value at write start. Separate from the scan setpoint.">setpoint</label>
+                <input type="number" id="lithoSetpoint" step="0.05"><span class="unit">V above free air</span></div>
+              <!-- Read-only amp gain the Write will use (docs/INSTRUMENT_MODEL_SPEC.md
+                   sec 14 item 1). The guard refuses a mismatch and the Write request
+                   reads amp_gain from the fetched model, never this text; edit it in
+                   the Config dialog. Hydrated from GET /api/instrument. -->
+              <div class="pgroup"><label title="External tip-bias amplifier gain the Write will use: the DAC drives V_tip / gain. Service-owned and read-only here; the Write request reads it from the model, never a typed box. Change it in the Config dialog (header).">amp gain</label>
+                <span id="ampGainRO" class="measure-ro" title="tip_amp_gain from GET /api/instrument (read-only)">&mdash;</span><span class="unit">set in Config</span></div>
+              <!-- N2: an empty setpoint must not coerce to 0 (a write at free air). Shown
+                   when the box is empty; Write stays disabled until a value is typed. -->
+              <div id="lithoSetpointHint" class="fieldhint" style="display:none">set the write setpoint (V above free air) before writing</div>
+            </div>
+            <div class="panelhdr">object settings</div>
+            <div class="setbody" id="setBody">
+              <div class="empty" id="setEmpty">select an object to edit its settings</div>
+              <div id="setFields" style="display:none">
+                <h2 id="setName"><span class="swatch" id="setSwatch"></span><span id="setNameText"></span></h2>
+                <!-- The checkbox is the state and fires the change handler; the label
+                     around it is the visible toggle button, its text set by the CSS
+                     from :checked. -->
+                <label class="entoggle" title="Enabled objects are written by Perform litho; a disabled one is skipped">
+                  <input type="checkbox" id="fEnabled">
+                  <span class="en-on">&#10003; ENABLED</span><span class="en-off">&#10005; DISABLED &middot; skipped by Perform litho</span>
+                  <span class="en-hint en-on">click to disable</span><span class="en-hint en-off">click to enable</span>
+                </label>
+                <div class="pgroup"><label>voltage</label>
+                  <input type="number" id="fVoltage" step="0.5"><span class="unit">V</span></div>
+                <div class="pgroup"><label>speed</label>
+                  <input type="number" id="fSpeed" step="0.5" min="0"><span class="unit">µm/s</span></div>
+                <!-- chiral (paths) or fill spacing (fillable kinds) at the bottom; ec-main
+                     renderSettings shows the one that fits the selected object. -->
+                <div class="pgroup" id="densityRow" style="display:none"><label title="Spacing between fill raster lines (µm). Smaller = denser fill, more lines.">fill spacing</label>
+                  <input type="number" id="fDensity" step="0.01" min="0.01"><span class="unit">µm</span></div>
+                <div id="chiralRow" style="display:none">
+                  <label class="checkrow"><input type="checkbox" id="fChiral"> chiral</label></div>
+                <div id="chiralFields" style="display:none">
+                  <div class="pgroup"><label>amplitude</label>
+                    <input type="number" id="fAmp" step="0.005" min="0"><span class="unit">µm</span></div>
+                  <div class="pgroup"><label title="Delta-phi between the voltage modulation and the positional-deviation sine: this IS how chiral the wire is. 0 = achiral (bias peaks with the wiggle); 90 = maximally chiral (quadrature). Easiest to SEE when the mean Voltage is near 0 so the bias crosses zero (green<->red bands slide along the wiggle).">phase</label>
+                    <input type="number" id="fPhase" step="5" min="-360" max="360"
+                      title="Delta-phi between voltage and position (chirality). Set mean Voltage near 0 to see the green<->red bands slide as you change it."><span class="unit">deg</span></div>
+                  <div class="pgroup"><label>pitch λ</label>
+                    <input type="number" id="fLambda" step="0.005" min="0.0001"><span class="unit">µm</span></div>
+                  <div class="pgroup"><label>voltage mod.</label>
+                    <input type="number" id="fVk" step="0.5" min="0"><span class="unit">V</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ---- FILE TAB: design files and scan files ---------------------- -->
+        <div class="tabbody" id="tabFile" style="display:none">
+          <div class="filecols">
+            <section class="filecol">
+              <div class="panelhdr">design</div>
+              <button id="openDesign" class="bigbtn" title="open a saved design into the current one, or in its place (POST /api/design/open)">Open design</button>
+              <button id="saveDesign" class="bigbtn" title="save the current design, with every object's settings, under a name (POST /api/design/save)">Save design</button>
+              <!-- Load SVG is hidden (docs/UI_LAYOUT_SPEC.md); its
+                   handler in ec-main.js still works. -->
+              <button id="loadSvg" class="bigbtn" style="display:none" title="import an SVG design via /api/design/svg">Load SVG</button>
+              <input id="svgInput" type="file" accept=".svg,image/svg+xml" style="display:none">
+            </section>
+            <section class="filecol">
+              <div class="panelhdr">scan</div>
+              <button id="loadScan" class="bigbtn" title="placeholder (piece 1): logs 'not wired yet'">Load scan</button>
+            </section>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 5. COMMAND LOG (global, fixed-height bottom strip) ======= -->
+  <section class="logpanel">
+    <div class="logbar">
+      <button id="logToggle" class="logtoggle" title="Fold the log to its latest line, or open it"
+        aria-expanded="true">command log</button>
+      <span id="logLatest" class="loglatest"></span>
+      <span id="counts">0 msgs</span>
+      <label><input type="checkbox" id="logTele"> log telemetry</label>
+      <label><input type="checkbox" id="autoscroll" checked> autoscroll</label>
+      <span class="spacer"></span>
+      <button id="clearLog" style="padding:3px 8px">Clear</button>
+    </div>
+    <div id="log"></div>
+  </section>
+
+  <!-- ============ INSTRUMENT CONFIG DIALOG (sec 14) ======================
+       A modal over the whole cockpit: every service-owned InstrumentModel field
+       in two columns (parameter, value) with its source shown faintly, the
+       config-file path, and the open-config button. Read-only until Edit (item 3): #configEdit swaps in
+       inputs + #configSave/#configCancel. Built read-only here; the rows are
+       rendered by ec-instrument.js from GET /api/instrument. Hidden by default. -->
+  <div id="configDialog" class="configgear" style="display:none" role="dialog" aria-modal="true" aria-label="instrument config">
+    <div class="configgearbox">
+      <div class="panelhdr configgearhdr">
+        <span>instrument config &middot; service-owned model</span>
+        <span class="spacer"></span>
+        <button id="configClose" title="close">close</button>
+      </div>
+      <div class="configgearbody">
+        <div id="configPathRow" class="configpath" title="the instrument.toml the service loads on this host">config file: <span id="configPath" class="configpathval">&mdash;</span></div>
+        <div id="configBackendRow" class="configbackend">backend: <span id="configBackend" class="configro">&mdash;</span> <span class="configro-note">(read-only)</span></div>
+        <table id="configTable" class="configtable">
+          <thead><tr><th>parameter</th><th>value</th></tr></thead>
+          <tbody id="configRows"></tbody>
+        </table>
+        <div id="configMsg" class="configmsg" style="display:none"></div>
+        <div class="configactions">
+          <button id="openInstrumentConfig" title="Open instrument.toml in the OS default editor ON THE SERVICE HOST (POST /api/instrument/open_config).">open config file</button>
+          <button id="reloadInstrumentConfig" title="Re-read instrument.toml after a manual edit and diff it (POST /api/instrument/reload).">reload config</button>
+          <span class="spacer"></span>
+          <button id="configEdit" title="Edit the model values (POST /api/instrument/override for each changed field).">Edit</button>
+          <button id="configSave" style="display:none" title="Save the changed values (POST /api/instrument/override, confirm:true).">Save</button>
+          <button id="configCancel" style="display:none" title="Discard edits and restore the current values; sends nothing.">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save design / Open design: one dialog, two modes (ec-design-files.js). -->
+  <div id="designDialog" class="configgear" style="display:none" role="dialog" tabindex="-1" aria-label="design files">
+    <div class="configgearbox">
+      <div class="panelhdr configgearhdr">
+        <span id="designDialogTitle">save design</span>
+        <span class="spacer"></span>
+        <button id="designDialogClose" title="close">close</button>
+      </div>
+      <div class="configgearbody">
+        <div id="designSaveSection">
+          <div class="pgroup">
+            <label for="designSaveName">name</label>
+            <input id="designSaveName" class="designname" type="text" autocomplete="off" spellcheck="false">
+          </div>
+          <div id="designSaveExists" class="designhint" style="display:none"></div>
+        </div>
+        <div id="designOpenSection" style="display:none">
+          <div id="designFileList" class="designfiles" role="listbox" tabindex="0" aria-label="saved designs"></div>
+          <div id="designListState" class="empty" style="display:none"></div>
+          <label class="designmode"><input id="designOpenModeAdd" type="radio" name="designOpenMode" value="add" checked> Add to the current design</label>
+          <label class="designmode"><input id="designOpenModeReplace" type="radio" name="designOpenMode" value="replace"> Replace the current design <span class="configro-note">(a current design is kept as _previous)</span></label>
+        </div>
+      </div>
+      <div class="designfoot">
+        <div id="designDialogMsg" class="configmsg" style="display:none"></div>
+        <div class="configactions">
+          <span class="spacer"></span>
+          <button id="designSaveConfirm" class="accent">Save</button>
+          <button id="designOpenConfirm" class="accent" style="display:none">Open</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Telemetry readout: its own module entry and websocket, so an error anywhere in
+     ec-main.js cannot stop it (ec-renderpane.js only places it). -->
+<script type="module" src="/static/ec-telemetry.js"></script>
+<script type="module" src="/static/ec-main.js"></script>
+<!-- Host-side fail-safe readout (safety kernel). A small, self-contained ES module
+     (docs/COCKPIT_MODULES.md): it listens for `safe_park` broadcasts and shows the
+     last fail-safe retract + its verify state. Cache-busted only by the static
+     mount's `Cache-Control: no-cache` (always revalidate) since edit-cockpit.html
+     is served raw off /static, not through the meta.py mtime helper -- when the
+     cockpit is served through that helper, this picks up `?v=<mtime>` for free. -->
+<script type="module" src="/static/ec-safety.js"></script>
+<!-- Single-writer arbitration (docs/FLEX_INTEGRATION_PLAN.md Sec E.2): the chip that
+     says who holds the instrument + the operator's Take control button. Driven by the
+     `control` /ws event, seeded once from GET /api/control. Another small,
+     self-contained ES module (docs/COCKPIT_MODULES.md); invisible while nobody holds
+     control, which is every GUI-only session. Same static-mount cache behaviour. -->
+<script type="module" src="/static/ec-control.js"></script>
+</body>
+</html>

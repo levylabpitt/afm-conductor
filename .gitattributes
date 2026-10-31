@@ -1,0 +1,4 @@
+# Windows batch and PowerShell files are checked out with CRLF everywhere (clones and
+# GitHub ZIP downloads): cmd.exe can misread goto labels in LF-only batch files.
+*.cmd text eol=crlf
+*.ps1 text eol=crlf

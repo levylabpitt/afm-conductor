@@ -1,0 +1,957 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/instrument/override"
+   },
+   "response": {
+    "applied": false,
+    "error": "override: field is required"
+   },
+   "status": 200,
+   "step": "POST /api/instrument/override (no field)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "field": "to_dict",
+     "value": 1
+    },
+    "method": "POST",
+    "path": "/api/instrument/override"
+   },
+   "response": {
+    "applied": false,
+    "error": "not an overridable field: 'to_dict'"
+   },
+   "status": 200,
+   "step": "POST /api/instrument/override (not an overridable field)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "field": "tip_amp_gain",
+     "value": 20.0
+    },
+    "method": "POST",
+    "path": "/api/instrument/override"
+   },
+   "response": {
+    "applied": false,
+    "would_change": {
+     "field": "tip_amp_gain",
+     "new": 20.0,
+     "old": 25.0
+    }
+   },
+   "status": 200,
+   "step": "POST /api/instrument/override (preview, nothing applied)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "confirm": true,
+     "field": "xy_range_um",
+     "value": [
+      1.0
+     ]
+    },
+    "method": "POST",
+    "path": "/api/instrument/override"
+   },
+   "response": {
+    "applied": false,
+    "error": "xy_range_um must be a 2-element list, got [1.0]",
+    "reason": "invalid_params"
+   },
+   "status": 200,
+   "step": "POST /api/instrument/override (bad value)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "confirm": true,
+     "field": "tip_amp_gain",
+     "reason": "door transcript",
+     "value": 20.0
+    },
+    "method": "POST",
+    "path": "/api/instrument/override"
+   },
+   "response": {
+    "applied": true,
+    "field": "tip_amp_gain",
+    "value": 20.0
+   },
+   "status": 200,
+   "step": "POST /api/instrument/override (applied)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/instrument"
+   },
+   "response": {
+    "ac_setpoint_fraction_band": {
+     "source": "platform_default",
+     "value": [
+      0.3,
+      0.95
+     ]
+    },
+    "config_path": "<RUNTIME>\\instrument.toml",
+    "contact_setpoint_band_v": {
+     "source": "platform_default",
+     "value": [
+      0.0,
+      1.0
+     ]
+    },
+    "dac_rail_v": {
+     "source": "platform_default",
+     "value": 10.0
+    },
+    "free_air": null,
+    "free_air_abs_band_v": {
+     "source": "platform_default",
+     "value": 0.02
+    },
+    "free_air_max_age_s": {
+     "source": "platform_default",
+     "value": 30
+    },
+    "interlock_s": {
+     "source": "platform_default",
+     "value": 5.0
+    },
+    "last_park": null,
+    "last_scan_params": {},
+    "last_write_params": {},
+    "overrides_tail": [
+     {
+      "client": "cockpit",
+      "field": "tip_amp_gain",
+      "new": 20.0,
+      "old": 25.0,
+      "reason": "door transcript",
+      "ts": "<masked>"
+     }
+    ],
+    "platform": {
+     "source": "platform_default",
+     "value": "twin"
+    },
+    "sum_ceiling_frac": {
+     "source": "platform_default",
+     "value": 0.9
+    },
+    "sum_floor_v": {
+     "source": "platform_default",
+     "value": 0.5
+    },
+    "tip_amp_gain": {
+     "source": "override",
+     "value": 20.0
+    },
+    "tip_voltage_window_v": {
+     "source": "override",
+     "value": [
+      -8.0,
+      30.0
+     ]
+    },
+    "write_setpoint_relative_v": {
+     "source": "platform_default",
+     "value": 0.1
+    },
+    "xy_cal": {
+     "error": null,
+     "refreshed_at": null,
+     "source": null,
+     "unsupported": false,
+     "x_lvdt_offset": null,
+     "x_lvdt_sens": null,
+     "y_lvdt_offset": null,
+     "y_lvdt_sens": null
+    },
+    "xy_range_um": {
+     "source": "platform_default",
+     "value": [
+      90.0,
+      90.0
+     ]
+    },
+    "z_out_channel": {
+     "source": "platform_default",
+     "value": "Height"
+    },
+    "z_park_tol_v": {
+     "source": "platform_default",
+     "value": 0.5
+    },
+    "z_park_v": {
+     "source": "platform_default",
+     "value": 0.0
+    },
+    "z_rail_v": {
+     "source": "platform_default",
+     "value": 140.0
+    },
+    "z_verify_channels": {
+     "source": "platform_default",
+     "value": [
+      "ZSensor",
+      "Deflection"
+     ]
+    }
+   },
+   "status": 200,
+   "step": "GET /api/instrument (after an override)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/instrument/reload"
+   },
+   "response": {
+    "diff": {},
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/instrument/reload"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/instrument/open_config"
+   },
+   "response": {
+    "error": "instrument config not found: <RUNTIME>\\instrument.toml"
+   },
+   "status": 200,
+   "step": "POST /api/instrument/open_config (file missing; the success path opens an editor)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "POST",
+    "path": "/api/fault/clear"
+   },
+   "response": {
+    "cleared": false,
+    "fault": null,
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/fault/clear (no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "confirm": true
+    },
+    "method": "POST",
+    "path": "/api/fault/clear"
+   },
+   "response": {
+    "cleared": true,
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/fault/clear (confirmed, nothing latched)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Electrode port 1 added at (1.00, 2.00) um",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "direction_deg": 90.0,
+     "position_um": [
+      1.0,
+      2.0
+     ]
+    },
+    "method": "POST",
+    "path": "/api/connect/ports/add"
+   },
+   "response": {
+    "id": "e0",
+    "ports": [
+     {
+      "direction_deg": 90.0,
+      "id": "e0",
+      "label": "1",
+      "position_um": [
+       1.0,
+       2.0
+      ],
+      "width_um": 1.0
+     }
+    ]
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/add"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "position_um": [
+      1.0
+     ]
+    },
+    "method": "POST",
+    "path": "/api/connect/ports/add"
+   },
+   "response": {
+    "error": "position_um must be [x, y] microns"
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/add (bad position)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "id": "e0",
+     "label": "source",
+     "width_um": 2.0
+    },
+    "method": "POST",
+    "path": "/api/connect/ports/update"
+   },
+   "response": {
+    "ports": [
+     {
+      "direction_deg": 90.0,
+      "id": "e0",
+      "label": "source",
+      "position_um": [
+       1.0,
+       2.0
+      ],
+      "width_um": 2.0
+     }
+    ]
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/update"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "id": "nope"
+    },
+    "method": "POST",
+    "path": "/api/connect/ports/update"
+   },
+   "response": {
+    "error": "no such port: nope"
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/update (no such port)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/connect/ports/update"
+   },
+   "response": {
+    "error": "id is required"
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/update (no id)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/connect/ports"
+   },
+   "response": {
+    "ports": [
+     {
+      "direction_deg": 90.0,
+      "id": "e0",
+      "label": "source",
+      "position_um": [
+       1.0,
+       2.0
+      ],
+      "width_um": 2.0
+     }
+    ],
+    "sample": "SA40656B0000"
+   },
+   "status": 200,
+   "step": "GET /api/connect/ports (one port)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "id": "nope"
+    },
+    "method": "POST",
+    "path": "/api/connect/ports/delete"
+   },
+   "response": {
+    "error": "no such port: nope"
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/delete (no such port)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Electrode port e0 deleted",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "id": "e0"
+    },
+    "method": "POST",
+    "path": "/api/connect/ports/delete"
+   },
+   "response": {
+    "ports": []
+   },
+   "status": 200,
+   "step": "POST /api/connect/ports/delete"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/drift/reference"
+   },
+   "response": {
+    "error": "no scan cached yet -- run a scan first, then set the reference"
+   },
+   "status": 200,
+   "step": "POST /api/drift/reference (no scan cached)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "enabled": true
+    },
+    "method": "POST",
+    "path": "/api/drift/enable"
+   },
+   "response": {
+    "error": "no scan cached yet -- run a scan first so drift has a reference to track against"
+   },
+   "status": 200,
+   "step": "POST /api/drift/enable (no scan cached)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Track and compensate drift: off",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "enabled": false,
+     "has_reference": false,
+     "reference": null,
+     "total": [
+      0.0,
+      0.0
+     ],
+     "track": [],
+     "type": "drift"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": false
+    },
+    "method": "POST",
+    "path": "/api/drift/enable"
+   },
+   "response": {
+    "enabled": false,
+    "has_reference": false,
+    "reference": null,
+    "total": [
+     0.0,
+     0.0
+    ],
+    "track": []
+   },
+   "status": 200,
+   "step": "POST /api/drift/enable (off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.00074777206341474,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": -0.00074777206341474,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (baseline)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan started: 5 um, 16 px, 200 Hz, contact",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "bulk": "line",
+     "count": 4,
+     "first_row": 0,
+     "keys": [
+      "angle_deg",
+      "direction",
+      "errName",
+      "error",
+      "height",
+      "pixels",
+      "retrace",
+      "row",
+      "rows",
+      "size_um",
+      "slow_idx",
+      "slow_um",
+      "type",
+      "zsensor"
+     ],
+     "last_row": 3,
+     "type": "line"
+    },
+    {
+     "msg": "End-of-scan withdraw sent: Z not confirmed at 0 V (Height None, readback timed out: False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.0006817199540021083,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    },
+    {
+     "msg": "Scan complete",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Scan cached: 4x16 frame -> scans/npz/<scan-stamp>.height.npz",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "PNG/JSON written -> scans/png/<scan-stamp>_height.png, scans/json/<scan-stamp>.json",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "sessions_changed"
+    },
+    {
+     "aborted": false,
+     "type": "scan_done"
+    }
+   ],
+   "request": {
+    "body": {
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pixels": 16,
+     "size_um": 5.0
+    },
+    "method": "POST",
+    "path": "/api/scan/start"
+   },
+   "response": {
+    "config": {
+     "angle_deg": 0.0,
+     "bias_v": 1.0,
+     "chained": true,
+     "direction": "up",
+     "engage": false,
+     "igain": null,
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pgain": null,
+     "pixels": 16,
+     "setpoint": 0.2,
+     "size_um": 5.0,
+     "trace_retrace": true,
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "ok": true,
+    "run_id": "scan-1"
+   },
+   "status": 200,
+   "step": "POST /api/scan/start (for the drift reference)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Drift reference set from the latest 4x16 scan (5 µm)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "enabled": false,
+     "has_reference": true,
+     "reference": {
+      "angle_deg": 0.0,
+      "pixels": 16,
+      "rows": 4,
+      "size_um": 5.0,
+      "t": "<masked>",
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     },
+     "reference_set": true,
+     "total": [
+      0.0,
+      0.0
+     ],
+     "track": [],
+     "type": "drift"
+    }
+   ],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/drift/reference"
+   },
+   "response": {
+    "enabled": false,
+    "has_reference": true,
+    "reference": {
+     "angle_deg": 0.0,
+     "pixels": 16,
+     "rows": 4,
+     "size_um": 5.0,
+     "t": "<masked>",
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "total": [
+     0.0,
+     0.0
+    ],
+    "track": []
+   },
+   "status": 200,
+   "step": "POST /api/drift/reference"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Track and compensate drift: ON",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "enabled": true,
+     "has_reference": true,
+     "reference": {
+      "angle_deg": 0.0,
+      "pixels": 16,
+      "rows": 4,
+      "size_um": 5.0,
+      "t": "<masked>",
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     },
+     "total": [
+      0.0,
+      0.0
+     ],
+     "track": [],
+     "type": "drift"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": true
+    },
+    "method": "POST",
+    "path": "/api/drift/enable"
+   },
+   "response": {
+    "enabled": true,
+    "has_reference": true,
+    "reference": {
+     "angle_deg": 0.0,
+     "pixels": 16,
+     "rows": 4,
+     "size_um": 5.0,
+     "t": "<masked>",
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "total": [
+     0.0,
+     0.0
+    ],
+    "track": []
+   },
+   "status": 200,
+   "step": "POST /api/drift/enable (on)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/drift"
+   },
+   "response": {
+    "enabled": true,
+    "has_reference": true,
+    "reference": {
+     "angle_deg": 0.0,
+     "pixels": 16,
+     "rows": 4,
+     "size_um": 5.0,
+     "t": "<masked>",
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "total": [
+     0.0,
+     0.0
+    ],
+    "track": []
+   },
+   "status": 200,
+   "step": "GET /api/drift (enabled)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Track and compensate drift: off",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "enabled": false,
+     "has_reference": true,
+     "reference": {
+      "angle_deg": 0.0,
+      "pixels": 16,
+      "rows": 4,
+      "size_um": 5.0,
+      "t": "<masked>",
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     },
+     "total": [
+      0.0,
+      0.0
+     ],
+     "track": [],
+     "type": "drift"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": false
+    },
+    "method": "POST",
+    "path": "/api/drift/enable"
+   },
+   "response": {
+    "enabled": false,
+    "has_reference": true,
+    "reference": {
+     "angle_deg": 0.0,
+     "pixels": 16,
+     "rows": 4,
+     "size_um": 5.0,
+     "t": "<masked>",
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "total": [
+     0.0,
+     0.0
+    ],
+    "track": []
+   },
+   "status": 200,
+   "step": "POST /api/drift/enable (off again)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "confirm": true,
+     "field": "tip_amp_gain",
+     "value": "loud"
+    },
+    "method": "POST",
+    "path": "/api/instrument/override"
+   },
+   "response": {
+    "applied": true,
+    "field": "tip_amp_gain",
+    "value": "loud"
+   },
+   "status": 200,
+   "step": "POST /api/instrument/override (accepts a string for a number)"
+  },
+  {
+   "content_type": "text/plain",
+   "events": [],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/instrument/reload"
+   },
+   "response": {
+    "text_head": "Internal Server Error",
+    "text_len": 21,
+    "text_sha256": "e41656eb2ba6c629"
+   },
+   "status": 500,
+   "step": "POST /api/instrument/reload (500: the file is now unreadable)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": 0.0010846170017877637,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": 0.0010846170017877637,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (final)"
+  }
+ ],
+ "group": "instrument_ports_drift_measure"
+}

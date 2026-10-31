@@ -1,0 +1,729 @@
+[
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "106",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "106",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "contact"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "107",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "107",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "contact",
+        "token": "not-the-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "108",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "108",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "109",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "109",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {
+        "token": "not-the-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "110",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "110",
+      "jsonrpc": "2.0",
+      "method": "setZGain",
+      "params": {
+        "pgain": 1.0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "111",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "111",
+      "jsonrpc": "2.0",
+      "method": "setZGain",
+      "params": {
+        "pgain": 1.0,
+        "token": "not-the-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "112",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "112",
+      "jsonrpc": "2.0",
+      "method": "startScan",
+      "params": {
+        "line_rate_hz": 40.0,
+        "lines": 8,
+        "pixels": 16,
+        "size_um": 2.0,
+        "x_offset_um": 0.0,
+        "y_offset_um": 0.0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "113",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "113",
+      "jsonrpc": "2.0",
+      "method": "startScan",
+      "params": {
+        "line_rate_hz": 40.0,
+        "lines": 8,
+        "pixels": 16,
+        "size_um": 2.0,
+        "token": "not-the-token",
+        "x_offset_um": 0.0,
+        "y_offset_um": 0.0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "114",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "114",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "enabled": false
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "115",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "115",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "enabled": false,
+        "token": "not-the-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "116",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "116",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {
+        "source": "auto"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "117",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "117",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {
+        "source": "auto",
+        "token": "not-the-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "118",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "118",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "119",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "119",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "token": "not-the-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "120",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "120",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {
+        "updates": {}
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "121",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "121",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {
+        "token": "not-the-token",
+        "updates": {}
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "mode"
+        },
+        "message": "mode must be 'contact' or 'ac'"
+      },
+      "id": "122",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "122",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "sideways",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "mode"
+        },
+        "message": "mode must be 'contact' or 'ac'"
+      },
+      "id": "123",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "123",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "setpoint"
+        },
+        "message": "approach: setpoint must be a number, got str 'high'"
+      },
+      "id": "124",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "124",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {
+        "setpoint": "high",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32000,
+        "message": "ValueError: invalid literal for int() with base 10: 'many'"
+      },
+      "id": "125",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "125",
+      "jsonrpc": "2.0",
+      "method": "startScan",
+      "params": {
+        "line_rate_hz": 40.0,
+        "lines": 8,
+        "pixels": "many",
+        "size_um": 2.0,
+        "token": "<TOKEN:2>",
+        "x_offset_um": 0.0,
+        "y_offset_um": 0.0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "config"
+        },
+        "message": "no scan config -- start a scan (or send `config`) first, then enable continuous imaging"
+      },
+      "id": "126",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "126",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "source"
+        },
+        "message": "loadPattern: pass exactly one of `source` (a design name, a file path, or an inline SVG) or `objects` (a list of object specs); got neither"
+      },
+      "id": "127",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "127",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "objects"
+        },
+        "message": "loadPattern: pass exactly one of `source` (geometry) or `objects` (parameters), not both"
+      },
+      "id": "128",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "128",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {
+        "objects": [
+          {
+            "h_um": 0.2,
+            "kind": "region",
+            "pitch_um": 0.1,
+            "shape": "rect",
+            "voltage": 2.0,
+            "w_um": 0.4,
+            "x_um": "<LIVE>",
+            "y_um": "<LIVE>"
+          }
+        ],
+        "source": "auto",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "field": "kind",
+          "index": 0,
+          "param": "objects"
+        },
+        "message": "loadPattern: objects[0].kind: must be one of chiral, region, got 'blob'"
+      },
+      "id": "129",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "129",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {
+        "objects": [
+          {
+            "kind": "blob"
+          }
+        ],
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32021,
+        "data": {
+          "reason": "no_pattern"
+        },
+        "message": "refused: startWrite: no pattern is loaded. Call loadPattern first -- the wire door never substitutes the demo design."
+      },
+      "id": "130",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "130",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32021,
+        "data": {
+          "reason": "no_pattern"
+        },
+        "message": "refused: setObjects: no pattern is loaded. Call loadPattern first -- there is nothing to edit."
+      },
+      "id": "131",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "131",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {
+        "token": "<TOKEN:2>",
+        "updates": {
+          "nope": {
+            "voltage": 1.0
+          }
+        }
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32010,
+        "data": {
+          "backend": "twin"
+        },
+        "message": "backend_mismatch: Z gain adjust is hardware-only; no bridge connected."
+      },
+      "id": "132",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "132",
+      "jsonrpc": "2.0",
+      "method": "setZGain",
+      "params": {
+        "pgain": 1.0,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "pgain"
+        },
+        "message": "setZGain: pgain must be a number, got str 'loud'"
+      },
+      "id": "133",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "133",
+      "jsonrpc": "2.0",
+      "method": "setZGain",
+      "params": {
+        "pgain": "loud",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "134",
+      "jsonrpc": "2.0",
+      "result": {
+        "ok": true,
+        "reason": "flex abort (everything)",
+        "safe_park": {
+          "backend": "twin",
+          "com_error": null,
+          "critical": false,
+          "reason": "flex abort (everything)",
+          "transport": "twin",
+          "verified": true,
+          "verify_timeout": false,
+          "z_v": 0.0
+        },
+        "state": "parked"
+      }
+    },
+    "request": {
+      "id": "134",
+      "jsonrpc": "2.0",
+      "method": "abort",
+      "params": {
+        "scope": "everything"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "message": "run_id must be a string, got int"
+      },
+      "id": "135",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "135",
+      "jsonrpc": "2.0",
+      "method": "getScanResult",
+      "params": {
+        "run_id": 5
+      }
+    },
+    "socket": "read"
+  }
+]

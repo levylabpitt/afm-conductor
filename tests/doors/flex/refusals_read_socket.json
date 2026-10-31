@@ -1,0 +1,613 @@
+[
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "acquireControl",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "acquireControl is served by the COMMAND socket only"
+      },
+      "id": "78",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "78",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "releaseControl",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "releaseControl is served by the COMMAND socket only"
+      },
+      "id": "79",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "79",
+      "jsonrpc": "2.0",
+      "method": "releaseControl",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "heartbeat",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "heartbeat is served by the COMMAND socket only"
+      },
+      "id": "80",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "80",
+      "jsonrpc": "2.0",
+      "method": "heartbeat",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "abort",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "abort is served by the COMMAND socket only"
+      },
+      "id": "81",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "81",
+      "jsonrpc": "2.0",
+      "method": "abort",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "safePark",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "safePark is served by the COMMAND socket only"
+      },
+      "id": "82",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "82",
+      "jsonrpc": "2.0",
+      "method": "safePark",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "setMode",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "setMode is served by the COMMAND socket only"
+      },
+      "id": "83",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "83",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "startApproach",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "startApproach is served by the COMMAND socket only"
+      },
+      "id": "84",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "84",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "withdraw",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "withdraw is served by the COMMAND socket only"
+      },
+      "id": "85",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "85",
+      "jsonrpc": "2.0",
+      "method": "withdraw",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "setZGain",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "setZGain is served by the COMMAND socket only"
+      },
+      "id": "86",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "86",
+      "jsonrpc": "2.0",
+      "method": "setZGain",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "startScan",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "startScan is served by the COMMAND socket only"
+      },
+      "id": "87",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "87",
+      "jsonrpc": "2.0",
+      "method": "startScan",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "setContinuous",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "setContinuous is served by the COMMAND socket only"
+      },
+      "id": "88",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "88",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "loadPattern",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "loadPattern is served by the COMMAND socket only"
+      },
+      "id": "89",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "89",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "startWrite",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "startWrite is served by the COMMAND socket only"
+      },
+      "id": "90",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "90",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "abortWrite",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "abortWrite is served by the COMMAND socket only"
+      },
+      "id": "91",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "91",
+      "jsonrpc": "2.0",
+      "method": "abortWrite",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "setObjects",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "setObjects is served by the COMMAND socket only"
+      },
+      "id": "92",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "92",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {}
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "setMode",
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten"
+          ],
+          "socket": "command"
+        },
+        "message": "setMode is served by the COMMAND socket only"
+      },
+      "id": "93",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "93",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "contact",
+        "token": "not-a-real-token"
+      }
+    },
+    "socket": "read"
+  }
+]

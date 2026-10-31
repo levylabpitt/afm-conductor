@@ -1,0 +1,88 @@
+{
+ "door": "flex",
+ "fixture": {
+  "igor_values.json": "f5309e5e82bea16183a66098fe92c1c3ffeb32718521cde3fdb8b4d665b14fe2",
+  "instrument.toml": "fcd34371cbb13348b963ee0a2111eaedb10df6356e0b1593c0042539449da90f"
+ },
+ "format": 2,
+ "igor": {
+  "actuation": [
+   "ir_SetPISLoop(2,\"Always,Never\",\"Deflection\",0.5,0,1000,0,\"Height\",-10,150)",
+   "ir_SetPISLoop(2,\"Always,Never\",\"Deflection\",-10,0,1000,0,\"Height\",0,150)"
+  ],
+  "reads": [
+   "GV(\"ARSysScanBusy\")",
+   "GV(\"AmpInvOLS\")",
+   "GV(\"DeflectionSetpointVolts\")",
+   "GV(\"DriveAmplitude\")",
+   "GV(\"DriveFrequency\")",
+   "GV(\"ImagingMode\")",
+   "GV(\"InputRange\")",
+   "GV(\"IntegralGain\")",
+   "GV(\"InvOLS\")",
+   "GV(\"MaxScanSize\")",
+   "GV(\"MicroscopeID\")",
+   "GV(\"ProportionalGain\")",
+   "GV(\"ScanAngle\")",
+   "GV(\"ScanLines\")",
+   "GV(\"ScanPoints\")",
+   "GV(\"ScanRate\")",
+   "GV(\"ScanSize\")",
+   "GV(\"SpringConstant\")",
+   "GV(\"ThermalFrequency\")",
+   "GV(\"ThermalQ\")",
+   "GV(\"XIGain\")",
+   "GV(\"XLVDTOffset\")",
+   "GV(\"XLVDTSens\")",
+   "GV(\"XPGain\")",
+   "GV(\"XPiezoSens\")",
+   "GV(\"YIGain\")",
+   "GV(\"YLVDTOffset\")",
+   "GV(\"YLVDTSens\")",
+   "GV(\"YPGain\")",
+   "GV(\"YPiezoSens\")",
+   "GV(\"ZLVDTOffset\")",
+   "GV(\"ZLVDTSens\")",
+   "td_ReadGroup(\"Crosspoint\",cap(AFM_xptTmp,n=0))",
+   "td_ReadValue(\"Amplitude\")",
+   "td_ReadValue(\"Deflection\")",
+   "td_ReadValue(\"DeflectionValue\")",
+   "td_ReadValue(\"DetectorSum\")",
+   "td_ReadValue(\"Height\")",
+   "td_ReadValue(\"Output.A\")",
+   "td_ReadValue(\"XSensor\")",
+   "td_ReadValue(\"YSensor\")",
+   "td_ReadValue(\"height\")"
+  ]
+ },
+ "ipf_sha256": {
+  "igor/afm_igor.ipf": "f872d554da9633006288fe88b670d40929d005ce030f19ecb5918e5855adfd05",
+  "igor/afm_litho_run.ipf": "303ff69ebf767486f2e20c745fc4c75f705244d50be9a5184a497dbddc306f8d",
+  "igor/afm_sockit.ipf": "e7041374992885d45d699caa8cc94f3b91732ff302047dd6e7b0899ea09f6cf0"
+ },
+ "known_defects": [],
+ "microscope_id": 4,
+ "scenario": "withdraw_flex",
+ "wire": {
+  "actuation": [
+   "CLEARFAULT",
+   "SERVOLOOP 2 Deflection 0.5 0 1000 Height -10 150",
+   "SERVOLOOP 2 Deflection -10 0 1000 Height 0 150"
+  ],
+  "reads": [
+   "ABORTFAULT",
+   "GETGV XLVDTOffset",
+   "GETGV XLVDTSens",
+   "GETGV YLVDTOffset",
+   "GETGV YLVDTSens",
+   "GETVALUE Deflection",
+   "GETVALUE DeflectionValue",
+   "GETVALUE DetectorSum",
+   "GETVALUE Height",
+   "GETVALUE XSensor",
+   "GETVALUE height",
+   "READXPT Crosspoint",
+   "STARTUP 2"
+  ]
+ }
+}

@@ -1,0 +1,571 @@
+[
+  {
+    "reply": {
+      "id": "136",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "mode": "contact",
+        "ok": true
+      }
+    },
+    "request": {
+      "id": "136",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "contact",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "137",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "engaged": false,
+        "gate": null,
+        "mode": "contact"
+      }
+    },
+    "request": {
+      "id": "137",
+      "jsonrpc": "2.0",
+      "method": "getMode"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "138",
+      "jsonrpc": "2.0",
+      "result": {
+        "est_s": 8.0,
+        "run_id": "<RUN:1>",
+        "state": "approaching"
+      }
+    },
+    "request": {
+      "id": "138",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "139",
+      "jsonrpc": "2.0",
+      "result": "engaged"
+    },
+    "request": {
+      "id": "139",
+      "jsonrpc": "2.0",
+      "method": "getState"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32021,
+        "data": {
+          "gate": "engaged",
+          "reason": "engaged"
+        },
+        "message": "refused: Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode."
+      },
+      "id": "140",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "140",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "ac",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "141",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "engaged": true,
+        "gate": "engaged",
+        "mode": "contact"
+      }
+    },
+    "request": {
+      "id": "141",
+      "jsonrpc": "2.0",
+      "method": "getMode"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32010,
+        "data": {
+          "backend": "twin"
+        },
+        "message": "backend_mismatch: Z gain adjust is hardware-only; no bridge connected."
+      },
+      "id": "142",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "142",
+      "jsonrpc": "2.0",
+      "method": "setZGain",
+      "params": {
+        "pgain": 1.0,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "143",
+      "jsonrpc": "2.0",
+      "result": {
+        "est_s": 8.0,
+        "run_id": "<RUN:2>",
+        "state": "approaching"
+      }
+    },
+    "request": {
+      "id": "143",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "144",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "config": {
+          "angle_deg": 0.0,
+          "bias_v": 1.0,
+          "chained": true,
+          "direction": "up",
+          "engage": false,
+          "igain": null,
+          "line_rate_hz": 40.0,
+          "lines": 8,
+          "mode": "contact",
+          "pgain": null,
+          "pixels": 16,
+          "setpoint": 0.2,
+          "size_um": 2.0,
+          "trace_retrace": true,
+          "x_offset_um": 0.0,
+          "y_offset_um": 0.0
+        },
+        "est_s": 5.4,
+        "run_id": "<RUN:3>",
+        "state": "scanning"
+      }
+    },
+    "request": {
+      "id": "144",
+      "jsonrpc": "2.0",
+      "method": "startScan",
+      "params": {
+        "line_rate_hz": 40.0,
+        "lines": 8,
+        "pixels": 16,
+        "size_um": 2.0,
+        "token": "<TOKEN:2>",
+        "x_offset_um": 0.0,
+        "y_offset_um": 0.0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32020,
+        "data": {
+          "kind": "scan",
+          "run_id": "<RUN:3>"
+        },
+        "message": "busy: scan already running"
+      },
+      "id": "145",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "145",
+      "jsonrpc": "2.0",
+      "method": "startScan",
+      "params": {
+        "line_rate_hz": 40.0,
+        "lines": 8,
+        "pixels": 16,
+        "size_um": 2.0,
+        "token": "<TOKEN:2>",
+        "x_offset_um": 0.0,
+        "y_offset_um": 0.0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32020,
+        "data": {
+          "kind": "scan",
+          "run_id": "<RUN:3>"
+        },
+        "message": "busy: busy: a scan is already starting or running"
+      },
+      "id": "146",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "146",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32021,
+        "data": {
+          "gate": "engaged",
+          "reason": "engaged"
+        },
+        "message": "refused: Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode."
+      },
+      "id": "147",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "147",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "ac",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32020,
+        "data": {
+          "kind": "scan",
+          "run_id": "<RUN:3>"
+        },
+        "message": "busy: a scan is already running"
+      },
+      "id": "148",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "148",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "enabled": true,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "149",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": false,
+        "backend": "twin",
+        "channels": [
+          "height"
+        ],
+        "completed": true,
+        "error": null,
+        "files": {
+          "json": "<RUNTIME>/scans/json/<STAMP>.json",
+          "npz": "<RUNTIME>/scans/npz/<STAMP>.height.npz",
+          "png": "<RUNTIME>/scans/png/<STAMP>_height.png"
+        },
+        "finished": "<TIME>",
+        "kind": "scan",
+        "partial": false,
+        "record_id": "<RECORD>",
+        "run": {
+          "execution_id": "<EXEC>",
+          "path": "runs/<EXEC>.run.json"
+        },
+        "run_id": "<RUN:3>",
+        "shape": [
+          8,
+          16
+        ],
+        "started": "<TIME>",
+        "stats": {
+          "mode": "contact",
+          "pixels": 16,
+          "rows": 8,
+          "size_um": 2.0
+        }
+      }
+    },
+    "request": {
+      "id": "149",
+      "jsonrpc": "2.0",
+      "method": "getScanResult",
+      "params": {
+        "run_id": "<RUN:3>"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "150",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": false,
+        "backend": "twin",
+        "channels": [
+          "height"
+        ],
+        "completed": true,
+        "error": null,
+        "files": {
+          "json": "<RUNTIME>/scans/json/<STAMP>.json",
+          "npz": "<RUNTIME>/scans/npz/<STAMP>.height.npz",
+          "png": "<RUNTIME>/scans/png/<STAMP>_height.png"
+        },
+        "finished": "<TIME>",
+        "kind": "scan",
+        "partial": false,
+        "record_id": "<RECORD>",
+        "run": {
+          "execution_id": "<EXEC>",
+          "path": "runs/<EXEC>.run.json"
+        },
+        "run_id": "<RUN:3>",
+        "shape": [
+          8,
+          16
+        ],
+        "started": "<TIME>",
+        "stats": {
+          "mode": "contact",
+          "pixels": 16,
+          "rows": 8,
+          "size_um": 2.0
+        }
+      }
+    },
+    "request": {
+      "id": "150",
+      "jsonrpc": "2.0",
+      "method": "getScanResult"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "message": "run <RUN:1> is a approach run, not a scan run"
+      },
+      "id": "151",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "151",
+      "jsonrpc": "2.0",
+      "method": "getScanResult",
+      "params": {
+        "run_id": "<RUN:1>"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "152",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": {
+          "client": "doors-script",
+          "deadman_armed": true,
+          "expires_s": "<TIME>",
+          "holder": "doors-script",
+          "kind": "script",
+          "withdraw_on_deadman": false
+        },
+        "deadman_armed": true,
+        "detail": null,
+        "progress": null,
+        "run_id": "<RUN:3>",
+        "run_kind": "scan",
+        "safe_park": {
+          "active": false,
+          "critical": false,
+          "reason": "flex abort (everything)",
+          "transport": "twin",
+          "verified": true
+        },
+        "state": "idle"
+      }
+    },
+    "request": {
+      "id": "152",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "153",
+      "jsonrpc": "2.0",
+      "result": {
+        "enabled": false,
+        "interval_s": 0.0,
+        "max_frames": null,
+        "max_seconds": null,
+        "ok": true,
+        "rail": {
+          "armed": false,
+          "consec": 0,
+          "consec_limit": 5,
+          "frame_frac": 0.0,
+          "frame_frac_limit": 0.5,
+          "last_row": null,
+          "line_frac": null,
+          "tripped": null,
+          "v_hi": 140.0,
+          "v_lo": 0.0
+        },
+        "state": "idle",
+        "withdraw_on_stop": false
+      }
+    },
+    "request": {
+      "id": "153",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "enabled": false,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "154",
+      "jsonrpc": "2.0",
+      "result": {
+        "enabled": true,
+        "interval_s": 0.0,
+        "max_frames": 1,
+        "max_seconds": null,
+        "ok": true,
+        "rail": {
+          "armed": true,
+          "consec": 0,
+          "consec_limit": 5,
+          "frame_frac": 0.0,
+          "frame_frac_limit": 0.5,
+          "last_row": null,
+          "line_frac": null,
+          "tripped": null,
+          "v_hi": 140.0,
+          "v_lo": 0.0
+        },
+        "state": "scanning",
+        "withdraw_on_stop": false
+      }
+    },
+    "request": {
+      "id": "154",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "enabled": true,
+        "max_frames": 1,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "155",
+      "jsonrpc": "2.0",
+      "result": {
+        "enabled": false,
+        "interval_s": 0.0,
+        "max_frames": 1,
+        "max_seconds": null,
+        "ok": true,
+        "rail": {
+          "armed": false,
+          "consec": 0,
+          "consec_limit": 5,
+          "frame_frac": 0.0,
+          "frame_frac_limit": 0.5,
+          "last_row": "<LIVE>",
+          "line_frac": 0.0,
+          "tripped": null,
+          "v_hi": 140.0,
+          "v_lo": 0.0
+        },
+        "state": "idle",
+        "withdraw_on_stop": false
+      }
+    },
+    "request": {
+      "id": "155",
+      "jsonrpc": "2.0",
+      "method": "setContinuous",
+      "params": {
+        "enabled": false,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  }
+]

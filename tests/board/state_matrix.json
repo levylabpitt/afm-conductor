@@ -1,0 +1,689 @@
+{
+ "engaged": {
+  "api_state": {
+   "amp_v": 1.0,
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bias_v": 0.0,
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "defl_v": 0.0,
+   "design_autosave": {
+    "error": null,
+    "ok": true,
+    "saved_at": null
+   },
+   "engaged": false,
+   "fault": null,
+   "instrument": {
+    "Q": 20.0,
+    "dual_lockin": false,
+    "f0_khz": 65.713,
+    "id": 3,
+    "igain": 12.0,
+    "invols_nm_v": 100.0,
+    "k_nm": 1.0,
+    "model": "MFP3D",
+    "range_um": 90.0,
+    "x_sensor": "Input.X"
+   },
+   "lever": {
+    "Q": 20.0,
+    "f0_khz": 65.713,
+    "k_nm": 1.0
+   },
+   "safe_park": {
+    "active": false,
+    "at": null,
+    "count": 0,
+    "critical": false,
+    "last_reason": null,
+    "transport": null,
+    "verified": null,
+    "z_v": null
+   },
+   "sample": "SA40656B0000",
+   "scanning": false,
+   "speed": 1.0,
+   "state": "idle",
+   "t": null,
+   "writing": false,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  },
+  "getState": "engaged",
+  "getStatus": {
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "commander": null,
+   "deadman_armed": false,
+   "detail": null,
+   "progress": null,
+   "run_id": null,
+   "run_kind": null,
+   "safe_park": {
+    "active": false,
+    "critical": false,
+    "reason": null,
+    "transport": null,
+    "verified": null
+   },
+   "state": "engaged"
+  },
+  "getTelemetry": {
+   "age_s": null,
+   "amp_v": 1.0,
+   "backend": "twin",
+   "defl_v": 0.0,
+   "row": null,
+   "sum_v": 10.0,
+   "t": null,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "zdrive_v": 0.0
+  },
+  "ws_frame": {
+   "amp_v": null,
+   "bias_v": null,
+   "defl_v": 0.0,
+   "engaged": false,
+   "hw_telemetry": {
+    "amp_v": 1.0,
+    "defl_v": 0.0,
+    "height_nm": null,
+    "row": null,
+    "sum_v": 10.0,
+    "t": null,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "zdrive_v": 0.0
+   },
+   "scanning": false,
+   "t": null,
+   "type": "telemetry",
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  }
+ },
+ "faulted": {
+  "api_state": {
+   "amp_v": 1.0,
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bias_v": 0.0,
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "defl_v": 0.0,
+   "design_autosave": {
+    "error": null,
+    "ok": true,
+    "saved_at": null
+   },
+   "engaged": false,
+   "fault": {
+    "critical": true,
+    "reason": "test fault"
+   },
+   "instrument": {
+    "Q": 20.0,
+    "dual_lockin": false,
+    "f0_khz": 65.713,
+    "id": 3,
+    "igain": 12.0,
+    "invols_nm_v": 100.0,
+    "k_nm": 1.0,
+    "model": "MFP3D",
+    "range_um": 90.0,
+    "x_sensor": "Input.X"
+   },
+   "lever": {
+    "Q": 20.0,
+    "f0_khz": 65.713,
+    "k_nm": 1.0
+   },
+   "safe_park": {
+    "active": false,
+    "at": null,
+    "count": 0,
+    "critical": false,
+    "last_reason": null,
+    "transport": null,
+    "verified": null,
+    "z_v": null
+   },
+   "sample": "SA40656B0000",
+   "scanning": false,
+   "speed": 1.0,
+   "state": "fault",
+   "t": null,
+   "writing": false,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  },
+  "getState": "fault",
+  "getStatus": {
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "commander": null,
+   "deadman_armed": false,
+   "detail": "test fault",
+   "progress": null,
+   "run_id": null,
+   "run_kind": null,
+   "safe_park": {
+    "active": false,
+    "critical": false,
+    "reason": null,
+    "transport": null,
+    "verified": null
+   },
+   "state": "fault"
+  },
+  "getTelemetry": {
+   "age_s": null,
+   "amp_v": 1.0,
+   "backend": "twin",
+   "defl_v": 0.0,
+   "row": null,
+   "sum_v": 10.0,
+   "t": null,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "zdrive_v": 0.0
+  },
+  "ws_frame": {
+   "amp_v": null,
+   "bias_v": null,
+   "defl_v": 0.0,
+   "engaged": false,
+   "hw_telemetry": {
+    "amp_v": 1.0,
+    "defl_v": 0.0,
+    "height_nm": null,
+    "row": null,
+    "sum_v": 10.0,
+    "t": null,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "zdrive_v": 0.0
+   },
+   "scanning": false,
+   "t": null,
+   "type": "telemetry",
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  }
+ },
+ "idle": {
+  "api_state": {
+   "amp_v": 1.0,
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bias_v": 0.0,
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "defl_v": 0.0,
+   "design_autosave": {
+    "error": null,
+    "ok": true,
+    "saved_at": null
+   },
+   "engaged": false,
+   "fault": null,
+   "instrument": {
+    "Q": 20.0,
+    "dual_lockin": false,
+    "f0_khz": 65.713,
+    "id": 3,
+    "igain": 12.0,
+    "invols_nm_v": 100.0,
+    "k_nm": 1.0,
+    "model": "MFP3D",
+    "range_um": 90.0,
+    "x_sensor": "Input.X"
+   },
+   "lever": {
+    "Q": 20.0,
+    "f0_khz": 65.713,
+    "k_nm": 1.0
+   },
+   "safe_park": {
+    "active": false,
+    "at": null,
+    "count": 0,
+    "critical": false,
+    "last_reason": null,
+    "transport": null,
+    "verified": null,
+    "z_v": null
+   },
+   "sample": "SA40656B0000",
+   "scanning": false,
+   "speed": 1.0,
+   "state": "idle",
+   "t": null,
+   "writing": false,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  },
+  "getState": "idle",
+  "getStatus": {
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "commander": null,
+   "deadman_armed": false,
+   "detail": null,
+   "progress": null,
+   "run_id": null,
+   "run_kind": null,
+   "safe_park": {
+    "active": false,
+    "critical": false,
+    "reason": null,
+    "transport": null,
+    "verified": null
+   },
+   "state": "idle"
+  },
+  "getTelemetry": {
+   "age_s": null,
+   "amp_v": 1.0,
+   "backend": "twin",
+   "defl_v": 0.0,
+   "row": null,
+   "sum_v": 10.0,
+   "t": null,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "zdrive_v": 0.0
+  },
+  "ws_frame": {
+   "amp_v": null,
+   "bias_v": null,
+   "defl_v": 0.0,
+   "engaged": false,
+   "hw_telemetry": {
+    "amp_v": 1.0,
+    "defl_v": 0.0,
+    "height_nm": null,
+    "row": null,
+    "sum_v": 10.0,
+    "t": null,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "zdrive_v": 0.0
+   },
+   "scanning": false,
+   "t": null,
+   "type": "telemetry",
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  }
+ },
+ "parked": {
+  "api_state": {
+   "amp_v": 1.0,
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bias_v": 0.0,
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "defl_v": 0.0,
+   "design_autosave": {
+    "error": null,
+    "ok": true,
+    "saved_at": null
+   },
+   "engaged": false,
+   "fault": null,
+   "instrument": {
+    "Q": 20.0,
+    "dual_lockin": false,
+    "f0_khz": 65.713,
+    "id": 3,
+    "igain": 12.0,
+    "invols_nm_v": 100.0,
+    "k_nm": 1.0,
+    "model": "MFP3D",
+    "range_um": 90.0,
+    "x_sensor": "Input.X"
+   },
+   "lever": {
+    "Q": 20.0,
+    "f0_khz": 65.713,
+    "k_nm": 1.0
+   },
+   "safe_park": {
+    "active": true,
+    "at": null,
+    "count": 1,
+    "critical": false,
+    "last_reason": "test",
+    "transport": "socket",
+    "verified": true,
+    "z_v": 0.0
+   },
+   "sample": "SA40656B0000",
+   "scanning": false,
+   "speed": 1.0,
+   "state": "idle",
+   "t": null,
+   "writing": false,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  },
+  "getState": "parked",
+  "getStatus": {
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "commander": null,
+   "deadman_armed": false,
+   "detail": "test",
+   "progress": null,
+   "run_id": null,
+   "run_kind": null,
+   "safe_park": {
+    "active": true,
+    "critical": false,
+    "reason": "test",
+    "transport": "socket",
+    "verified": true
+   },
+   "state": "parked"
+  },
+  "getTelemetry": {
+   "age_s": null,
+   "amp_v": 1.0,
+   "backend": "twin",
+   "defl_v": 0.0,
+   "row": null,
+   "sum_v": 10.0,
+   "t": null,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "zdrive_v": 0.0
+  },
+  "ws_frame": {
+   "amp_v": null,
+   "bias_v": null,
+   "defl_v": 0.0,
+   "engaged": false,
+   "hw_telemetry": {
+    "amp_v": 1.0,
+    "defl_v": 0.0,
+    "height_nm": null,
+    "row": null,
+    "sum_v": 10.0,
+    "t": null,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "zdrive_v": 0.0
+   },
+   "scanning": false,
+   "t": null,
+   "type": "telemetry",
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  }
+ },
+ "scanning": {
+  "api_state": {
+   "amp_v": 1.0,
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bias_v": 0.0,
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "defl_v": 0.0,
+   "design_autosave": {
+    "error": null,
+    "ok": true,
+    "saved_at": null
+   },
+   "engaged": false,
+   "fault": null,
+   "instrument": {
+    "Q": 20.0,
+    "dual_lockin": false,
+    "f0_khz": 65.713,
+    "id": 3,
+    "igain": 12.0,
+    "invols_nm_v": 100.0,
+    "k_nm": 1.0,
+    "model": "MFP3D",
+    "range_um": 90.0,
+    "x_sensor": "Input.X"
+   },
+   "lever": {
+    "Q": 20.0,
+    "f0_khz": 65.713,
+    "k_nm": 1.0
+   },
+   "safe_park": {
+    "active": false,
+    "at": null,
+    "count": 0,
+    "critical": false,
+    "last_reason": null,
+    "transport": null,
+    "verified": null,
+    "z_v": null
+   },
+   "sample": "SA40656B0000",
+   "scanning": true,
+   "speed": 1.0,
+   "state": "scanning",
+   "t": null,
+   "writing": false,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  },
+  "getState": "scanning",
+  "getStatus": {
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "commander": null,
+   "deadman_armed": false,
+   "detail": "line 7",
+   "progress": null,
+   "run_id": null,
+   "run_kind": null,
+   "safe_park": {
+    "active": false,
+    "critical": false,
+    "reason": null,
+    "transport": null,
+    "verified": null
+   },
+   "state": "scanning"
+  },
+  "getTelemetry": {
+   "age_s": null,
+   "amp_v": 1.0,
+   "backend": "twin",
+   "defl_v": 0.0,
+   "row": 7,
+   "sum_v": 10.0,
+   "t": null,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "zdrive_v": 0.0
+  },
+  "ws_frame": {
+   "amp_v": null,
+   "bias_v": null,
+   "defl_v": 0.0,
+   "engaged": false,
+   "hw_telemetry": {
+    "amp_v": 1.0,
+    "defl_v": 0.0,
+    "height_nm": null,
+    "row": 7,
+    "sum_v": 10.0,
+    "t": null,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "zdrive_v": 0.0
+   },
+   "scanning": true,
+   "t": null,
+   "type": "telemetry",
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  }
+ },
+ "writing": {
+  "api_state": {
+   "amp_v": 1.0,
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bias_v": 0.0,
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "defl_v": 0.0,
+   "design_autosave": {
+    "error": null,
+    "ok": true,
+    "saved_at": null
+   },
+   "engaged": false,
+   "fault": null,
+   "instrument": {
+    "Q": 20.0,
+    "dual_lockin": false,
+    "f0_khz": 65.713,
+    "id": 3,
+    "igain": 12.0,
+    "invols_nm_v": 100.0,
+    "k_nm": 1.0,
+    "model": "MFP3D",
+    "range_um": 90.0,
+    "x_sensor": "Input.X"
+   },
+   "lever": {
+    "Q": 20.0,
+    "f0_khz": 65.713,
+    "k_nm": 1.0
+   },
+   "safe_park": {
+    "active": false,
+    "at": null,
+    "count": 0,
+    "critical": false,
+    "last_reason": null,
+    "transport": null,
+    "verified": null,
+    "z_v": null
+   },
+   "sample": "SA40656B0000",
+   "scanning": false,
+   "speed": 1.0,
+   "state": "writing",
+   "t": null,
+   "writing": true,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  },
+  "getState": "writing",
+  "getStatus": {
+   "arc_backend": "sim",
+   "backend": "twin",
+   "bridge": {
+    "closed": false,
+    "closed_at": null
+   },
+   "commander": null,
+   "deadman_armed": false,
+   "detail": "0 object(s)",
+   "progress": null,
+   "run_id": null,
+   "run_kind": null,
+   "safe_park": {
+    "active": false,
+    "critical": false,
+    "reason": null,
+    "transport": null,
+    "verified": null
+   },
+   "state": "writing"
+  },
+  "getTelemetry": {
+   "age_s": null,
+   "amp_v": 1.0,
+   "backend": "twin",
+   "defl_v": 0.0,
+   "row": null,
+   "sum_v": 10.0,
+   "t": null,
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "zdrive_v": 0.0
+  },
+  "ws_frame": {
+   "amp_v": null,
+   "bias_v": null,
+   "defl_v": 0.0,
+   "engaged": false,
+   "hw_telemetry": {
+    "amp_v": 1.0,
+    "defl_v": 0.0,
+    "height_nm": null,
+    "row": null,
+    "sum_v": 10.0,
+    "t": null,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "zdrive_v": 0.0
+   },
+   "scanning": false,
+   "t": null,
+   "type": "telemetry",
+   "x_um": 4.702509,
+   "y_um": -0.492996,
+   "z_um": -0.0
+  }
+ }
+}

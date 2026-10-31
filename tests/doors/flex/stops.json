@@ -1,0 +1,178 @@
+[
+  {
+    "reply": {
+      "id": "183",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "ok": true,
+        "snapshot": {
+          "amp_v": "<LIVE>",
+          "bias_v": 0.0,
+          "defl_v": "<LIVE>",
+          "engaged": false,
+          "t": "<TIME>",
+          "x_um": "<LIVE>",
+          "y_um": "<LIVE>",
+          "z_um": 13.035999999999992
+        },
+        "state": "parked",
+        "verified": false,
+        "verify_timeout": false,
+        "z_v": null
+      }
+    },
+    "request": {
+      "id": "183",
+      "jsonrpc": "2.0",
+      "method": "withdraw",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "184",
+      "jsonrpc": "2.0",
+      "result": {
+        "ok": true,
+        "reason": "flex abort",
+        "safe_park": {
+          "backend": "twin",
+          "com_error": null,
+          "critical": false,
+          "reason": "flex abort",
+          "transport": "twin",
+          "verified": true,
+          "verify_timeout": false,
+          "z_v": 0.0
+        },
+        "state": "parked"
+      }
+    },
+    "request": {
+      "id": "184",
+      "jsonrpc": "2.0",
+      "method": "abort",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "185",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "com_error": null,
+        "critical": false,
+        "ok": true,
+        "reason": "flex safePark",
+        "retried": false,
+        "state": "parked",
+        "transport": "twin",
+        "verified": true,
+        "verify_timeout": false,
+        "z_v": 0.0
+      }
+    },
+    "request": {
+      "id": "185",
+      "jsonrpc": "2.0",
+      "method": "safePark",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "186",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "com_error": null,
+        "critical": false,
+        "ok": true,
+        "reason": "doors transcript",
+        "retried": false,
+        "state": "parked",
+        "transport": "twin",
+        "verified": true,
+        "verify_timeout": false,
+        "z_v": 0.0
+      }
+    },
+    "request": {
+      "id": "186",
+      "jsonrpc": "2.0",
+      "method": "safePark",
+      "params": {
+        "reason": "doors transcript"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "187",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "ok": true,
+        "safe_park": {
+          "backend": "twin",
+          "com_error": null,
+          "critical": false,
+          "reason": "litho abort",
+          "transport": "twin",
+          "verified": true,
+          "verify_timeout": false,
+          "z_v": 0.0
+        },
+        "state": "parked"
+      }
+    },
+    "request": {
+      "id": "187",
+      "jsonrpc": "2.0",
+      "method": "abortWrite",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "188",
+      "jsonrpc": "2.0",
+      "result": {
+        "critical": false,
+        "defl_v": "<LIVE>",
+        "method": "abort",
+        "reason": "litho abort",
+        "ts": "<TIME>",
+        "verified": true,
+        "z_out_v": 0.0,
+        "zsensor_v": 0.0
+      }
+    },
+    "request": {
+      "id": "188",
+      "jsonrpc": "2.0",
+      "method": "getLastPark"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "189",
+      "jsonrpc": "2.0",
+      "result": "parked"
+    },
+    "request": {
+      "id": "189",
+      "jsonrpc": "2.0",
+      "method": "getState"
+    },
+    "socket": "read"
+  }
+]

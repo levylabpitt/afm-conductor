@@ -1,0 +1,14 @@
+{
+  "name": "afm-litho-web-tests",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Vitest + jsdom tests for the edit-cockpit ES modules",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.3",
+    "vitest": "^5.0.5"
+  }
+}

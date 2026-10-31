@@ -1,0 +1,33 @@
+{
+ "door": "flex",
+ "fixture": {
+  "igor_values.json": "f5309e5e82bea16183a66098fe92c1c3ffeb32718521cde3fdb8b4d665b14fe2",
+  "instrument.toml": "fcd34371cbb13348b963ee0a2111eaedb10df6356e0b1593c0042539449da90f"
+ },
+ "format": 2,
+ "ipf_sha256": {
+  "igor/afm_igor.ipf": "f872d554da9633006288fe88b670d40929d005ce030f19ecb5918e5855adfd05",
+  "igor/afm_litho_run.ipf": "303ff69ebf767486f2e20c745fc4c75f705244d50be9a5184a497dbddc306f8d",
+  "igor/afm_sockit.ipf": "e7041374992885d45d699caa8cc94f3b91732ff302047dd6e7b0899ea09f6cf0"
+ },
+ "known_defects": [],
+ "microscope_id": 1,
+ "scenario": "safe_park_vendor_withdraw",
+ "wire": {
+  "actuation": [
+   "CLEARFAULT",
+   "@SAFEPARK",
+   "@DOSCANFUNC StopEngageButton",
+   "ABORTCONFIRM"
+  ],
+  "reads": [
+   "ABORTFAULT",
+   "GETGV XLVDTSens",
+   "GETVALUE Deflection",
+   "GETVALUE Height",
+   "GETVALUE XSensor",
+   "GETVALUE ZSensor",
+   "STARTUP 2"
+  ]
+ }
+}

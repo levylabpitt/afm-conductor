@@ -1,0 +1,290 @@
+[
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "abort",
+            "abortWrite",
+            "acquireControl",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten",
+            "heartbeat",
+            "loadPattern",
+            "releaseControl",
+            "safePark",
+            "setContinuous",
+            "setMode",
+            "setObjects",
+            "setZGain",
+            "startApproach",
+            "startScan",
+            "startWrite",
+            "withdraw"
+          ]
+        },
+        "message": "method not found: noSuchVerb"
+      },
+      "id": "64",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "64",
+      "jsonrpc": "2.0",
+      "method": "noSuchVerb"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "executePass",
+          "milestone": "control plane"
+        },
+        "message": "not implemented in this build"
+      },
+      "id": "65",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "65",
+      "jsonrpc": "2.0",
+      "method": "executePass"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32700,
+        "message": "parse error: not valid JSON"
+      },
+      "id": null,
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "raw": "this is not json"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32600,
+        "message": "invalid request: expected a JSON object"
+      },
+      "id": null,
+      "jsonrpc": "2.0"
+    },
+    "request": [
+      1,
+      2
+    ],
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32600,
+        "message": "invalid request: `method` must be a non-empty string"
+      },
+      "id": "m1",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "m1",
+      "jsonrpc": "2.0"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32600,
+        "message": "invalid request: `params` must be an object or an array"
+      },
+      "id": "m2",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "m2",
+      "jsonrpc": "2.0",
+      "method": "ACK",
+      "params": 5
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": "ACK"
+    },
+    "request": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "method": "ACK"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "abort",
+            "abortWrite",
+            "acquireControl",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten",
+            "heartbeat",
+            "loadPattern",
+            "releaseControl",
+            "safePark",
+            "setContinuous",
+            "setMode",
+            "setObjects",
+            "setZGain",
+            "startApproach",
+            "startScan",
+            "startWrite",
+            "withdraw"
+          ]
+        },
+        "message": "method not found: noSuchVerb"
+      },
+      "id": "71",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "71",
+      "jsonrpc": "2.0",
+      "method": "noSuchVerb"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32601,
+        "data": {
+          "method": "executePass",
+          "milestone": "control plane"
+        },
+        "message": "not implemented in this build"
+      },
+      "id": "72",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "72",
+      "jsonrpc": "2.0",
+      "method": "executePass"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32700,
+        "message": "parse error: not valid JSON"
+      },
+      "id": null,
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "raw": "this is not json"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32600,
+        "message": "invalid request: expected a JSON object"
+      },
+      "id": null,
+      "jsonrpc": "2.0"
+    },
+    "request": [
+      1,
+      2
+    ],
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32600,
+        "message": "invalid request: `method` must be a non-empty string"
+      },
+      "id": "m1",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "m1",
+      "jsonrpc": "2.0"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32600,
+        "message": "invalid request: `params` must be an object or an array"
+      },
+      "id": "m2",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "m2",
+      "jsonrpc": "2.0",
+      "method": "ACK",
+      "params": 5
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": "ACK"
+    },
+    "request": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "method": "ACK"
+    },
+    "socket": "command"
+  }
+]

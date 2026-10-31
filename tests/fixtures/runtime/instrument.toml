@@ -1,0 +1,5 @@
+# Checked-in instrument model for tests and for a twin started from a worktree.
+# It states the twin's own defaults, so a run never depends on the rig's
+# runtime/instrument.toml in another checkout. Do not put rig calibration here.
+[override]
+tip_voltage_window_v = [-8.0, 30.0]

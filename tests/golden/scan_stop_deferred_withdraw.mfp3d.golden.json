@@ -1,0 +1,62 @@
+{
+ "door": "flex+http",
+ "fixture": {
+  "igor_values.json": "f5309e5e82bea16183a66098fe92c1c3ffeb32718521cde3fdb8b4d665b14fe2",
+  "instrument.toml": "fcd34371cbb13348b963ee0a2111eaedb10df6356e0b1593c0042539449da90f"
+ },
+ "format": 2,
+ "ipf_sha256": {
+  "igor/afm_igor.ipf": "f872d554da9633006288fe88b670d40929d005ce030f19ecb5918e5855adfd05",
+  "igor/afm_litho_run.ipf": "303ff69ebf767486f2e20c745fc4c75f705244d50be9a5184a497dbddc306f8d",
+  "igor/afm_sockit.ipf": "e7041374992885d45d699caa8cc94f3b91732ff302047dd6e7b0899ea09f6cf0"
+ },
+ "known_defects": [
+  {
+   "id": "f30-3",
+   "what": "a scan Stop parks twice: two full @SAFEPARK and confirm sequences",
+   "where": "docs/migration/SLICES.md F30(3)"
+  }
+ ],
+ "microscope_id": 1,
+ "scenario": "scan_stop_deferred_withdraw",
+ "wire": {
+  "actuation": [
+   "CLEARFAULT",
+   "SERVOLOOP 0 XSensor 0 0 0 Output.X -10 150",
+   "SERVOLOOP 1 YSensor 0 0 0 Output.Y -10 150",
+   "WAVE wave(ow0,n=261,first=0,last=-0.697024107,sha=ec8b76c0e616eb1e)",
+   "WAVE wave(ow1,n=261,first=0,last=-0.00102272723,sha=f2bf03a3c271671c)",
+   "OUTPAIR 0 0 PIDSLoop.0.Setpoint ow0 PIDSLoop.1.Setpoint ow1 -200",
+   "INPAIR 0 0 XSensor YSensor 288 200",
+   "FIRE a1 pass0 0",
+   "@FILL",
+   "SERVOLOOP 0 XSensor -0.697024128686 0 0 Output.X -10 150",
+   "SERVOLOOP 1 YSensor -0.00102272727273 0 0 Output.Y -10 150",
+   "WAVE wave(ow2,n=256,first=-0.697024107,last=-0.697024107,sha=b118e21caf6cd0b4)",
+   "WAVE wave(ow3,n=256,first=-0.00102272723,last=0.141022727,sha=a70f5b835daa6483)",
+   "SCANCHAIN a2 ow2 ow3 64 4 -31 31 Deflection",
+   "@FILL",
+   "@FILL",
+   "@FILL",
+   "@SAFEPARK",
+   "ABORTCONFIRM",
+   "@SAFEPARK",
+   "ABORTCONFIRM"
+  ],
+  "reads": [
+   "ABORTFAULT",
+   "GETGV XLVDTOffset",
+   "GETGV XLVDTSens",
+   "GETGV YLVDTOffset",
+   "GETGV YLVDTSens",
+   "GETVALUE Deflection",
+   "GETVALUE DetectorSum",
+   "GETVALUE Height",
+   "GETVALUE XSensor",
+   "GETVALUE YSensor",
+   "GETVALUE ZSensor",
+   "READXPT Crosspoint",
+   "STARTUP 2"
+  ]
+ }
+}

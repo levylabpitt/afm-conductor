@@ -1,0 +1,9 @@
+# Golden fixture instrument model: a Cypher. Every golden is recorded against this file and
+# stamps its hash; changing it means regenerating the goldens (tests/golden/README.md).
+# Not rig calibration. The platform is not stated here: the harness derives it from
+# igor_values.json's microscope_id, the one place the fixture names the instrument.
+[instrument]
+tip_amp_gain = 25.0
+
+[sample]
+tip_voltage_window_v = [-10.0, 10.0]

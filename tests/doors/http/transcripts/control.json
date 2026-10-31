@@ -1,0 +1,1401 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control (free)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "POST",
+    "path": "/api/control/release"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "stale": true
+   },
+   "status": 200,
+   "step": "POST /api/control/release (nobody holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "body": {
+     "client": "operator",
+     "reason": "Take control button"
+    },
+    "method": "POST",
+    "path": "/api/control/take"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "preempted": null
+   },
+   "status": 200,
+   "step": "POST /api/control/take"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control (operator holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/control/take"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "preempted": null
+   },
+   "status": 200,
+   "step": "POST /api/control/take (again, no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "token": "not-a-token"
+    },
+    "method": "POST",
+    "path": "/api/control/release"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "stale": true
+   },
+   "status": 200,
+   "step": "POST /api/control/release (wrong token)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "operator",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control (still held after wrong token)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: operator released the instrument",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/control/release"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "stale": false
+   },
+   "status": 200,
+   "step": "POST /api/control/release (operator, {} as the cockpit sends it)"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-1 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-1",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-1",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-1",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "script-1",
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-1",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control (script holds; no token in the body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: operator released the instrument",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/control/release"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "stale": false
+   },
+   "status": 200,
+   "step": "POST /api/control/release (C4: releases the script, no token)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32011,
+     "data": {
+      "holder": null,
+      "reason": "revoked",
+      "valid": false
+     },
+     "message": "control_revoked: control was revoked (preempted or expired)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "heartbeat",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "heartbeat after the HTTP release"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-2 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-2",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-2",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-2",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.00074777206341474,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    },
+    {
+     "msg": "Control: script-2's token REVOKED -- the operator used /api/withdraw from the panel",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": -0.00074777206341474,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (C7: takes control from script-2)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32011,
+     "data": {
+      "holder": null,
+      "reason": "revoked",
+      "valid": false
+     },
+     "message": "control_revoked: control was revoked (preempted or expired)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "heartbeat",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "heartbeat after the operator's withdraw"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control (script revoked, nobody holds)"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-3 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-3",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-3",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-3",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: script-3's token REVOKED -- the operator used /api/approach from the panel",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    },
+    {
+     "msg": "Approach: z servo armed at setpoint 0.2 V, engaging…",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Engaged at z = -0.013 um, defl = 0.201 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 0.0,
+     "bias_v": 0.0,
+     "defl_v": 0.2010006513335099,
+     "engaged": true,
+     "t": "<masked>",
+     "type": "engaged",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": -0.012771560080963662
+    }
+   ],
+   "request": {
+    "body": {
+     "igain": 12.0,
+     "mode": "contact",
+     "setpoint": 0.2
+    },
+    "method": "POST",
+    "path": "/api/approach"
+   },
+   "response": {
+    "amp_v": 0.0,
+    "bias_v": 0.0,
+    "defl_v": 0.2010006513335099,
+    "engaged": true,
+    "ok": true,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": -0.012771560080963662
+   },
+   "status": 200,
+   "step": "POST /api/approach (engages, script-3 loses control)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32011,
+     "data": {
+      "holder": null,
+      "reason": "revoked",
+      "valid": false
+     },
+     "message": "control_revoked: control was revoked (preempted or expired)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "heartbeat",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "heartbeat after the operator's approach"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-4 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-4",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-4",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-4",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: script-4's token REVOKED -- the operator used /api/mode from the panel",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    },
+    {
+     "msg": "Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "ac"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "error": "Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+    "reason": "engaged"
+   },
+   "status": 200,
+   "step": "POST /api/mode (A2: refused while engaged, yet script-4 loses control)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32011,
+     "data": {
+      "holder": null,
+      "reason": "revoked",
+      "valid": false
+     },
+     "message": "control_revoked: control was revoked (preempted or expired)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "heartbeat",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "heartbeat after the refused mode switch"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": true
+   },
+   "status": 200,
+   "step": "GET /api/control (nobody holds after the refused mode switch)"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-6 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-6",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-6",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-6",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: script-6's token REVOKED -- the operator used /api/scan/continuous from the panel",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": true
+    },
+    "method": "POST",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "error": "no scan config -- start a scan (or send `config`) first, then enable continuous imaging"
+   },
+   "status": 200,
+   "step": "POST /api/scan/continuous (A2: refused, no config, yet script-6 loses control)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32011,
+     "data": {
+      "holder": null,
+      "reason": "revoked",
+      "valid": false
+     },
+     "message": "control_revoked: control was revoked (preempted or expired)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "heartbeat",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "heartbeat after the refused continuous arm"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-7 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-7",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-7",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-7",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: script-7's token REVOKED -- the operator used /api/litho/write from the panel",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    },
+    {
+     "msg": "write: free-air baseline 0.0000 V (contact, age <n> s)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "setpoint_relative": 0.1
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "error": "amp_gain is required and was not given",
+    "reason": "amp_gain_missing"
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (A2: refused, no design, yet script-7 loses control)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32011,
+     "data": {
+      "holder": null,
+      "reason": "revoked",
+      "valid": false
+     },
+     "message": "control_revoked: control was revoked (preempted or expired)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "heartbeat",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "heartbeat after the refused write"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "acquired_at": "<masked>",
+     "client": "alice",
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "body": {
+     "client": "alice"
+    },
+    "method": "POST",
+    "path": "/api/control/take"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "alice",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "preempted": null
+   },
+   "status": 200,
+   "step": "POST /api/control/take (alice)"
+  },
+  {
+   "events": [],
+   "flex_reply": {
+    "error": {
+     "code": -32040,
+     "data": {
+      "expires_s": null,
+      "holder": "operator",
+      "kind": "operator"
+     },
+     "message": "control_held: control is held by operator (operator)"
+    },
+    "id": "1",
+    "jsonrpc": "2.0"
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-8",
+     "deadman_s": 60
+    }
+   },
+   "step": "acquireControl while the operator holds (refused)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "ac"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "error": "Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+    "reason": "engaged"
+   },
+   "status": 200,
+   "step": "POST /api/mode (refused; alice keeps control)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "alice",
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": "operator",
+     "kind": "operator",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": true
+   },
+   "status": 200,
+   "step": "GET /api/control (alice still holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Control: operator released the instrument",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/control/release"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "ok": true,
+    "stale": false
+   },
+   "status": 200,
+   "step": "POST /api/control/release (alice)"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: script-5 acquired the instrument (dead-man 60s, withdraw_on_deadman=False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "acquired_at": "<masked>",
+     "client": "script-5",
+     "deadman_armed": true,
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-5",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "token": "<masked>",
+     "withdraw_on_deadman": false
+    }
+   },
+   "flex_request": {
+    "method": "acquireControl",
+    "params": {
+     "client": "script-5",
+     "deadman_s": 60
+    }
+   },
+   "step": "FLEX acquireControl"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "igain": 3.0,
+     "mode": "contact",
+     "setpoint": 0.2
+    },
+    "method": "POST",
+    "path": "/api/zgain"
+   },
+   "response": {
+    "error": "Z gain adjust is hardware-only; no bridge connected."
+   },
+   "status": 200,
+   "step": "POST /api/zgain (C2: script-5 keeps control)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "script-5",
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-5",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": true
+   },
+   "status": 200,
+   "step": "GET /api/control (script-5 still holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "backend": "twin",
+     "critical": false,
+     "reason": "door transcript",
+     "transport": "twin",
+     "type": "safe_park",
+     "verified": true,
+     "z_v": 0.0
+    },
+    {
+     "msg": "SAFETY safe_park: door transcript -- tip retracted (verified; Height=0.000 V, ZSensor=0.000 V, Deflection=0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "SAFETY safe_park: door transcript -- tip retracted (verified=True) (Height = 0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "reason": "door transcript"
+    },
+    "method": "POST",
+    "path": "/api/safe_park"
+   },
+   "response": {
+    "ok": true,
+    "safe_park": {
+     "backend": "twin",
+     "com_error": null,
+     "critical": false,
+     "reason": "door transcript",
+     "transport": "twin",
+     "verified": true,
+     "verify_timeout": false,
+     "z_v": 0.0
+    }
+   },
+   "status": 200,
+   "step": "POST /api/safe_park (script-5 holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan stopped; tip withdrawn",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "aborted",
+     "withdraw": true
+    }
+   ],
+   "request": {
+    "body": {},
+    "method": "POST",
+    "path": "/api/scan/abort"
+   },
+   "response": {
+    "ok": true,
+    "withdraw": true
+   },
+   "status": 200,
+   "step": "POST /api/scan/abort (script-5 holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "backend": "twin",
+     "critical": false,
+     "reason": "litho abort",
+     "transport": "twin",
+     "type": "safe_park",
+     "verified": true,
+     "z_v": 0.0
+    },
+    {
+     "msg": "SAFETY safe_park: litho abort -- tip retracted (verified; Height=0.000 V, ZSensor=0.000 V, Deflection=0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "SAFETY safe_park: litho abort -- tip retracted (verified=True) (Height = 0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/litho/abort"
+   },
+   "response": {
+    "backend": "twin",
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/litho/abort (script-5 holds)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "acquired_at": "<masked>",
+     "client": "script-5",
+     "deadman_s": 60.0,
+     "expires_s": "<masked>",
+     "holder": "script-5",
+     "kind": "script",
+     "last_seen": "<masked>",
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control (stops left script-5 in place)"
+  },
+  {
+   "events": [
+    {
+     "msg": "Control: released",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "client": null,
+     "deadman_armed": true,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "t": "<masked>",
+     "type": "control",
+     "withdraw_on_deadman": false
+    }
+   ],
+   "flex_reply": {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+     "ok": true,
+     "stale": false
+    }
+   },
+   "flex_request": {
+    "method": "releaseControl",
+    "params": {
+     "token": "<masked>"
+    }
+   },
+   "step": "script-5 releases"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.0008306928889440677,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": -0.0008306928889440677,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (final)"
+  }
+ ],
+ "group": "control"
+}

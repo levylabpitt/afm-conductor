@@ -1,0 +1,223 @@
+[
+  {
+    "reply": {
+      "error": {
+        "code": -32011,
+        "data": {
+          "holder": "operator",
+          "reason": "revoked",
+          "valid": false
+        },
+        "message": "control_revoked: control was revoked (preempted or expired)"
+      },
+      "id": "190",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "190",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "contact",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32011,
+        "data": {
+          "holder": "operator",
+          "reason": "revoked",
+          "valid": false
+        },
+        "message": "control_revoked: control was revoked (preempted or expired)"
+      },
+      "id": "191",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "191",
+      "jsonrpc": "2.0",
+      "method": "heartbeat",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32040,
+        "data": {
+          "expires_s": null,
+          "holder": "operator",
+          "kind": "operator"
+        },
+        "message": "control_held: control is held by operator (operator)"
+      },
+      "id": "192",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "192",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": "doors-script"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "193",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "ok": true,
+        "snapshot": {
+          "amp_v": "<LIVE>",
+          "bias_v": 0.0,
+          "defl_v": "<LIVE>",
+          "engaged": false,
+          "t": "<TIME>",
+          "x_um": "<LIVE>",
+          "y_um": "<LIVE>",
+          "z_um": 13.035999999999992
+        },
+        "state": "parked",
+        "verified": false,
+        "verify_timeout": false,
+        "z_v": null
+      }
+    },
+    "request": {
+      "id": "193",
+      "jsonrpc": "2.0",
+      "method": "withdraw",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "194",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": {
+          "client": "doors-operator",
+          "deadman_armed": true,
+          "expires_s": null,
+          "holder": "operator",
+          "kind": "operator",
+          "withdraw_on_deadman": false
+        },
+        "deadman_armed": true,
+        "detail": "litho abort",
+        "progress": null,
+        "run_id": "<RUN:6>",
+        "run_kind": "write",
+        "safe_park": {
+          "active": true,
+          "critical": false,
+          "reason": "litho abort",
+          "transport": "twin",
+          "verified": true
+        },
+        "state": "parked"
+      }
+    },
+    "request": {
+      "id": "194",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "195",
+      "jsonrpc": "2.0",
+      "result": {
+        "deadman_s": 30.0,
+        "expires_s": "<TIME>",
+        "token": "<TOKEN:3>",
+        "withdraw_on_deadman": false
+      }
+    },
+    "request": {
+      "id": "195",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": "doors-script"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "196",
+      "jsonrpc": "2.0",
+      "result": {
+        "ok": true,
+        "stale": false
+      }
+    },
+    "request": {
+      "id": "196",
+      "jsonrpc": "2.0",
+      "method": "releaseControl",
+      "params": {
+        "token": "<TOKEN:3>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "197",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": null,
+        "deadman_armed": true,
+        "detail": "litho abort",
+        "progress": null,
+        "run_id": "<RUN:6>",
+        "run_kind": "write",
+        "safe_park": {
+          "active": true,
+          "critical": false,
+          "reason": "litho abort",
+          "transport": "twin",
+          "verified": true
+        },
+        "state": "parked"
+      }
+    },
+    "request": {
+      "id": "197",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "read"
+  }
+]

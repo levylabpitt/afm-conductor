@@ -1,0 +1,554 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/state"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "arc_backend": "sim",
+    "backend": "twin",
+    "bias_v": 0.0,
+    "bridge": {
+     "closed": false,
+     "closed_at": null
+    },
+    "defl_v": 0.0,
+    "design_autosave": {
+     "error": null,
+     "ok": true,
+     "saved_at": null
+    },
+    "engaged": false,
+    "fault": null,
+    "instrument": {
+     "Q": 20.0,
+     "dual_lockin": false,
+     "f0_khz": 65.713,
+     "id": 3,
+     "igain": 12.0,
+     "invols_nm_v": 100.0,
+     "k_nm": 1.0,
+     "model": "MFP3D",
+     "range_um": 90.0,
+     "x_sensor": "Input.X"
+    },
+    "lever": {
+     "Q": 20.0,
+     "f0_khz": 65.713,
+     "k_nm": 1.0
+    },
+    "safe_park": {
+     "active": false,
+     "at": null,
+     "count": 0,
+     "critical": false,
+     "last_reason": null,
+     "transport": null,
+     "verified": null,
+     "z_v": null
+    },
+    "sample": "SA40656B0000",
+    "scanning": false,
+    "speed": 8.0,
+    "state": "idle",
+    "t": "<masked>",
+    "writing": false,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": -0.0
+   },
+   "status": 200,
+   "step": "GET /api/state"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/mode"
+   },
+   "response": {
+    "backend": "twin",
+    "engaged": false,
+    "gate": null,
+    "mode": null
+   },
+   "status": 200,
+   "step": "GET /api/mode"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/control"
+   },
+   "response": {
+    "control": {
+     "client": null,
+     "deadman_s": null,
+     "expires_s": null,
+     "holder": null,
+     "kind": null,
+     "withdraw_on_deadman": false
+    },
+    "deadman_armed": true,
+    "engaged": false
+   },
+   "status": 200,
+   "step": "GET /api/control"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/instrument"
+   },
+   "response": {
+    "ac_setpoint_fraction_band": {
+     "source": "platform_default",
+     "value": [
+      0.3,
+      0.95
+     ]
+    },
+    "config_path": "<RUNTIME>\\instrument.toml",
+    "contact_setpoint_band_v": {
+     "source": "platform_default",
+     "value": [
+      0.0,
+      1.0
+     ]
+    },
+    "dac_rail_v": {
+     "source": "platform_default",
+     "value": 10.0
+    },
+    "free_air": null,
+    "free_air_abs_band_v": {
+     "source": "platform_default",
+     "value": 0.02
+    },
+    "free_air_max_age_s": {
+     "source": "platform_default",
+     "value": 30
+    },
+    "interlock_s": {
+     "source": "platform_default",
+     "value": 5.0
+    },
+    "last_park": null,
+    "last_scan_params": {},
+    "last_write_params": {},
+    "overrides_tail": [],
+    "platform": {
+     "source": "platform_default",
+     "value": "twin"
+    },
+    "sum_ceiling_frac": {
+     "source": "platform_default",
+     "value": 0.9
+    },
+    "sum_floor_v": {
+     "source": "platform_default",
+     "value": 0.5
+    },
+    "tip_amp_gain": {
+     "source": "platform_default",
+     "value": 25.0
+    },
+    "tip_voltage_window_v": {
+     "source": "override",
+     "value": [
+      -8.0,
+      30.0
+     ]
+    },
+    "write_setpoint_relative_v": {
+     "source": "platform_default",
+     "value": 0.1
+    },
+    "xy_cal": {
+     "error": null,
+     "refreshed_at": null,
+     "source": null,
+     "unsupported": false,
+     "x_lvdt_offset": null,
+     "x_lvdt_sens": null,
+     "y_lvdt_offset": null,
+     "y_lvdt_sens": null
+    },
+    "xy_range_um": {
+     "source": "platform_default",
+     "value": [
+      90.0,
+      90.0
+     ]
+    },
+    "z_out_channel": {
+     "source": "platform_default",
+     "value": "Height"
+    },
+    "z_park_tol_v": {
+     "source": "platform_default",
+     "value": 0.5
+    },
+    "z_park_v": {
+     "source": "platform_default",
+     "value": 0.0
+    },
+    "z_rail_v": {
+     "source": "platform_default",
+     "value": 140.0
+    },
+    "z_verify_channels": {
+     "source": "platform_default",
+     "value": [
+      "ZSensor",
+      "Deflection"
+     ]
+    }
+   },
+   "status": 200,
+   "step": "GET /api/instrument"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/park/last"
+   },
+   "response": {},
+   "status": 200,
+   "step": "GET /api/park/last (no park yet)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/litho/estimate"
+   },
+   "response": {
+    "objects": [],
+    "total_s": 0.0,
+    "trajectory_s": 0.0
+   },
+   "status": 200,
+   "step": "GET /api/litho/estimate (no design)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/litho/written"
+   },
+   "response": {
+    "g": {
+     "first": 0.0,
+     "last": 0.998,
+     "number_list_len": 65536,
+     "sha256_f32le_16": "3bfd0d7aee0afc30"
+    },
+    "n": 256
+   },
+   "status": 200,
+   "step": "GET /api/litho/written"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/scan/last"
+   },
+   "response": {
+    "detail": "no scan cached yet"
+   },
+   "status": 404,
+   "step": "GET /api/scan/last (404: no scan yet)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": null,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 4.0
+    },
+    "started_at": null,
+    "stopped_reason": null
+   },
+   "status": 200,
+   "step": "GET /api/scan/continuous"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/drift"
+   },
+   "response": {
+    "enabled": false,
+    "has_reference": false,
+    "reference": null,
+    "total": [
+     0.0,
+     0.0
+    ],
+    "track": []
+   },
+   "status": 200,
+   "step": "GET /api/drift"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/connect/ports"
+   },
+   "response": {
+    "ports": [],
+    "sample": "SA40656B0000"
+   },
+   "status": 200,
+   "step": "GET /api/connect/ports"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design"
+   },
+   "response": {
+    "name": null,
+    "objects": []
+   },
+   "status": 200,
+   "step": "GET /api/design (nothing loaded)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/files"
+   },
+   "response": {
+    "designs": [],
+    "ok": true
+   },
+   "status": 200,
+   "step": "GET /api/design/files"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/capabilities"
+   },
+   "response": {
+    "geometry": "<masked>",
+    "geometry_error": "<masked>",
+    "ops": {
+     "bottom": {
+      "area": false,
+      "keys": "End",
+      "label": "Lower to bottom",
+      "min": 1
+     },
+     "delete": {
+      "area": false,
+      "keys": "Del",
+      "label": "Delete",
+      "min": 1
+     },
+     "difference": {
+      "area": true,
+      "keys": "Ctrl -",
+      "label": "Difference",
+      "min": 2
+     },
+     "duplicate": {
+      "area": false,
+      "keys": "Ctrl D",
+      "label": "Duplicate",
+      "min": 1
+     },
+     "exclusion": {
+      "area": true,
+      "keys": "Ctrl ^",
+      "label": "Exclusion",
+      "min": 2
+     },
+     "inset": {
+      "area": false,
+      "keys": "Ctrl (",
+      "label": "Inset",
+      "min": 1
+     },
+     "intersection": {
+      "area": true,
+      "keys": "Ctrl *",
+      "label": "Intersection",
+      "min": 2
+     },
+     "lower": {
+      "area": false,
+      "keys": "Page Down",
+      "label": "Lower",
+      "min": 1
+     },
+     "outset": {
+      "area": false,
+      "keys": "Ctrl )",
+      "label": "Outset",
+      "min": 1
+     },
+     "raise": {
+      "area": false,
+      "keys": "Page Up",
+      "label": "Raise",
+      "min": 1
+     },
+     "set_props": {
+      "area": false,
+      "keys": "properties panel",
+      "label": "Set properties",
+      "min": 1
+     },
+     "simplify": {
+      "area": false,
+      "keys": "Ctrl L",
+      "label": "Simplify",
+      "min": 1
+     },
+     "top": {
+      "area": false,
+      "keys": "Home",
+      "label": "Raise to top",
+      "min": 1
+     },
+     "transform": {
+      "area": false,
+      "keys": "arrows, h, v",
+      "label": "Move / scale / flip",
+      "min": 1
+     },
+     "union": {
+      "area": true,
+      "keys": "Ctrl +",
+      "label": "Union",
+      "min": 2
+     }
+    },
+    "undo_steps": 0
+   },
+   "status": 200,
+   "step": "GET /api/design/capabilities"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/svg"
+   },
+   "response": {
+    "error": "no Bezier shapes in the current design"
+   },
+   "status": 200,
+   "step": "GET /api/design/svg (no Bezier shapes)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/background/channels"
+   },
+   "response": {
+    "channels": [],
+    "stem": null
+   },
+   "status": 200,
+   "step": "GET /api/design/background/channels (no scan)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/bezier/0"
+   },
+   "response": {
+    "error": "no such object"
+   },
+   "status": 200,
+   "step": "GET /api/design/bezier/0 (no design)"
+  },
+  {
+   "content_type": "",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/"
+   },
+   "response": {
+    "text_head": ""
+   },
+   "status": 307,
+   "step": "GET / (page)"
+  },
+  {
+   "content_type": "text/html",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/edit-cockpit"
+   },
+   "response": {
+    "text_head": "<!doctype html>"
+   },
+   "status": 200,
+   "step": "GET /edit-cockpit (page)"
+  }
+ ],
+ "group": "reads_idle"
+}

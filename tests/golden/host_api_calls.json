@@ -1,0 +1,1403 @@
+[
+ {
+  "args": [
+   "None",
+   "str",
+   "None",
+   "list"
+  ],
+  "kwargs": {},
+  "reply": "None",
+  "verb": "pass_ended"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "ok",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "approach"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [
+   "applied",
+   "error"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [
+   "cleared",
+   "fault",
+   "ok"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [
+   "defl_v",
+   "engaged",
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok",
+   "withdraw"
+  ],
+  "verb": "stop_scan"
+ },
+ {
+  "args": [
+   "None"
+  ],
+  "kwargs": {},
+  "reply": [],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   "str",
+   "bool"
+  ],
+  "kwargs": {},
+  "reply": [
+   "action",
+   "holder",
+   "not_connected",
+   "state"
+  ],
+  "verb": "commander_lapsed"
+ },
+ {
+  "args": [
+   "str",
+   "bool"
+  ],
+  "kwargs": {},
+  "reply": [
+   "action",
+   "holder",
+   "safe_park",
+   "state"
+  ],
+  "verb": "commander_lapsed"
+ },
+ {
+  "args": [
+   "str",
+   "bool"
+  ],
+  "kwargs": {},
+  "reply": [
+   "action",
+   "holder",
+   "state"
+  ],
+  "verb": "commander_lapsed"
+ },
+ {
+  "args": [
+   "str",
+   "bool"
+  ],
+  "kwargs": {},
+  "reply": [
+   "action"
+  ],
+  "verb": "commander_lapsed"
+ },
+ {
+  "args": [
+   "str",
+   "str",
+   "None",
+   "list"
+  ],
+  "kwargs": {},
+  "reply": "None",
+  "verb": "pass_ended"
+ },
+ {
+  "args": [
+   "str",
+   "str",
+   "int",
+   "list"
+  ],
+  "kwargs": {},
+  "reply": "None",
+  "verb": "pass_ended"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "None"
+  },
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "defl_v",
+   "detail",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v",
+   "zsensor_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "None"
+  },
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "str"
+  },
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "defl_v",
+   "detail",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v",
+   "zsensor_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "str"
+  },
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "defl_v",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v",
+   "zsensor_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "str"
+  },
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "str"
+  },
+  "reply": [
+   "backend",
+   "critical",
+   "reason",
+   "transport",
+   "verified",
+   "z_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "str"
+  },
+  "reply": [
+   "backend",
+   "reason",
+   "verified",
+   "z_v"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {
+   "stop_id": "str"
+  },
+  "reply": [],
+  "verb": "park"
+ },
+ {
+  "args": [
+   "str"
+  ],
+  "kwargs": {},
+  "reply": [
+   "verified"
+  ],
+  "verb": "park"
+ },
+ {
+  "args": [
+   [
+    "amp_gain",
+    "deadman_s",
+    "objects",
+    "setpoint",
+    "setpoint_reference",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "est_s",
+   "objects",
+   "run_id",
+   "segments",
+   "state"
+  ],
+  "verb": "start_write"
+ },
+ {
+  "args": [
+   [
+    "amp_gain",
+    "objects",
+    "setpoint",
+    "setpoint_reference",
+    "token",
+    "twin_speed"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "est_s",
+   "objects",
+   "run_id",
+   "segments",
+   "state"
+  ],
+  "verb": "start_write"
+ },
+ {
+  "args": [
+   [
+    "amp_gain",
+    "objects",
+    "setpoint",
+    "setpoint_reference",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "est_s",
+   "objects",
+   "run_id",
+   "segments",
+   "state"
+  ],
+  "verb": "start_write"
+ },
+ {
+  "args": [
+   [
+    "amp_gain",
+    "objects",
+    "setpoint",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "est_s",
+   "objects",
+   "run_id",
+   "segments",
+   "state"
+  ],
+  "verb": "start_write"
+ },
+ {
+  "args": [
+   [
+    "angle_deg",
+    "direction",
+    "engage",
+    "line_rate_hz",
+    "lines",
+    "mode",
+    "pixels",
+    "setpoint",
+    "size_um",
+    "token",
+    "trace_retrace",
+    "x_offset_um",
+    "y_offset_um"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "config",
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "angle_deg",
+    "direction",
+    "line_rate_hz",
+    "lines",
+    "mode",
+    "pixels",
+    "size_um",
+    "token",
+    "trace_retrace",
+    "x_offset_um",
+    "y_offset_um"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "config",
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "b"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   [
+    "b"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   [
+    "b"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok"
+  ],
+  "verb": "stop_scan"
+ },
+ {
+  "args": [
+   [
+    "config",
+    "enabled",
+    "interval_s",
+    "max_frames",
+    "max_seconds",
+    "token",
+    "withdraw_on_stop"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "enabled",
+   "interval_s",
+   "max_frames",
+   "max_seconds",
+   "ok",
+   "rail",
+   "state",
+   "withdraw_on_stop"
+  ],
+  "verb": "set_continuous"
+ },
+ {
+  "args": [
+   [
+    "config",
+    "enabled",
+    "max_frames",
+    "rail",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "enabled",
+   "interval_s",
+   "max_frames",
+   "max_seconds",
+   "ok",
+   "rail",
+   "state",
+   "withdraw_on_stop"
+  ],
+  "verb": "set_continuous"
+ },
+ {
+  "args": [
+   [
+    "config",
+    "enabled",
+    "max_frames",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "enabled",
+   "interval_s",
+   "max_frames",
+   "max_seconds",
+   "ok",
+   "rail",
+   "state",
+   "withdraw_on_stop"
+  ],
+  "verb": "set_continuous"
+ },
+ {
+  "args": [
+   [
+    "confirm",
+    "field",
+    "reason",
+    "value"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "applied",
+   "field",
+   "value"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   [
+    "confirm",
+    "field",
+    "value"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "applied",
+   "error",
+   "reason"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   [
+    "confirm",
+    "field",
+    "value"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "applied",
+   "field",
+   "value"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   [
+    "confirm"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "cleared",
+   "igor_cleared",
+   "igor_detail",
+   "ok"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   [
+    "confirm"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "cleared",
+   "ok"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   [
+    "enabled",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "enabled",
+   "interval_s",
+   "max_frames",
+   "max_seconds",
+   "ok",
+   "rail",
+   "state",
+   "withdraw_on_stop"
+  ],
+  "verb": "set_continuous"
+ },
+ {
+  "args": [
+   [
+    "engage",
+    "igain",
+    "line_rate_hz",
+    "lines",
+    "pgain",
+    "pixels",
+    "size_um",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "config",
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "field",
+    "reason",
+    "value"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "applied",
+   "would_change"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   [
+    "igain",
+    "mode",
+    "pgain",
+    "setpoint",
+    "settle_s",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_approach"
+ },
+ {
+  "args": [
+   [
+    "igain",
+    "mode",
+    "pgain",
+    "setpoint",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "defl_v",
+   "engaged",
+   "z_v"
+  ],
+  "verb": "set_zgain"
+ },
+ {
+  "args": [
+   [
+    "junk",
+    "reason"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   [
+    "k"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "a",
+   "n"
+  ],
+  "verb": "fake"
+ },
+ {
+  "args": [
+   [
+    "line_rate_hz",
+    "lines",
+    "mode",
+    "pixels",
+    "size_um",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "config",
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "line_rate_hz",
+    "lines",
+    "pixels",
+    "size_um",
+    "token",
+    "x_offset_um"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "config",
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "line_rate_hz",
+    "lines",
+    "pixels",
+    "size_um",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "config",
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "mode",
+    "setpoint",
+    "settle_s"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "defl_v",
+   "engaged",
+   "ok",
+   "reached_setpoint",
+   "z_v"
+  ],
+  "verb": "approach"
+ },
+ {
+  "args": [
+   [
+    "mode",
+    "setpoint"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "ok",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "approach"
+ },
+ {
+  "args": [
+   [
+    "mode",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "mode",
+   "ok"
+  ],
+  "verb": "set_mode"
+ },
+ {
+  "args": [
+   [
+    "mode"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "mode",
+   "ok"
+  ],
+  "verb": "set_mode"
+ },
+ {
+  "args": [
+   [
+    "reason"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   [
+    "scope",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   [
+    "setpoint",
+    "settle_s",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_approach"
+ },
+ {
+  "args": [
+   [
+    "setpoint",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_approach"
+ },
+ {
+  "args": [
+   [
+    "setpoint"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "ok",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "approach"
+ },
+ {
+  "args": [
+   [
+    "settle_s",
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_approach"
+ },
+ {
+  "args": [
+   [
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   [
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "est_s",
+   "run_id",
+   "state"
+  ],
+  "verb": "start_approach"
+ },
+ {
+  "args": [
+   [
+    "token"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   [
+    "withdraw"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok",
+   "withdraw"
+  ],
+  "verb": "stop_scan"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "approach"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "set_continuous"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "set_mode"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "set_zgain"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "start_approach"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "start_scan"
+ },
+ {
+  "args": [
+   [
+    "x"
+   ]
+  ],
+  "kwargs": {},
+  "reply": [
+   "reply"
+  ],
+  "verb": "start_write"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "ok",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "approach"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "amp_v",
+   "bias_v",
+   "defl_v",
+   "engaged",
+   "t",
+   "x_um",
+   "y_um",
+   "z_um"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "applied",
+   "error"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "defl_v",
+   "detail",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v",
+   "zsensor_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "at",
+   "backend",
+   "com_error",
+   "critical",
+   "method",
+   "reason",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "com_error",
+   "critical",
+   "detail",
+   "not_connected",
+   "retried",
+   "transport",
+   "verified",
+   "verify_timeout",
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "cleared",
+   "fault",
+   "ok"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "defl_v",
+   "engaged",
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok",
+   "withdraw"
+  ],
+  "verb": "stop_scan"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok"
+  ],
+  "verb": "clear_fault"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "ok"
+  ],
+  "verb": "set_override"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "parked",
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [
+   "z_v"
+  ],
+  "verb": "withdraw"
+ },
+ {
+  "args": [
+   []
+  ],
+  "kwargs": {},
+  "reply": [],
+  "verb": "withdraw"
+ },
+ {
+  "args": [],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "ok",
+   "safe_park"
+  ],
+  "verb": "abort_write"
+ },
+ {
+  "args": [],
+  "kwargs": {},
+  "reply": [
+   "backend",
+   "safe_park"
+  ],
+  "verb": "abort_write"
+ },
+ {
+  "args": [],
+  "kwargs": {},
+  "reply": [
+   "backend"
+  ],
+  "verb": "abort_write"
+ },
+ {
+  "args": [],
+  "kwargs": {},
+  "reply": [
+   "ok"
+  ],
+  "verb": "fake"
+ }
+]

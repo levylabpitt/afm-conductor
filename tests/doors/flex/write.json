@@ -1,0 +1,876 @@
+[
+  {
+    "reply": {
+      "id": "156",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "ok": true,
+        "snapshot": {
+          "amp_v": "<LIVE>",
+          "bias_v": 0.0,
+          "defl_v": "<LIVE>",
+          "engaged": false,
+          "t": "<TIME>",
+          "x_um": "<LIVE>",
+          "y_um": "<LIVE>",
+          "z_um": 13.035999999999992
+        },
+        "state": "parked",
+        "verified": false,
+        "verify_timeout": false,
+        "z_v": null
+      }
+    },
+    "request": {
+      "id": "156",
+      "jsonrpc": "2.0",
+      "method": "withdraw",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "157",
+      "jsonrpc": "2.0",
+      "result": {
+        "bbox_um": [
+          1.0,
+          1.0,
+          1.4,
+          1.2
+        ],
+        "duration_s": 1.932,
+        "max_outwave_points": 87000,
+        "multi_segment_objects": [],
+        "name": "objects",
+        "object_count": 1,
+        "objects": [
+          {
+            "id": "region-1",
+            "index": 0,
+            "kind": "region",
+            "name": "region-1",
+            "points": 128,
+            "properties": {
+              "enabled": true,
+              "fill": {
+                "angle_deg": 0.0,
+                "kind": "directional",
+                "spacing_um": 0.1
+              },
+              "speed_um_s": 1.0,
+              "voltage": 2.0
+            },
+            "segments": 2,
+            "strokes": 2,
+            "vertices_um": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1.4,
+                1.0
+              ],
+              [
+                1.4,
+                1.2
+              ],
+              [
+                1.0,
+                1.2
+              ]
+            ]
+          }
+        ],
+        "origin": null,
+        "segments": 2,
+        "strokes": 2,
+        "total_points": 128
+      }
+    },
+    "request": {
+      "id": "157",
+      "jsonrpc": "2.0",
+      "method": "loadPattern",
+      "params": {
+        "objects": [
+          {
+            "h_um": 0.2,
+            "kind": "region",
+            "pitch_um": 0.1,
+            "shape": "rect",
+            "voltage": 2.0,
+            "w_um": 0.4,
+            "x_um": "<LIVE>",
+            "y_um": "<LIVE>"
+          }
+        ],
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "158",
+      "jsonrpc": "2.0",
+      "result": {
+        "frame": {
+          "angle_deg": 0.0,
+          "fast_offset_um": 0.0,
+          "fast_size_um": 0.0,
+          "slow_offset_um": 0.0,
+          "slow_size_um": 0.0
+        },
+        "name": "objects",
+        "objects": [
+          {
+            "enabled": true,
+            "id": "region-1",
+            "index": 0,
+            "kind": "shape",
+            "name": "region-1",
+            "points": 4,
+            "properties": {
+              "enabled": true,
+              "fill": {
+                "angle_deg": 0.0,
+                "kind": "directional",
+                "spacing_um": 0.1
+              },
+              "speed_um_s": 1.0,
+              "voltage": 2.0
+            },
+            "segments": 2,
+            "speed": 1.0,
+            "strokes": 2,
+            "vertices_um": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1.4,
+                1.0
+              ],
+              [
+                1.4,
+                1.2
+              ],
+              [
+                1.0,
+                1.2
+              ]
+            ],
+            "voltage": 2.0,
+            "written": false
+          }
+        ]
+      }
+    },
+    "request": {
+      "id": "158",
+      "jsonrpc": "2.0",
+      "method": "getPattern"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "159",
+      "jsonrpc": "2.0",
+      "result": {
+        "objects": [
+          {
+            "enabled": true,
+            "id": "region-1",
+            "length_um": 1.886,
+            "seconds": 1.932,
+            "speed_um_s": 1.0
+          }
+        ],
+        "total_s": 18.932,
+        "trajectory_s": 1.932
+      }
+    },
+    "request": {
+      "id": "159",
+      "jsonrpc": "2.0",
+      "method": "getEstimate"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "160",
+      "jsonrpc": "2.0",
+      "result": {
+        "bbox_um": [
+          1.0,
+          1.0,
+          1.4,
+          1.2
+        ],
+        "duration_s": 1.932,
+        "max_outwave_points": 87000,
+        "multi_segment_objects": [],
+        "name": "objects",
+        "object_count": 1,
+        "objects": [
+          {
+            "id": "region-1",
+            "index": 0,
+            "kind": "shape",
+            "name": "region-1",
+            "points": 128,
+            "properties": {
+              "enabled": true,
+              "fill": {
+                "angle_deg": 0.0,
+                "kind": "directional",
+                "spacing_um": 0.1
+              },
+              "speed_um_s": 1.0,
+              "voltage": 3.0
+            },
+            "segments": 2,
+            "strokes": 2,
+            "vertices_um": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1.4,
+                1.0
+              ],
+              [
+                1.4,
+                1.2
+              ],
+              [
+                1.0,
+                1.2
+              ]
+            ]
+          }
+        ],
+        "segments": 2,
+        "strokes": 2,
+        "total_points": 128
+      }
+    },
+    "request": {
+      "id": "160",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {
+        "token": "<TOKEN:2>",
+        "updates": {
+          "region-1": {
+            "voltage": 3.0
+          }
+        }
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "field": "colour",
+          "id": "region-1",
+          "param": "updates"
+        },
+        "message": "setObjects: 'region-1'.colour: unknown property; settable properties are voltage, speed_um_s, enabled, and chiral (a path) or fill (a region)"
+      },
+      "id": "161",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "161",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {
+        "token": "<TOKEN:2>",
+        "updates": {
+          "region-1": {
+            "colour": "red"
+          }
+        }
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32050,
+        "data": {
+          "reason": "amp_gain_missing"
+        },
+        "message": "amp_gain is required and was not given"
+      },
+      "id": "162",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "162",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "setpoint",
+          "reason": "setpoint_missing"
+        },
+        "message": "startWrite: `setpoint` (volts) is required, with `setpoint_reference` \"absolute\" (default) or \"free_air\""
+      },
+      "id": "163",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "163",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "164",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "mode": "ac",
+        "ok": true
+      }
+    },
+    "request": {
+      "id": "164",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "ac",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "165",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "est_s": 18.932,
+        "objects": 1,
+        "run_id": "<RUN:4>",
+        "segments": 2,
+        "state": "writing"
+      }
+    },
+    "request": {
+      "id": "165",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>",
+        "twin_speed": 0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "166",
+      "jsonrpc": "2.0",
+      "result": "parked"
+    },
+    "request": {
+      "id": "166",
+      "jsonrpc": "2.0",
+      "method": "getState"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "167",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "mode": "contact",
+        "ok": true
+      }
+    },
+    "request": {
+      "id": "167",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "contact",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "id": "nope",
+          "param": "objects"
+        },
+        "message": "startWrite: no object with id 'nope' in the loaded design"
+      },
+      "id": "168",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "168",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "objects": [
+          "nope"
+        ],
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "param": "twin_speed"
+        },
+        "message": "startWrite: twin_speed must be a number, got str 'fast'"
+      },
+      "id": "169",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "169",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>",
+        "twin_speed": "fast"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "170",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "est_s": 18.932,
+        "objects": 1,
+        "run_id": "<RUN:5>",
+        "segments": 2,
+        "state": "writing"
+      }
+    },
+    "request": {
+      "id": "170",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>",
+        "twin_speed": 0
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "171",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": false,
+        "backend": "twin",
+        "channels": [
+          "Deflection",
+          "output_a_cmd_v"
+        ],
+        "completed": true,
+        "error": null,
+        "files": {
+          "gwy": "<RUNTIME>/writes/gwy/<STAMP>.gwy",
+          "ibw": "<RUNTIME>/writes/ibw/<STAMP>.ibw",
+          "npz": "<RUNTIME>/writes/npz/<STAMP>.npz"
+        },
+        "finished": "<TIME>",
+        "kind": "write",
+        "partial": false,
+        "record_id": "<RECORD>",
+        "run": "no run: UnsupportedWrite: object 'region-1' compiles to several strokes (a filled region); the run contract has one fire per object",
+        "run_id": "<RUN:5>",
+        "shape": [
+          1,
+          128
+        ],
+        "started": "<TIME>",
+        "stats": {
+          "objects": 2,
+          "objects_submitted": 1,
+          "pattern": "objects"
+        }
+      }
+    },
+    "request": {
+      "id": "171",
+      "jsonrpc": "2.0",
+      "method": "getWriteResult",
+      "params": {
+        "run_id": "<RUN:5>"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "172",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": false,
+        "backend": "twin",
+        "objects": [
+          {
+            "index": 0,
+            "length_um": null,
+            "name": "region-1#1",
+            "object": "region-1",
+            "points": 17,
+            "segments": 2,
+            "t_end": "<TIME>",
+            "t_start": null,
+            "voltage": 3.0
+          },
+          {
+            "index": 1,
+            "length_um": null,
+            "name": "region-1#2",
+            "object": "region-1",
+            "points": 17,
+            "segments": 2,
+            "t_end": "<TIME>",
+            "t_start": null,
+            "voltage": 3.0
+          }
+        ],
+        "run_id": "<RUN:5>"
+      }
+    },
+    "request": {
+      "id": "172",
+      "jsonrpc": "2.0",
+      "method": "getWritten"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "173",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": {
+          "client": "doors-script",
+          "deadman_armed": true,
+          "expires_s": "<TIME>",
+          "holder": "doors-script",
+          "kind": "script",
+          "withdraw_on_deadman": false
+        },
+        "deadman_armed": true,
+        "detail": "continuous stopped: max_frames",
+        "progress": null,
+        "run_id": "<RUN:5>",
+        "run_kind": "write",
+        "safe_park": {
+          "active": true,
+          "critical": false,
+          "reason": "continuous stopped: max_frames",
+          "transport": "twin",
+          "verified": true
+        },
+        "state": "parked"
+      }
+    },
+    "request": {
+      "id": "173",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "174",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "est_s": 18.932,
+        "objects": 1,
+        "run_id": "<RUN:6>",
+        "segments": 2,
+        "state": "writing"
+      }
+    },
+    "request": {
+      "id": "174",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>",
+        "twin_speed": 0.001
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32020,
+        "data": {
+          "kind": "write",
+          "run_id": "<RUN:6>"
+        },
+        "message": "busy: write already running"
+      },
+      "id": "175",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "175",
+      "jsonrpc": "2.0",
+      "method": "startWrite",
+      "params": {
+        "amp_gain": 25.0,
+        "setpoint": 0.2,
+        "setpoint_reference": "absolute",
+        "token": "<TOKEN:2>",
+        "twin_speed": 0.001
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32020,
+        "data": {
+          "reason": "write_in_flight",
+          "run_id": "<RUN:6>"
+        },
+        "message": "setObjects: a write is in flight; editing the loaded pattern now would change what it is writing. Wait for it to finish."
+      },
+      "id": "176",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "176",
+      "jsonrpc": "2.0",
+      "method": "setObjects",
+      "params": {
+        "token": "<TOKEN:2>",
+        "updates": {
+          "region-1": {
+            "voltage": 1.0
+          }
+        }
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32020,
+        "data": {
+          "kind": "write",
+          "run_id": "<RUN:6>"
+        },
+        "message": "busy: busy: a write is already starting or running"
+      },
+      "id": "177",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "177",
+      "jsonrpc": "2.0",
+      "method": "startApproach",
+      "params": {
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32021,
+        "data": {
+          "gate": "writing",
+          "reason": "engaged"
+        },
+        "message": "refused: Mode switch REFUSED: the tip is writing lithography. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode."
+      },
+      "id": "178",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "178",
+      "jsonrpc": "2.0",
+      "method": "setMode",
+      "params": {
+        "mode": "ac",
+        "token": "<TOKEN:2>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "179",
+      "jsonrpc": "2.0",
+      "result": "writing"
+    },
+    "request": {
+      "id": "179",
+      "jsonrpc": "2.0",
+      "method": "getState"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "180",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "ok": true,
+        "safe_park": {
+          "backend": "twin",
+          "com_error": null,
+          "critical": false,
+          "reason": "litho abort",
+          "transport": "twin",
+          "verified": true,
+          "verify_timeout": false,
+          "z_v": 0.0
+        },
+        "state": "writing"
+      }
+    },
+    "request": {
+      "id": "180",
+      "jsonrpc": "2.0",
+      "method": "abortWrite",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "181",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": true,
+        "backend": "twin",
+        "channels": [],
+        "completed": true,
+        "error": null,
+        "files": {},
+        "finished": "<TIME>",
+        "kind": "write",
+        "partial": false,
+        "record_id": "<RECORD>",
+        "run": "no run: UnsupportedWrite: object 'region-1' compiles to several strokes (a filled region); the run contract has one fire per object",
+        "run_id": "<RUN:6>",
+        "shape": null,
+        "started": "<TIME>",
+        "stats": {
+          "objects": 0,
+          "objects_submitted": 1,
+          "pattern": "objects"
+        }
+      }
+    },
+    "request": {
+      "id": "181",
+      "jsonrpc": "2.0",
+      "method": "getWriteResult",
+      "params": {
+        "run_id": "<RUN:6>"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "182",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": true,
+        "backend": "twin",
+        "objects": [],
+        "run_id": "<RUN:6>"
+      }
+    },
+    "request": {
+      "id": "182",
+      "jsonrpc": "2.0",
+      "method": "getWritten"
+    },
+    "socket": "read"
+  }
+]

@@ -1,0 +1,1016 @@
+{
+ "add-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-empty": {
+  "detail": [
+   [
+    "missing",
+    [
+     "body"
+    ],
+    "Field required"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "add-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-empty": {
+  "detail": null,
+  "status": 400,
+  "text": "{\"detail\":\"no design loaded -- import an SVG first (Load SVG)\"}"
+ },
+ "background-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "background-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-1.5": {
+  "detail": [
+   [
+    "int_parsing",
+    [
+     "path",
+     "index"
+    ],
+    "Input should be a valid integer, unable to parse string as an integer"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-empty": {
+  "detail": [
+   [
+    "missing",
+    [
+     "body"
+    ],
+    "Field required"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "bezier-x": {
+  "detail": [
+   [
+    "int_parsing",
+    [
+     "path",
+     "index"
+    ],
+    "Input should be a valid integer, unable to parse string as an integer"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-empty": {
+  "detail": [
+   [
+    "missing",
+    [
+     "body"
+    ],
+    "Field required"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "chiral-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-empty": {
+  "detail": [
+   [
+    "missing",
+    [
+     "body"
+    ],
+    "Field required"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "op-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-empty": {
+  "detail": null,
+  "status": 200,
+  "text": "{\"error\":\"a design needs a name\",\"reason\":\"bad_name\",\"param\":\"name\"}"
+ },
+ "open-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "open-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-empty": {
+  "detail": [
+   [
+    "missing",
+    [
+     "body"
+    ],
+    "Field required"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "points-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-empty": {
+  "detail": [
+   [
+    "missing",
+    [
+     "body"
+    ],
+    "Field required"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "reorder-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-array": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-blank": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     3
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-broken": {
+  "detail": [
+   [
+    "json_invalid",
+    [
+     "body",
+     1
+    ],
+    "JSON decode error"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-empty": {
+  "detail": null,
+  "status": 200,
+  "text": "{\"error\":\"a design needs a name\",\"reason\":\"bad_name\",\"param\":\"name\"}"
+ },
+ "save-no_header": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-number": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-string": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "save-text_plain": {
+  "detail": [
+   [
+    "dict_type",
+    [
+     "body"
+    ],
+    "Input should be a valid dictionary"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "svg-fill_spacing_um=1e": {
+  "detail": [
+   [
+    "float_parsing",
+    [
+     "query",
+     "fill_spacing_um"
+    ],
+    "Input should be a valid number, unable to parse string as a number"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "svg-speed_um_s=x": {
+  "detail": [
+   [
+    "float_parsing",
+    [
+     "query",
+     "speed_um_s"
+    ],
+    "Input should be a valid number, unable to parse string as a number"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "svg-voltage=": {
+  "detail": [
+   [
+    "float_parsing",
+    [
+     "query",
+     "voltage"
+    ],
+    "Input should be a valid number, unable to parse string as a number"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ },
+ "svg-voltage=abc": {
+  "detail": [
+   [
+    "float_parsing",
+    [
+     "query",
+     "voltage"
+    ],
+    "Input should be a valid number, unable to parse string as a number"
+   ]
+  ],
+  "status": 422,
+  "text": null
+ }
+}

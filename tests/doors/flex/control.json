@@ -1,0 +1,268 @@
+[
+  {
+    "reply": {
+      "id": "94",
+      "jsonrpc": "2.0",
+      "result": {
+        "deadman_s": 30.0,
+        "expires_s": "<TIME>",
+        "token": "<TOKEN:1>",
+        "withdraw_on_deadman": false
+      }
+    },
+    "request": {
+      "id": "94",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": "doors-script"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32040,
+        "data": {
+          "expires_s": "<TIME>",
+          "holder": "doors-script",
+          "kind": "script"
+        },
+        "message": "control_held: control is held by doors-script (script)"
+      },
+      "id": "95",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "95",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": "second-script"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "message": "acquireControl needs a `client` name -- it is what the operator sees in the cockpit chip and in the log"
+      },
+      "id": "96",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "96",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": ""
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "97",
+      "jsonrpc": "2.0",
+      "result": {
+        "expires_s": "<TIME>",
+        "state": "idle",
+        "valid": true
+      }
+    },
+    "request": {
+      "id": "97",
+      "jsonrpc": "2.0",
+      "method": "heartbeat",
+      "params": {
+        "token": "<TOKEN:1>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "98",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "98",
+      "jsonrpc": "2.0",
+      "method": "heartbeat",
+      "params": {
+        "token": "stale-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32030,
+        "data": {
+          "holder": "doors-script",
+          "valid": false
+        },
+        "message": "control_required: this call needs the commander token; call acquireControl first"
+      },
+      "id": "99",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "99",
+      "jsonrpc": "2.0",
+      "method": "heartbeat",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "100",
+      "jsonrpc": "2.0",
+      "result": {
+        "ok": true,
+        "stale": true
+      }
+    },
+    "request": {
+      "id": "100",
+      "jsonrpc": "2.0",
+      "method": "releaseControl",
+      "params": {
+        "token": "stale-token"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "101",
+      "jsonrpc": "2.0",
+      "result": {
+        "ok": true,
+        "stale": true
+      }
+    },
+    "request": {
+      "id": "101",
+      "jsonrpc": "2.0",
+      "method": "releaseControl",
+      "params": {}
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "102",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": {
+          "client": "doors-script",
+          "deadman_armed": true,
+          "expires_s": "<TIME>",
+          "holder": "doors-script",
+          "kind": "script",
+          "withdraw_on_deadman": false
+        },
+        "deadman_armed": true,
+        "detail": null,
+        "progress": null,
+        "run_id": null,
+        "run_kind": null,
+        "safe_park": {
+          "active": false,
+          "critical": false,
+          "reason": null,
+          "transport": null,
+          "verified": null
+        },
+        "state": "idle"
+      }
+    },
+    "request": {
+      "id": "102",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "103",
+      "jsonrpc": "2.0",
+      "result": {
+        "ok": true,
+        "stale": false
+      }
+    },
+    "request": {
+      "id": "103",
+      "jsonrpc": "2.0",
+      "method": "releaseControl",
+      "params": {
+        "token": "<TOKEN:1>"
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "104",
+      "jsonrpc": "2.0",
+      "result": {
+        "deadman_s": 300.0,
+        "expires_s": "<TIME>",
+        "token": "<TOKEN:2>",
+        "withdraw_on_deadman": false
+      }
+    },
+    "request": {
+      "id": "104",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": "doors-script",
+        "deadman_s": 300
+      }
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "message": "deadman_s must be a number of seconds (clamped to [5, 300]), got str"
+      },
+      "id": "105",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "105",
+      "jsonrpc": "2.0",
+      "method": "acquireControl",
+      "params": {
+        "client": "x",
+        "deadman_s": "soon"
+      }
+    },
+    "socket": "command"
+  }
+]

@@ -1,0 +1,10146 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "POST",
+    "path": "/api/design/svg",
+    "query": {
+     "name": "door-test.svg"
+    },
+    "raw": {
+     "content_type": "image/svg+xml",
+     "len": 5
+    }
+   },
+   "response": {
+    "error": "not an SVG"
+   },
+   "status": 200,
+   "step": "POST /api/design/svg (not an svg)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "POST",
+    "path": "/api/design/svg",
+    "query": {
+     "name": "door-test.svg"
+    },
+    "raw": {
+     "content_type": "image/svg+xml",
+     "len": 186
+    }
+   },
+   "response": {
+    "error": "cannot place the design: no scan frame is set and it carries no background scan image, so the scan size it was drawn over is unknown. Run a scan first, or embed the scan background in the SVG (the cockpit's Update design background button does this)."
+   },
+   "status": 400,
+   "step": "POST /api/design/svg (400: no scan frame to place it on)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "channel": "height"
+    },
+    "method": "POST",
+    "path": "/api/design/background"
+   },
+   "response": {
+    "detail": "no design loaded -- import an SVG first (Load SVG)"
+   },
+   "status": 400,
+   "step": "POST /api/design/background (400: no design loaded)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.00074777206341474,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": -0.00074777206341474,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (baseline)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan started: 5 um, 16 px, 200 Hz, contact",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "bulk": "line",
+     "count": 4,
+     "first_row": 0,
+     "keys": [
+      "angle_deg",
+      "direction",
+      "errName",
+      "error",
+      "height",
+      "pixels",
+      "retrace",
+      "row",
+      "rows",
+      "size_um",
+      "slow_idx",
+      "slow_um",
+      "type",
+      "zsensor"
+     ],
+     "last_row": 3,
+     "type": "line"
+    },
+    {
+     "msg": "End-of-scan withdraw sent: Z not confirmed at 0 V (Height None, readback timed out: False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.0006817199540021083,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    },
+    {
+     "msg": "Scan complete",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Scan cached: 4x16 frame -> scans/npz/<scan-stamp>.height.npz",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "PNG/JSON written -> scans/png/<scan-stamp>_height.png, scans/json/<scan-stamp>.json",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "sessions_changed"
+    },
+    {
+     "aborted": false,
+     "type": "scan_done"
+    }
+   ],
+   "request": {
+    "body": {
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pixels": 16,
+     "size_um": 5.0
+    },
+    "method": "POST",
+    "path": "/api/scan/start"
+   },
+   "response": {
+    "config": {
+     "angle_deg": 0.0,
+     "bias_v": 1.0,
+     "chained": true,
+     "direction": "up",
+     "engage": false,
+     "igain": null,
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pgain": null,
+     "pixels": 16,
+     "setpoint": 0.2,
+     "size_um": 5.0,
+     "trace_retrace": true,
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "ok": true,
+    "run_id": "scan-1"
+   },
+   "status": 200,
+   "step": "POST /api/scan/start (gives the design a frame)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Imported door-test.svg: 2 object(s), 1 filled shape(s) [placed over 5 um from frame]",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/design/svg",
+    "query": {
+     "name": "door-test.svg"
+    },
+    "raw": {
+     "content_type": "image/svg+xml",
+     "len": 186
+    }
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "ok": true,
+    "origin": {
+     "outside_frame": false,
+     "size_um": 5.0,
+     "source": "frame"
+    }
+   },
+   "status": 200,
+   "step": "POST /api/design/svg (rectangle and wire)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design"
+   },
+   "response": {
+    "name": "door-test",
+    "objects": [
+     {
+      "bezier": {
+       "closed": true,
+       "nodes": [
+        {
+         "h_in": null,
+         "h_out": null,
+         "kind": "cusp",
+         "x": -1.5,
+         "y": 1.5
+        },
+        {
+         "h_in": null,
+         "h_out": null,
+         "kind": "cusp",
+         "x": 0.5,
+         "y": 1.5
+        },
+        {
+         "h_in": null,
+         "h_out": null,
+         "kind": "cusp",
+         "x": 0.5,
+         "y": -0.5
+        },
+        {
+         "h_in": null,
+         "h_out": null,
+         "kind": "cusp",
+         "x": -1.5,
+         "y": -0.5
+        }
+       ]
+      },
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "shape",
+      "name": "door-test-1",
+      "points_um": [
+       [
+        -1.5,
+        1.5
+       ],
+       [
+        0.5,
+        1.5
+       ],
+       [
+        0.5,
+        -0.5
+       ],
+       [
+        -1.5,
+        -0.5
+       ],
+       [
+        -1.5,
+        1.5
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "door-test-2",
+      "points_um": [
+       [
+        -2.0,
+        -1.5
+       ],
+       [
+        2.0,
+        -1.7
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     }
+    ]
+   },
+   "status": 200,
+   "step": "GET /api/design (after import)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/bezier/0"
+   },
+   "response": {
+    "bezier": {
+     "closed": true,
+     "nodes": [
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": -1.5,
+       "y": 1.5
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 0.5,
+       "y": 1.5
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 0.5,
+       "y": -0.5
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": -1.5,
+       "y": -0.5
+      }
+     ]
+    },
+    "index": 0,
+    "kind": "shape",
+    "modulated": false,
+    "name": "door-test-1"
+   },
+   "status": 200,
+   "step": "GET /api/design/bezier/0 (the rectangle)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/bezier/1"
+   },
+   "response": {
+    "bezier": {
+     "closed": false,
+     "nodes": [
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": -2.0,
+       "y": -1.5
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 2.0,
+       "y": -1.7
+      }
+     ]
+    },
+    "index": 1,
+    "kind": "path",
+    "modulated": false,
+    "name": "door-test-2"
+   },
+   "status": 200,
+   "step": "GET /api/design/bezier/1 (the wire)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/bezier/99"
+   },
+   "response": {
+    "error": "no such object"
+   },
+   "status": 200,
+   "step": "GET /api/design/bezier/99 (no such object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Added path wire: 3 point(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "kind": "path",
+     "name": "wire",
+     "points_um": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       0.5
+      ]
+     ],
+     "speed_um_s": 2.0,
+     "voltage": 6.0
+    },
+    "method": "POST",
+    "path": "/api/design/add"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         1.0,
+         1.0
+        ],
+        [
+         2.0,
+         0.5
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "index": 2,
+    "name": "wire",
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/design/add (path)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "kind": "blob"
+    },
+    "method": "POST",
+    "path": "/api/design/add"
+   },
+   "response": {
+    "error": "cannot add a blob here"
+   },
+   "status": 200,
+   "step": "POST /api/design/add (bad kind)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "kind": "path",
+     "points_um": [
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/add"
+   },
+   "response": {
+    "error": "need at least two points"
+   },
+   "status": 200,
+   "step": "POST /api/design/add (one point)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "kind": "path",
+     "points_um": "no"
+    },
+    "method": "POST",
+    "path": "/api/design/add"
+   },
+   "response": {
+    "error": "points_um must be [[x, y], ...] microns"
+   },
+   "status": 200,
+   "step": "POST /api/design/add (points not numbers)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Edited wire: 4 vertices",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "index": 2,
+     "points_um": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       4,
+       0
+      ]
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/points"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         1.0,
+         2.0
+        ],
+        [
+         3.0,
+         1.0
+        ],
+        [
+         4.0,
+         0.0
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/design/points"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "index": 99,
+     "points_um": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/points"
+   },
+   "response": {
+    "error": "no such object"
+   },
+   "status": 200,
+   "step": "POST /api/design/points (no such object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "index": 0,
+     "points_um": [
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/points"
+   },
+   "response": {
+    "error": "need at least two points"
+   },
+   "status": 200,
+   "step": "POST /api/design/points (one point)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/bezier/2"
+   },
+   "response": {
+    "bezier": {
+     "closed": true,
+     "nodes": [
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 0.0,
+       "y": 0.0
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 1.0,
+       "y": 2.0
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 3.0,
+       "y": 1.0
+      },
+      {
+       "h_in": null,
+       "h_out": null,
+       "kind": "cusp",
+       "x": 4.0,
+       "y": 0.0
+      }
+     ]
+    },
+    "index": 2,
+    "kind": "path",
+    "modulated": false,
+    "name": "wire"
+   },
+   "status": 200,
+   "step": "GET /api/design/bezier/2 (a plain polyline)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Edited wire: 2 node(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "bezier": {
+      "closed": false,
+      "nodes": [
+       {
+        "h_in": null,
+        "h_out": [
+         0.5,
+         0.5
+        ],
+        "kind": "smooth",
+        "x": 0,
+        "y": 0
+       },
+       {
+        "h_in": [
+         1.5,
+         0.5
+        ],
+        "h_out": null,
+        "kind": "smooth",
+        "x": 2,
+        "y": 1
+       }
+      ]
+     },
+     "index": 2
+    },
+    "method": "POST",
+    "path": "/api/design/bezier"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "message": "Edited wire: 2 node(s)",
+    "ok": true,
+    "reapplied": false
+   },
+   "status": 200,
+   "step": "POST /api/design/bezier"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "bezier": {
+      "nodes": []
+     },
+     "index": 2
+    },
+    "method": "POST",
+    "path": "/api/design/bezier"
+   },
+   "response": {
+    "error": "need at least two points"
+   },
+   "status": 200,
+   "step": "POST /api/design/bezier (no nodes)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "bezier": {
+      "nodes": []
+     },
+     "index": 99
+    },
+    "method": "POST",
+    "path": "/api/design/bezier"
+   },
+   "response": {
+    "error": "no such object"
+   },
+   "status": 200,
+   "step": "POST /api/design/bezier (no such object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Duplicated 1 object(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "dx_um": 1.0,
+     "dy_um": 1.0,
+     "indices": [
+      2
+     ],
+     "op": "duplicate"
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           1.5,
+           1.5
+          ],
+          "kind": "smooth",
+          "x": 1.0,
+          "y": 1.0
+         },
+         {
+          "h_in": [
+           2.5,
+           1.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.0,
+          "y": 2.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.0,
+         1.0
+        ],
+        [
+         1.0994,
+         1.0881
+        ],
+        [
+         1.209,
+         1.166
+        ],
+        [
+         1.3274,
+         1.2351
+        ],
+        [
+         1.4531,
+         1.2969
+        ],
+        [
+         1.5847,
+         1.3528
+        ],
+        [
+         1.7207,
+         1.4043
+        ],
+        [
+         2.0,
+         1.5
+        ],
+        [
+         2.2793,
+         1.5957
+        ],
+        [
+         2.4153,
+         1.6472
+        ],
+        [
+         2.5469,
+         1.7031
+        ],
+        [
+         2.6726,
+         1.7649
+        ],
+        [
+         2.791,
+         1.834
+        ],
+        [
+         2.9006,
+         1.9119
+        ],
+        [
+         3.0,
+         2.0
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "message": "Duplicated 1 object(s)",
+    "ok": true,
+    "selection": [
+     3
+    ],
+    "undo_steps": 4
+   },
+   "status": 200,
+   "step": "POST /api/design/op duplicate"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Set voltage, speed_um_s on 1 object(s): wire",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "indices": [
+      2
+     ],
+     "op": "set_props",
+     "speed_um_s": 3.0,
+     "voltage": 7.5
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           1.5,
+           1.5
+          ],
+          "kind": "smooth",
+          "x": 1.0,
+          "y": 1.0
+         },
+         {
+          "h_in": [
+           2.5,
+           1.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.0,
+          "y": 2.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.0,
+         1.0
+        ],
+        [
+         1.0994,
+         1.0881
+        ],
+        [
+         1.209,
+         1.166
+        ],
+        [
+         1.3274,
+         1.2351
+        ],
+        [
+         1.4531,
+         1.2969
+        ],
+        [
+         1.5847,
+         1.3528
+        ],
+        [
+         1.7207,
+         1.4043
+        ],
+        [
+         2.0,
+         1.5
+        ],
+        [
+         2.2793,
+         1.5957
+        ],
+        [
+         2.4153,
+         1.6472
+        ],
+        [
+         2.5469,
+         1.7031
+        ],
+        [
+         2.6726,
+         1.7649
+        ],
+        [
+         2.791,
+         1.834
+        ],
+        [
+         2.9006,
+         1.9119
+        ],
+        [
+         3.0,
+         2.0
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "message": "Set voltage, speed_um_s on 1 object(s): wire",
+    "ok": true,
+    "selection": [
+     2
+    ],
+    "undo_steps": 5
+   },
+   "status": 200,
+   "step": "POST /api/design/op set_props"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Moved 1 object(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "dx_um": 0.5,
+     "indices": [
+      3
+     ],
+     "op": "transform",
+     "rot_deg": 10.0
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "message": "Moved 1 object(s)",
+    "ok": true,
+    "selection": [
+     3
+    ],
+    "undo_steps": 6
+   },
+   "status": 200,
+   "step": "POST /api/design/op transform"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "indices": [
+      0
+     ],
+     "op": "nonsense"
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "error": "no such operation: nonsense"
+   },
+   "status": 200,
+   "step": "POST /api/design/op (bad op)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "indices": [],
+     "op": "delete"
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "error": "Delete needs 1 object(s) selected, and 0 are"
+   },
+   "status": 200,
+   "step": "POST /api/design/op (empty selection)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "indices": [
+      99
+     ],
+     "op": "delete"
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "error": "no object at index 99"
+   },
+   "status": 200,
+   "step": "POST /api/design/op (no such object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "order": [
+      0,
+      0
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/reorder"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "error": "order must be a permutation of 0..3"
+   },
+   "status": 200,
+   "step": "POST /api/design/reorder (not a permutation)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Reordered 4 object(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "order": [
+      3,
+      2,
+      1,
+      0
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/reorder"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    }
+   },
+   "status": 200,
+   "step": "POST /api/design/reorder"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Chiral on: 1 path(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": true,
+     "indices": [
+      2
+     ],
+     "lambda_um": 1.0,
+     "phase_deg": 0.0,
+     "v0": 6.0,
+     "v_k": 1.0,
+     "y_amp_um": 0.2
+    },
+    "method": "POST",
+    "path": "/api/design/chiral"
+   },
+   "response": {
+    "clamp": null,
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         -1.9562,
+         -1.4508
+        ],
+        [
+         -1.9126,
+         -1.4051
+        ],
+        [
+         -1.8693,
+         -1.366
+        ],
+        [
+         -1.8264,
+         -1.3362
+        ],
+        [
+         -1.7842,
+         -1.318
+        ],
+        [
+         -1.7426,
+         -1.3126
+        ],
+        [
+         -1.7017,
+         -1.3207
+        ],
+        [
+         -1.6614,
+         -1.3416
+        ],
+        [
+         -1.6217,
+         -1.3743
+        ],
+        [
+         -1.5824,
+         -1.4167
+        ],
+        [
+         -1.5436,
+         -1.466
+        ],
+        [
+         -1.5049,
+         -1.519
+        ],
+        [
+         -1.4662,
+         -1.5725
+        ],
+        [
+         -1.4274,
+         -1.6229
+        ],
+        [
+         -1.3882,
+         -1.6671
+        ],
+        [
+         -1.3487,
+         -1.7021
+        ],
+        [
+         -1.3085,
+         -1.7258
+        ],
+        [
+         -1.2677,
+         -1.7367
+        ],
+        [
+         -1.2262,
+         -1.7343
+        ],
+        [
+         -1.1841,
+         -1.7188
+        ],
+        [
+         -1.1414,
+         -1.6914
+        ],
+        [
+         -1.0982,
+         -1.6541
+        ],
+        [
+         -1.0547,
+         -1.6096
+        ],
+        [
+         -1.0109,
+         -1.5609
+        ],
+        [
+         -0.9671,
+         -1.5114
+        ],
+        [
+         -0.9234,
+         -1.4646
+        ],
+        [
+         -0.88,
+         -1.4238
+        ],
+        [
+         -0.8371,
+         -1.3918
+        ],
+        [
+         -0.7947,
+         -1.3709
+        ],
+        [
+         -0.7529,
+         -1.3626
+        ],
+        [
+         -0.7118,
+         -1.3677
+        ],
+        [
+         -0.6714,
+         -1.3859
+        ],
+        [
+         -0.6316,
+         -1.4162
+        ],
+        [
+         -0.5923,
+         -1.4566
+        ],
+        [
+         -0.5533,
+         -1.5046
+        ],
+        [
+         -0.5146,
+         -1.5572
+        ],
+        [
+         -0.476,
+         -1.6109
+        ],
+        [
+         -0.4372,
+         -1.6622
+        ],
+        [
+         -0.3981,
+         -1.708
+        ],
+        [
+         -0.3587,
+         -1.7452
+        ],
+        [
+         -0.3186,
+         -1.7715
+        ],
+        [
+         -0.278,
+         -1.7854
+        ],
+        [
+         -0.2367,
+         -1.7859
+        ],
+        [
+         -0.1947,
+         -1.7732
+        ],
+        [
+         -0.1521,
+         -1.7483
+        ],
+        [
+         -0.109,
+         -1.713
+        ],
+        [
+         -0.0655,
+         -1.6698
+        ],
+        [
+         -0.0218,
+         -1.6217
+        ],
+        [
+         0.0221,
+         -1.5721
+        ],
+        [
+         0.0658,
+         -1.5244
+        ],
+        [
+         0.1092,
+         -1.482
+        ],
+        [
+         0.1523,
+         -1.4479
+        ],
+        [
+         0.1948,
+         -1.4244
+        ],
+        [
+         0.2367,
+         -1.4132
+        ],
+        [
+         0.2779,
+         -1.4154
+        ],
+        [
+         0.3185,
+         -1.4308
+        ],
+        [
+         0.3585,
+         -1.4585
+        ],
+        [
+         0.3979,
+         -1.4969
+        ],
+        [
+         0.4369,
+         -1.5435
+        ],
+        [
+         0.4756,
+         -1.5953
+        ],
+        [
+         0.5143,
+         -1.6491
+        ],
+        [
+         0.553,
+         -1.7012
+        ],
+        [
+         0.592,
+         -1.7485
+        ],
+        [
+         0.6314,
+         -1.7878
+        ],
+        [
+         0.6713,
+         -1.8167
+        ],
+        [
+         0.7118,
+         -1.8334
+        ],
+        [
+         0.753,
+         -1.8368
+        ],
+        [
+         0.7948,
+         -1.827
+        ],
+        [
+         0.8372,
+         -1.8047
+        ],
+        [
+         0.8802,
+         -1.7715
+        ],
+        [
+         0.9237,
+         -1.7297
+        ],
+        [
+         0.9674,
+         -1.6824
+        ],
+        [
+         1.0112,
+         -1.6329
+        ],
+        [
+         1.055,
+         -1.5845
+        ],
+        [
+         1.0985,
+         -1.5407
+        ],
+        [
+         1.1416,
+         -1.5045
+        ],
+        [
+         1.1843,
+         -1.4784
+        ],
+        [
+         1.2263,
+         -1.4645
+        ],
+        [
+         1.2677,
+         -1.4637
+        ],
+        [
+         1.3084,
+         -1.4762
+        ],
+        [
+         1.3485,
+         -1.5014
+        ],
+        [
+         1.388,
+         -1.5376
+        ],
+        [
+         1.4271,
+         -1.5826
+        ],
+        [
+         1.4659,
+         -1.6336
+        ],
+        [
+         1.5046,
+         -1.6872
+        ],
+        [
+         1.5433,
+         -1.74
+        ],
+        [
+         1.5822,
+         -1.7886
+        ],
+        [
+         1.6214,
+         -1.8299
+        ],
+        [
+         1.6612,
+         -1.8613
+        ],
+        [
+         1.7016,
+         -1.8808
+        ],
+        [
+         1.7426,
+         -1.8872
+        ],
+        [
+         1.7843,
+         -1.8802
+        ],
+        [
+         1.8266,
+         -1.8605
+        ],
+        [
+         1.8695,
+         -1.8295
+        ],
+        [
+         1.9128,
+         -1.7894
+        ],
+        [
+         1.9565,
+         -1.7431
+        ],
+        [
+         2.0003,
+         -1.6937
+        ]
+       ],
+       "profile": {
+        "amp_um": {
+         "first": 0.2,
+         "last": 0.2,
+         "number_list_len": 98,
+         "sha256_f32le_16": "a7bfdee1ddd0e898"
+        },
+        "arclen_um": 4.004997,
+        "axis_um": [
+         [
+          -2.0,
+          -1.5
+         ],
+         [
+          -1.95876,
+          -1.50206
+         ],
+         [
+          -1.91753,
+          -1.50412
+         ],
+         [
+          -1.87629,
+          -1.50619
+         ],
+         [
+          -1.83505,
+          -1.50825
+         ],
+         [
+          -1.79381,
+          -1.51031
+         ],
+         [
+          -1.75258,
+          -1.51237
+         ],
+         [
+          -1.71134,
+          -1.51443
+         ],
+         [
+          -1.6701,
+          -1.51649
+         ],
+         [
+          -1.62887,
+          -1.51856
+         ],
+         [
+          -1.58763,
+          -1.52062
+         ],
+         [
+          -1.54639,
+          -1.52268
+         ],
+         [
+          -1.50515,
+          -1.52474
+         ],
+         [
+          -1.46392,
+          -1.5268
+         ],
+         [
+          -1.42268,
+          -1.52887
+         ],
+         [
+          -1.38144,
+          -1.53093
+         ],
+         [
+          -1.34021,
+          -1.53299
+         ],
+         [
+          -1.29897,
+          -1.53505
+         ],
+         [
+          -1.25773,
+          -1.53711
+         ],
+         [
+          -1.21649,
+          -1.53918
+         ],
+         [
+          -1.17526,
+          -1.54124
+         ],
+         [
+          -1.13402,
+          -1.5433
+         ],
+         [
+          -1.09278,
+          -1.54536
+         ],
+         [
+          -1.05155,
+          -1.54742
+         ],
+         [
+          -1.01031,
+          -1.54948
+         ],
+         [
+          -0.96907,
+          -1.55155
+         ],
+         [
+          -0.92784,
+          -1.55361
+         ],
+         [
+          -0.8866,
+          -1.55567
+         ],
+         [
+          -0.84536,
+          -1.55773
+         ],
+         [
+          -0.80412,
+          -1.55979
+         ],
+         [
+          -0.76289,
+          -1.56186
+         ],
+         [
+          -0.72165,
+          -1.56392
+         ],
+         [
+          -0.68041,
+          -1.56598
+         ],
+         [
+          -0.63918,
+          -1.56804
+         ],
+         [
+          -0.59794,
+          -1.5701
+         ],
+         [
+          -0.5567,
+          -1.57216
+         ],
+         [
+          -0.51546,
+          -1.57423
+         ],
+         [
+          -0.47423,
+          -1.57629
+         ],
+         [
+          -0.43299,
+          -1.57835
+         ],
+         [
+          -0.39175,
+          -1.58041
+         ],
+         [
+          -0.35052,
+          -1.58247
+         ],
+         [
+          -0.30928,
+          -1.58454
+         ],
+         [
+          -0.26804,
+          -1.5866
+         ],
+         [
+          -0.2268,
+          -1.58866
+         ],
+         [
+          -0.18557,
+          -1.59072
+         ],
+         [
+          -0.14433,
+          -1.59278
+         ],
+         [
+          -0.10309,
+          -1.59485
+         ],
+         [
+          -0.06186,
+          -1.59691
+         ],
+         [
+          -0.02062,
+          -1.59897
+         ],
+         [
+          0.02062,
+          -1.60103
+         ],
+         [
+          0.06186,
+          -1.60309
+         ],
+         [
+          0.10309,
+          -1.60515
+         ],
+         [
+          0.14433,
+          -1.60722
+         ],
+         [
+          0.18557,
+          -1.60928
+         ],
+         [
+          0.2268,
+          -1.61134
+         ],
+         [
+          0.26804,
+          -1.6134
+         ],
+         [
+          0.30928,
+          -1.61546
+         ],
+         [
+          0.35052,
+          -1.61753
+         ],
+         [
+          0.39175,
+          -1.61959
+         ],
+         [
+          0.43299,
+          -1.62165
+         ],
+         [
+          0.47423,
+          -1.62371
+         ],
+         [
+          0.51546,
+          -1.62577
+         ],
+         [
+          0.5567,
+          -1.62784
+         ],
+         [
+          0.59794,
+          -1.6299
+         ],
+         [
+          0.63918,
+          -1.63196
+         ],
+         [
+          0.68041,
+          -1.63402
+         ],
+         [
+          0.72165,
+          -1.63608
+         ],
+         [
+          0.76289,
+          -1.63814
+         ],
+         [
+          0.80412,
+          -1.64021
+         ],
+         [
+          0.84536,
+          -1.64227
+         ],
+         [
+          0.8866,
+          -1.64433
+         ],
+         [
+          0.92784,
+          -1.64639
+         ],
+         [
+          0.96907,
+          -1.64845
+         ],
+         [
+          1.01031,
+          -1.65052
+         ],
+         [
+          1.05155,
+          -1.65258
+         ],
+         [
+          1.09278,
+          -1.65464
+         ],
+         [
+          1.13402,
+          -1.6567
+         ],
+         [
+          1.17526,
+          -1.65876
+         ],
+         [
+          1.21649,
+          -1.66082
+         ],
+         [
+          1.25773,
+          -1.66289
+         ],
+         [
+          1.29897,
+          -1.66495
+         ],
+         [
+          1.34021,
+          -1.66701
+         ],
+         [
+          1.38144,
+          -1.66907
+         ],
+         [
+          1.42268,
+          -1.67113
+         ],
+         [
+          1.46392,
+          -1.6732
+         ],
+         [
+          1.50515,
+          -1.67526
+         ],
+         [
+          1.54639,
+          -1.67732
+         ],
+         [
+          1.58763,
+          -1.67938
+         ],
+         [
+          1.62887,
+          -1.68144
+         ],
+         [
+          1.6701,
+          -1.68351
+         ],
+         [
+          1.71134,
+          -1.68557
+         ],
+         [
+          1.75258,
+          -1.68763
+         ],
+         [
+          1.79381,
+          -1.68969
+         ],
+         [
+          1.83505,
+          -1.69175
+         ],
+         [
+          1.87629,
+          -1.69381
+         ],
+         [
+          1.91753,
+          -1.69588
+         ],
+         [
+          1.95876,
+          -1.69794
+         ],
+         [
+          2.0,
+          -1.7
+         ]
+        ],
+        "closed": false,
+        "kind": "chiral",
+        "lambda_set_um": 1.0,
+        "lambda_um": 1.0,
+        "normal": [
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ]
+        ],
+        "periods": 4.004996878900156,
+        "phase_rad": 0.0,
+        "v0": 6.0,
+        "v_k": 1.0,
+        "y_amp_um": 0.2
+       },
+       "speed_um_s": 4.0,
+       "v_profile": {
+        "first": 6.0,
+        "last": 6.031,
+        "number_list_len": 98,
+        "sha256_f32le_16": "5cebdfa68e0fbe7d"
+       },
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/design/chiral (enable)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "enabled": true,
+     "indices": [
+      3
+     ],
+     "lambda_um": 1.0,
+     "phase_deg": 0.0,
+     "v_k": 1.0,
+     "y_amp_um": 0.2
+    },
+    "method": "POST",
+    "path": "/api/design/chiral"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         -1.9562,
+         -1.4508
+        ],
+        [
+         -1.9126,
+         -1.4051
+        ],
+        [
+         -1.8693,
+         -1.366
+        ],
+        [
+         -1.8264,
+         -1.3362
+        ],
+        [
+         -1.7842,
+         -1.318
+        ],
+        [
+         -1.7426,
+         -1.3126
+        ],
+        [
+         -1.7017,
+         -1.3207
+        ],
+        [
+         -1.6614,
+         -1.3416
+        ],
+        [
+         -1.6217,
+         -1.3743
+        ],
+        [
+         -1.5824,
+         -1.4167
+        ],
+        [
+         -1.5436,
+         -1.466
+        ],
+        [
+         -1.5049,
+         -1.519
+        ],
+        [
+         -1.4662,
+         -1.5725
+        ],
+        [
+         -1.4274,
+         -1.6229
+        ],
+        [
+         -1.3882,
+         -1.6671
+        ],
+        [
+         -1.3487,
+         -1.7021
+        ],
+        [
+         -1.3085,
+         -1.7258
+        ],
+        [
+         -1.2677,
+         -1.7367
+        ],
+        [
+         -1.2262,
+         -1.7343
+        ],
+        [
+         -1.1841,
+         -1.7188
+        ],
+        [
+         -1.1414,
+         -1.6914
+        ],
+        [
+         -1.0982,
+         -1.6541
+        ],
+        [
+         -1.0547,
+         -1.6096
+        ],
+        [
+         -1.0109,
+         -1.5609
+        ],
+        [
+         -0.9671,
+         -1.5114
+        ],
+        [
+         -0.9234,
+         -1.4646
+        ],
+        [
+         -0.88,
+         -1.4238
+        ],
+        [
+         -0.8371,
+         -1.3918
+        ],
+        [
+         -0.7947,
+         -1.3709
+        ],
+        [
+         -0.7529,
+         -1.3626
+        ],
+        [
+         -0.7118,
+         -1.3677
+        ],
+        [
+         -0.6714,
+         -1.3859
+        ],
+        [
+         -0.6316,
+         -1.4162
+        ],
+        [
+         -0.5923,
+         -1.4566
+        ],
+        [
+         -0.5533,
+         -1.5046
+        ],
+        [
+         -0.5146,
+         -1.5572
+        ],
+        [
+         -0.476,
+         -1.6109
+        ],
+        [
+         -0.4372,
+         -1.6622
+        ],
+        [
+         -0.3981,
+         -1.708
+        ],
+        [
+         -0.3587,
+         -1.7452
+        ],
+        [
+         -0.3186,
+         -1.7715
+        ],
+        [
+         -0.278,
+         -1.7854
+        ],
+        [
+         -0.2367,
+         -1.7859
+        ],
+        [
+         -0.1947,
+         -1.7732
+        ],
+        [
+         -0.1521,
+         -1.7483
+        ],
+        [
+         -0.109,
+         -1.713
+        ],
+        [
+         -0.0655,
+         -1.6698
+        ],
+        [
+         -0.0218,
+         -1.6217
+        ],
+        [
+         0.0221,
+         -1.5721
+        ],
+        [
+         0.0658,
+         -1.5244
+        ],
+        [
+         0.1092,
+         -1.482
+        ],
+        [
+         0.1523,
+         -1.4479
+        ],
+        [
+         0.1948,
+         -1.4244
+        ],
+        [
+         0.2367,
+         -1.4132
+        ],
+        [
+         0.2779,
+         -1.4154
+        ],
+        [
+         0.3185,
+         -1.4308
+        ],
+        [
+         0.3585,
+         -1.4585
+        ],
+        [
+         0.3979,
+         -1.4969
+        ],
+        [
+         0.4369,
+         -1.5435
+        ],
+        [
+         0.4756,
+         -1.5953
+        ],
+        [
+         0.5143,
+         -1.6491
+        ],
+        [
+         0.553,
+         -1.7012
+        ],
+        [
+         0.592,
+         -1.7485
+        ],
+        [
+         0.6314,
+         -1.7878
+        ],
+        [
+         0.6713,
+         -1.8167
+        ],
+        [
+         0.7118,
+         -1.8334
+        ],
+        [
+         0.753,
+         -1.8368
+        ],
+        [
+         0.7948,
+         -1.827
+        ],
+        [
+         0.8372,
+         -1.8047
+        ],
+        [
+         0.8802,
+         -1.7715
+        ],
+        [
+         0.9237,
+         -1.7297
+        ],
+        [
+         0.9674,
+         -1.6824
+        ],
+        [
+         1.0112,
+         -1.6329
+        ],
+        [
+         1.055,
+         -1.5845
+        ],
+        [
+         1.0985,
+         -1.5407
+        ],
+        [
+         1.1416,
+         -1.5045
+        ],
+        [
+         1.1843,
+         -1.4784
+        ],
+        [
+         1.2263,
+         -1.4645
+        ],
+        [
+         1.2677,
+         -1.4637
+        ],
+        [
+         1.3084,
+         -1.4762
+        ],
+        [
+         1.3485,
+         -1.5014
+        ],
+        [
+         1.388,
+         -1.5376
+        ],
+        [
+         1.4271,
+         -1.5826
+        ],
+        [
+         1.4659,
+         -1.6336
+        ],
+        [
+         1.5046,
+         -1.6872
+        ],
+        [
+         1.5433,
+         -1.74
+        ],
+        [
+         1.5822,
+         -1.7886
+        ],
+        [
+         1.6214,
+         -1.8299
+        ],
+        [
+         1.6612,
+         -1.8613
+        ],
+        [
+         1.7016,
+         -1.8808
+        ],
+        [
+         1.7426,
+         -1.8872
+        ],
+        [
+         1.7843,
+         -1.8802
+        ],
+        [
+         1.8266,
+         -1.8605
+        ],
+        [
+         1.8695,
+         -1.8295
+        ],
+        [
+         1.9128,
+         -1.7894
+        ],
+        [
+         1.9565,
+         -1.7431
+        ],
+        [
+         2.0003,
+         -1.6937
+        ]
+       ],
+       "profile": {
+        "amp_um": {
+         "first": 0.2,
+         "last": 0.2,
+         "number_list_len": 98,
+         "sha256_f32le_16": "a7bfdee1ddd0e898"
+        },
+        "arclen_um": 4.004997,
+        "axis_um": [
+         [
+          -2.0,
+          -1.5
+         ],
+         [
+          -1.95876,
+          -1.50206
+         ],
+         [
+          -1.91753,
+          -1.50412
+         ],
+         [
+          -1.87629,
+          -1.50619
+         ],
+         [
+          -1.83505,
+          -1.50825
+         ],
+         [
+          -1.79381,
+          -1.51031
+         ],
+         [
+          -1.75258,
+          -1.51237
+         ],
+         [
+          -1.71134,
+          -1.51443
+         ],
+         [
+          -1.6701,
+          -1.51649
+         ],
+         [
+          -1.62887,
+          -1.51856
+         ],
+         [
+          -1.58763,
+          -1.52062
+         ],
+         [
+          -1.54639,
+          -1.52268
+         ],
+         [
+          -1.50515,
+          -1.52474
+         ],
+         [
+          -1.46392,
+          -1.5268
+         ],
+         [
+          -1.42268,
+          -1.52887
+         ],
+         [
+          -1.38144,
+          -1.53093
+         ],
+         [
+          -1.34021,
+          -1.53299
+         ],
+         [
+          -1.29897,
+          -1.53505
+         ],
+         [
+          -1.25773,
+          -1.53711
+         ],
+         [
+          -1.21649,
+          -1.53918
+         ],
+         [
+          -1.17526,
+          -1.54124
+         ],
+         [
+          -1.13402,
+          -1.5433
+         ],
+         [
+          -1.09278,
+          -1.54536
+         ],
+         [
+          -1.05155,
+          -1.54742
+         ],
+         [
+          -1.01031,
+          -1.54948
+         ],
+         [
+          -0.96907,
+          -1.55155
+         ],
+         [
+          -0.92784,
+          -1.55361
+         ],
+         [
+          -0.8866,
+          -1.55567
+         ],
+         [
+          -0.84536,
+          -1.55773
+         ],
+         [
+          -0.80412,
+          -1.55979
+         ],
+         [
+          -0.76289,
+          -1.56186
+         ],
+         [
+          -0.72165,
+          -1.56392
+         ],
+         [
+          -0.68041,
+          -1.56598
+         ],
+         [
+          -0.63918,
+          -1.56804
+         ],
+         [
+          -0.59794,
+          -1.5701
+         ],
+         [
+          -0.5567,
+          -1.57216
+         ],
+         [
+          -0.51546,
+          -1.57423
+         ],
+         [
+          -0.47423,
+          -1.57629
+         ],
+         [
+          -0.43299,
+          -1.57835
+         ],
+         [
+          -0.39175,
+          -1.58041
+         ],
+         [
+          -0.35052,
+          -1.58247
+         ],
+         [
+          -0.30928,
+          -1.58454
+         ],
+         [
+          -0.26804,
+          -1.5866
+         ],
+         [
+          -0.2268,
+          -1.58866
+         ],
+         [
+          -0.18557,
+          -1.59072
+         ],
+         [
+          -0.14433,
+          -1.59278
+         ],
+         [
+          -0.10309,
+          -1.59485
+         ],
+         [
+          -0.06186,
+          -1.59691
+         ],
+         [
+          -0.02062,
+          -1.59897
+         ],
+         [
+          0.02062,
+          -1.60103
+         ],
+         [
+          0.06186,
+          -1.60309
+         ],
+         [
+          0.10309,
+          -1.60515
+         ],
+         [
+          0.14433,
+          -1.60722
+         ],
+         [
+          0.18557,
+          -1.60928
+         ],
+         [
+          0.2268,
+          -1.61134
+         ],
+         [
+          0.26804,
+          -1.6134
+         ],
+         [
+          0.30928,
+          -1.61546
+         ],
+         [
+          0.35052,
+          -1.61753
+         ],
+         [
+          0.39175,
+          -1.61959
+         ],
+         [
+          0.43299,
+          -1.62165
+         ],
+         [
+          0.47423,
+          -1.62371
+         ],
+         [
+          0.51546,
+          -1.62577
+         ],
+         [
+          0.5567,
+          -1.62784
+         ],
+         [
+          0.59794,
+          -1.6299
+         ],
+         [
+          0.63918,
+          -1.63196
+         ],
+         [
+          0.68041,
+          -1.63402
+         ],
+         [
+          0.72165,
+          -1.63608
+         ],
+         [
+          0.76289,
+          -1.63814
+         ],
+         [
+          0.80412,
+          -1.64021
+         ],
+         [
+          0.84536,
+          -1.64227
+         ],
+         [
+          0.8866,
+          -1.64433
+         ],
+         [
+          0.92784,
+          -1.64639
+         ],
+         [
+          0.96907,
+          -1.64845
+         ],
+         [
+          1.01031,
+          -1.65052
+         ],
+         [
+          1.05155,
+          -1.65258
+         ],
+         [
+          1.09278,
+          -1.65464
+         ],
+         [
+          1.13402,
+          -1.6567
+         ],
+         [
+          1.17526,
+          -1.65876
+         ],
+         [
+          1.21649,
+          -1.66082
+         ],
+         [
+          1.25773,
+          -1.66289
+         ],
+         [
+          1.29897,
+          -1.66495
+         ],
+         [
+          1.34021,
+          -1.66701
+         ],
+         [
+          1.38144,
+          -1.66907
+         ],
+         [
+          1.42268,
+          -1.67113
+         ],
+         [
+          1.46392,
+          -1.6732
+         ],
+         [
+          1.50515,
+          -1.67526
+         ],
+         [
+          1.54639,
+          -1.67732
+         ],
+         [
+          1.58763,
+          -1.67938
+         ],
+         [
+          1.62887,
+          -1.68144
+         ],
+         [
+          1.6701,
+          -1.68351
+         ],
+         [
+          1.71134,
+          -1.68557
+         ],
+         [
+          1.75258,
+          -1.68763
+         ],
+         [
+          1.79381,
+          -1.68969
+         ],
+         [
+          1.83505,
+          -1.69175
+         ],
+         [
+          1.87629,
+          -1.69381
+         ],
+         [
+          1.91753,
+          -1.69588
+         ],
+         [
+          1.95876,
+          -1.69794
+         ],
+         [
+          2.0,
+          -1.7
+         ]
+        ],
+        "closed": false,
+        "kind": "chiral",
+        "lambda_set_um": 1.0,
+        "lambda_um": 1.0,
+        "normal": [
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ]
+        ],
+        "periods": 4.004996878900156,
+        "phase_rad": 0.0,
+        "v0": 6.0,
+        "v_k": 1.0,
+        "y_amp_um": 0.2
+       },
+       "speed_um_s": 4.0,
+       "v_profile": {
+        "first": 6.0,
+        "last": 6.031,
+        "number_list_len": 98,
+        "sha256_f32le_16": "5cebdfa68e0fbe7d"
+       },
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "error": "chiral is a path-only setting; not a path: door-test-1"
+   },
+   "status": 200,
+   "step": "POST /api/design/chiral (not a path)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "enabled": true,
+     "indices": "x"
+    },
+    "method": "POST",
+    "path": "/api/design/chiral"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         -1.9562,
+         -1.4508
+        ],
+        [
+         -1.9126,
+         -1.4051
+        ],
+        [
+         -1.8693,
+         -1.366
+        ],
+        [
+         -1.8264,
+         -1.3362
+        ],
+        [
+         -1.7842,
+         -1.318
+        ],
+        [
+         -1.7426,
+         -1.3126
+        ],
+        [
+         -1.7017,
+         -1.3207
+        ],
+        [
+         -1.6614,
+         -1.3416
+        ],
+        [
+         -1.6217,
+         -1.3743
+        ],
+        [
+         -1.5824,
+         -1.4167
+        ],
+        [
+         -1.5436,
+         -1.466
+        ],
+        [
+         -1.5049,
+         -1.519
+        ],
+        [
+         -1.4662,
+         -1.5725
+        ],
+        [
+         -1.4274,
+         -1.6229
+        ],
+        [
+         -1.3882,
+         -1.6671
+        ],
+        [
+         -1.3487,
+         -1.7021
+        ],
+        [
+         -1.3085,
+         -1.7258
+        ],
+        [
+         -1.2677,
+         -1.7367
+        ],
+        [
+         -1.2262,
+         -1.7343
+        ],
+        [
+         -1.1841,
+         -1.7188
+        ],
+        [
+         -1.1414,
+         -1.6914
+        ],
+        [
+         -1.0982,
+         -1.6541
+        ],
+        [
+         -1.0547,
+         -1.6096
+        ],
+        [
+         -1.0109,
+         -1.5609
+        ],
+        [
+         -0.9671,
+         -1.5114
+        ],
+        [
+         -0.9234,
+         -1.4646
+        ],
+        [
+         -0.88,
+         -1.4238
+        ],
+        [
+         -0.8371,
+         -1.3918
+        ],
+        [
+         -0.7947,
+         -1.3709
+        ],
+        [
+         -0.7529,
+         -1.3626
+        ],
+        [
+         -0.7118,
+         -1.3677
+        ],
+        [
+         -0.6714,
+         -1.3859
+        ],
+        [
+         -0.6316,
+         -1.4162
+        ],
+        [
+         -0.5923,
+         -1.4566
+        ],
+        [
+         -0.5533,
+         -1.5046
+        ],
+        [
+         -0.5146,
+         -1.5572
+        ],
+        [
+         -0.476,
+         -1.6109
+        ],
+        [
+         -0.4372,
+         -1.6622
+        ],
+        [
+         -0.3981,
+         -1.708
+        ],
+        [
+         -0.3587,
+         -1.7452
+        ],
+        [
+         -0.3186,
+         -1.7715
+        ],
+        [
+         -0.278,
+         -1.7854
+        ],
+        [
+         -0.2367,
+         -1.7859
+        ],
+        [
+         -0.1947,
+         -1.7732
+        ],
+        [
+         -0.1521,
+         -1.7483
+        ],
+        [
+         -0.109,
+         -1.713
+        ],
+        [
+         -0.0655,
+         -1.6698
+        ],
+        [
+         -0.0218,
+         -1.6217
+        ],
+        [
+         0.0221,
+         -1.5721
+        ],
+        [
+         0.0658,
+         -1.5244
+        ],
+        [
+         0.1092,
+         -1.482
+        ],
+        [
+         0.1523,
+         -1.4479
+        ],
+        [
+         0.1948,
+         -1.4244
+        ],
+        [
+         0.2367,
+         -1.4132
+        ],
+        [
+         0.2779,
+         -1.4154
+        ],
+        [
+         0.3185,
+         -1.4308
+        ],
+        [
+         0.3585,
+         -1.4585
+        ],
+        [
+         0.3979,
+         -1.4969
+        ],
+        [
+         0.4369,
+         -1.5435
+        ],
+        [
+         0.4756,
+         -1.5953
+        ],
+        [
+         0.5143,
+         -1.6491
+        ],
+        [
+         0.553,
+         -1.7012
+        ],
+        [
+         0.592,
+         -1.7485
+        ],
+        [
+         0.6314,
+         -1.7878
+        ],
+        [
+         0.6713,
+         -1.8167
+        ],
+        [
+         0.7118,
+         -1.8334
+        ],
+        [
+         0.753,
+         -1.8368
+        ],
+        [
+         0.7948,
+         -1.827
+        ],
+        [
+         0.8372,
+         -1.8047
+        ],
+        [
+         0.8802,
+         -1.7715
+        ],
+        [
+         0.9237,
+         -1.7297
+        ],
+        [
+         0.9674,
+         -1.6824
+        ],
+        [
+         1.0112,
+         -1.6329
+        ],
+        [
+         1.055,
+         -1.5845
+        ],
+        [
+         1.0985,
+         -1.5407
+        ],
+        [
+         1.1416,
+         -1.5045
+        ],
+        [
+         1.1843,
+         -1.4784
+        ],
+        [
+         1.2263,
+         -1.4645
+        ],
+        [
+         1.2677,
+         -1.4637
+        ],
+        [
+         1.3084,
+         -1.4762
+        ],
+        [
+         1.3485,
+         -1.5014
+        ],
+        [
+         1.388,
+         -1.5376
+        ],
+        [
+         1.4271,
+         -1.5826
+        ],
+        [
+         1.4659,
+         -1.6336
+        ],
+        [
+         1.5046,
+         -1.6872
+        ],
+        [
+         1.5433,
+         -1.74
+        ],
+        [
+         1.5822,
+         -1.7886
+        ],
+        [
+         1.6214,
+         -1.8299
+        ],
+        [
+         1.6612,
+         -1.8613
+        ],
+        [
+         1.7016,
+         -1.8808
+        ],
+        [
+         1.7426,
+         -1.8872
+        ],
+        [
+         1.7843,
+         -1.8802
+        ],
+        [
+         1.8266,
+         -1.8605
+        ],
+        [
+         1.8695,
+         -1.8295
+        ],
+        [
+         1.9128,
+         -1.7894
+        ],
+        [
+         1.9565,
+         -1.7431
+        ],
+        [
+         2.0003,
+         -1.6937
+        ]
+       ],
+       "profile": {
+        "amp_um": {
+         "first": 0.2,
+         "last": 0.2,
+         "number_list_len": 98,
+         "sha256_f32le_16": "a7bfdee1ddd0e898"
+        },
+        "arclen_um": 4.004997,
+        "axis_um": [
+         [
+          -2.0,
+          -1.5
+         ],
+         [
+          -1.95876,
+          -1.50206
+         ],
+         [
+          -1.91753,
+          -1.50412
+         ],
+         [
+          -1.87629,
+          -1.50619
+         ],
+         [
+          -1.83505,
+          -1.50825
+         ],
+         [
+          -1.79381,
+          -1.51031
+         ],
+         [
+          -1.75258,
+          -1.51237
+         ],
+         [
+          -1.71134,
+          -1.51443
+         ],
+         [
+          -1.6701,
+          -1.51649
+         ],
+         [
+          -1.62887,
+          -1.51856
+         ],
+         [
+          -1.58763,
+          -1.52062
+         ],
+         [
+          -1.54639,
+          -1.52268
+         ],
+         [
+          -1.50515,
+          -1.52474
+         ],
+         [
+          -1.46392,
+          -1.5268
+         ],
+         [
+          -1.42268,
+          -1.52887
+         ],
+         [
+          -1.38144,
+          -1.53093
+         ],
+         [
+          -1.34021,
+          -1.53299
+         ],
+         [
+          -1.29897,
+          -1.53505
+         ],
+         [
+          -1.25773,
+          -1.53711
+         ],
+         [
+          -1.21649,
+          -1.53918
+         ],
+         [
+          -1.17526,
+          -1.54124
+         ],
+         [
+          -1.13402,
+          -1.5433
+         ],
+         [
+          -1.09278,
+          -1.54536
+         ],
+         [
+          -1.05155,
+          -1.54742
+         ],
+         [
+          -1.01031,
+          -1.54948
+         ],
+         [
+          -0.96907,
+          -1.55155
+         ],
+         [
+          -0.92784,
+          -1.55361
+         ],
+         [
+          -0.8866,
+          -1.55567
+         ],
+         [
+          -0.84536,
+          -1.55773
+         ],
+         [
+          -0.80412,
+          -1.55979
+         ],
+         [
+          -0.76289,
+          -1.56186
+         ],
+         [
+          -0.72165,
+          -1.56392
+         ],
+         [
+          -0.68041,
+          -1.56598
+         ],
+         [
+          -0.63918,
+          -1.56804
+         ],
+         [
+          -0.59794,
+          -1.5701
+         ],
+         [
+          -0.5567,
+          -1.57216
+         ],
+         [
+          -0.51546,
+          -1.57423
+         ],
+         [
+          -0.47423,
+          -1.57629
+         ],
+         [
+          -0.43299,
+          -1.57835
+         ],
+         [
+          -0.39175,
+          -1.58041
+         ],
+         [
+          -0.35052,
+          -1.58247
+         ],
+         [
+          -0.30928,
+          -1.58454
+         ],
+         [
+          -0.26804,
+          -1.5866
+         ],
+         [
+          -0.2268,
+          -1.58866
+         ],
+         [
+          -0.18557,
+          -1.59072
+         ],
+         [
+          -0.14433,
+          -1.59278
+         ],
+         [
+          -0.10309,
+          -1.59485
+         ],
+         [
+          -0.06186,
+          -1.59691
+         ],
+         [
+          -0.02062,
+          -1.59897
+         ],
+         [
+          0.02062,
+          -1.60103
+         ],
+         [
+          0.06186,
+          -1.60309
+         ],
+         [
+          0.10309,
+          -1.60515
+         ],
+         [
+          0.14433,
+          -1.60722
+         ],
+         [
+          0.18557,
+          -1.60928
+         ],
+         [
+          0.2268,
+          -1.61134
+         ],
+         [
+          0.26804,
+          -1.6134
+         ],
+         [
+          0.30928,
+          -1.61546
+         ],
+         [
+          0.35052,
+          -1.61753
+         ],
+         [
+          0.39175,
+          -1.61959
+         ],
+         [
+          0.43299,
+          -1.62165
+         ],
+         [
+          0.47423,
+          -1.62371
+         ],
+         [
+          0.51546,
+          -1.62577
+         ],
+         [
+          0.5567,
+          -1.62784
+         ],
+         [
+          0.59794,
+          -1.6299
+         ],
+         [
+          0.63918,
+          -1.63196
+         ],
+         [
+          0.68041,
+          -1.63402
+         ],
+         [
+          0.72165,
+          -1.63608
+         ],
+         [
+          0.76289,
+          -1.63814
+         ],
+         [
+          0.80412,
+          -1.64021
+         ],
+         [
+          0.84536,
+          -1.64227
+         ],
+         [
+          0.8866,
+          -1.64433
+         ],
+         [
+          0.92784,
+          -1.64639
+         ],
+         [
+          0.96907,
+          -1.64845
+         ],
+         [
+          1.01031,
+          -1.65052
+         ],
+         [
+          1.05155,
+          -1.65258
+         ],
+         [
+          1.09278,
+          -1.65464
+         ],
+         [
+          1.13402,
+          -1.6567
+         ],
+         [
+          1.17526,
+          -1.65876
+         ],
+         [
+          1.21649,
+          -1.66082
+         ],
+         [
+          1.25773,
+          -1.66289
+         ],
+         [
+          1.29897,
+          -1.66495
+         ],
+         [
+          1.34021,
+          -1.66701
+         ],
+         [
+          1.38144,
+          -1.66907
+         ],
+         [
+          1.42268,
+          -1.67113
+         ],
+         [
+          1.46392,
+          -1.6732
+         ],
+         [
+          1.50515,
+          -1.67526
+         ],
+         [
+          1.54639,
+          -1.67732
+         ],
+         [
+          1.58763,
+          -1.67938
+         ],
+         [
+          1.62887,
+          -1.68144
+         ],
+         [
+          1.6701,
+          -1.68351
+         ],
+         [
+          1.71134,
+          -1.68557
+         ],
+         [
+          1.75258,
+          -1.68763
+         ],
+         [
+          1.79381,
+          -1.68969
+         ],
+         [
+          1.83505,
+          -1.69175
+         ],
+         [
+          1.87629,
+          -1.69381
+         ],
+         [
+          1.91753,
+          -1.69588
+         ],
+         [
+          1.95876,
+          -1.69794
+         ],
+         [
+          2.0,
+          -1.7
+         ]
+        ],
+        "closed": false,
+        "kind": "chiral",
+        "lambda_set_um": 1.0,
+        "lambda_um": 1.0,
+        "normal": [
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ]
+        ],
+        "periods": 4.004996878900156,
+        "phase_rad": 0.0,
+        "v0": 6.0,
+        "v_k": 1.0,
+        "y_amp_um": 0.2
+       },
+       "speed_um_s": 4.0,
+       "v_profile": {
+        "first": 6.0,
+        "last": 6.031,
+        "number_list_len": 98,
+        "sha256_f32le_16": "5cebdfa68e0fbe7d"
+       },
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "error": "chiral: indices must be a list of object indices, got 'x'; nothing was changed",
+    "field": "indices",
+    "reason": "chiral_bad_setting"
+   },
+   "status": 200,
+   "step": "POST /api/design/chiral (indices not a list)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "enabled": true,
+     "indices": [
+      2
+     ],
+     "lambda_um": "wide"
+    },
+    "method": "POST",
+    "path": "/api/design/chiral"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         -1.9562,
+         -1.4508
+        ],
+        [
+         -1.9126,
+         -1.4051
+        ],
+        [
+         -1.8693,
+         -1.366
+        ],
+        [
+         -1.8264,
+         -1.3362
+        ],
+        [
+         -1.7842,
+         -1.318
+        ],
+        [
+         -1.7426,
+         -1.3126
+        ],
+        [
+         -1.7017,
+         -1.3207
+        ],
+        [
+         -1.6614,
+         -1.3416
+        ],
+        [
+         -1.6217,
+         -1.3743
+        ],
+        [
+         -1.5824,
+         -1.4167
+        ],
+        [
+         -1.5436,
+         -1.466
+        ],
+        [
+         -1.5049,
+         -1.519
+        ],
+        [
+         -1.4662,
+         -1.5725
+        ],
+        [
+         -1.4274,
+         -1.6229
+        ],
+        [
+         -1.3882,
+         -1.6671
+        ],
+        [
+         -1.3487,
+         -1.7021
+        ],
+        [
+         -1.3085,
+         -1.7258
+        ],
+        [
+         -1.2677,
+         -1.7367
+        ],
+        [
+         -1.2262,
+         -1.7343
+        ],
+        [
+         -1.1841,
+         -1.7188
+        ],
+        [
+         -1.1414,
+         -1.6914
+        ],
+        [
+         -1.0982,
+         -1.6541
+        ],
+        [
+         -1.0547,
+         -1.6096
+        ],
+        [
+         -1.0109,
+         -1.5609
+        ],
+        [
+         -0.9671,
+         -1.5114
+        ],
+        [
+         -0.9234,
+         -1.4646
+        ],
+        [
+         -0.88,
+         -1.4238
+        ],
+        [
+         -0.8371,
+         -1.3918
+        ],
+        [
+         -0.7947,
+         -1.3709
+        ],
+        [
+         -0.7529,
+         -1.3626
+        ],
+        [
+         -0.7118,
+         -1.3677
+        ],
+        [
+         -0.6714,
+         -1.3859
+        ],
+        [
+         -0.6316,
+         -1.4162
+        ],
+        [
+         -0.5923,
+         -1.4566
+        ],
+        [
+         -0.5533,
+         -1.5046
+        ],
+        [
+         -0.5146,
+         -1.5572
+        ],
+        [
+         -0.476,
+         -1.6109
+        ],
+        [
+         -0.4372,
+         -1.6622
+        ],
+        [
+         -0.3981,
+         -1.708
+        ],
+        [
+         -0.3587,
+         -1.7452
+        ],
+        [
+         -0.3186,
+         -1.7715
+        ],
+        [
+         -0.278,
+         -1.7854
+        ],
+        [
+         -0.2367,
+         -1.7859
+        ],
+        [
+         -0.1947,
+         -1.7732
+        ],
+        [
+         -0.1521,
+         -1.7483
+        ],
+        [
+         -0.109,
+         -1.713
+        ],
+        [
+         -0.0655,
+         -1.6698
+        ],
+        [
+         -0.0218,
+         -1.6217
+        ],
+        [
+         0.0221,
+         -1.5721
+        ],
+        [
+         0.0658,
+         -1.5244
+        ],
+        [
+         0.1092,
+         -1.482
+        ],
+        [
+         0.1523,
+         -1.4479
+        ],
+        [
+         0.1948,
+         -1.4244
+        ],
+        [
+         0.2367,
+         -1.4132
+        ],
+        [
+         0.2779,
+         -1.4154
+        ],
+        [
+         0.3185,
+         -1.4308
+        ],
+        [
+         0.3585,
+         -1.4585
+        ],
+        [
+         0.3979,
+         -1.4969
+        ],
+        [
+         0.4369,
+         -1.5435
+        ],
+        [
+         0.4756,
+         -1.5953
+        ],
+        [
+         0.5143,
+         -1.6491
+        ],
+        [
+         0.553,
+         -1.7012
+        ],
+        [
+         0.592,
+         -1.7485
+        ],
+        [
+         0.6314,
+         -1.7878
+        ],
+        [
+         0.6713,
+         -1.8167
+        ],
+        [
+         0.7118,
+         -1.8334
+        ],
+        [
+         0.753,
+         -1.8368
+        ],
+        [
+         0.7948,
+         -1.827
+        ],
+        [
+         0.8372,
+         -1.8047
+        ],
+        [
+         0.8802,
+         -1.7715
+        ],
+        [
+         0.9237,
+         -1.7297
+        ],
+        [
+         0.9674,
+         -1.6824
+        ],
+        [
+         1.0112,
+         -1.6329
+        ],
+        [
+         1.055,
+         -1.5845
+        ],
+        [
+         1.0985,
+         -1.5407
+        ],
+        [
+         1.1416,
+         -1.5045
+        ],
+        [
+         1.1843,
+         -1.4784
+        ],
+        [
+         1.2263,
+         -1.4645
+        ],
+        [
+         1.2677,
+         -1.4637
+        ],
+        [
+         1.3084,
+         -1.4762
+        ],
+        [
+         1.3485,
+         -1.5014
+        ],
+        [
+         1.388,
+         -1.5376
+        ],
+        [
+         1.4271,
+         -1.5826
+        ],
+        [
+         1.4659,
+         -1.6336
+        ],
+        [
+         1.5046,
+         -1.6872
+        ],
+        [
+         1.5433,
+         -1.74
+        ],
+        [
+         1.5822,
+         -1.7886
+        ],
+        [
+         1.6214,
+         -1.8299
+        ],
+        [
+         1.6612,
+         -1.8613
+        ],
+        [
+         1.7016,
+         -1.8808
+        ],
+        [
+         1.7426,
+         -1.8872
+        ],
+        [
+         1.7843,
+         -1.8802
+        ],
+        [
+         1.8266,
+         -1.8605
+        ],
+        [
+         1.8695,
+         -1.8295
+        ],
+        [
+         1.9128,
+         -1.7894
+        ],
+        [
+         1.9565,
+         -1.7431
+        ],
+        [
+         2.0003,
+         -1.6937
+        ]
+       ],
+       "profile": {
+        "amp_um": {
+         "first": 0.2,
+         "last": 0.2,
+         "number_list_len": 98,
+         "sha256_f32le_16": "a7bfdee1ddd0e898"
+        },
+        "arclen_um": 4.004997,
+        "axis_um": [
+         [
+          -2.0,
+          -1.5
+         ],
+         [
+          -1.95876,
+          -1.50206
+         ],
+         [
+          -1.91753,
+          -1.50412
+         ],
+         [
+          -1.87629,
+          -1.50619
+         ],
+         [
+          -1.83505,
+          -1.50825
+         ],
+         [
+          -1.79381,
+          -1.51031
+         ],
+         [
+          -1.75258,
+          -1.51237
+         ],
+         [
+          -1.71134,
+          -1.51443
+         ],
+         [
+          -1.6701,
+          -1.51649
+         ],
+         [
+          -1.62887,
+          -1.51856
+         ],
+         [
+          -1.58763,
+          -1.52062
+         ],
+         [
+          -1.54639,
+          -1.52268
+         ],
+         [
+          -1.50515,
+          -1.52474
+         ],
+         [
+          -1.46392,
+          -1.5268
+         ],
+         [
+          -1.42268,
+          -1.52887
+         ],
+         [
+          -1.38144,
+          -1.53093
+         ],
+         [
+          -1.34021,
+          -1.53299
+         ],
+         [
+          -1.29897,
+          -1.53505
+         ],
+         [
+          -1.25773,
+          -1.53711
+         ],
+         [
+          -1.21649,
+          -1.53918
+         ],
+         [
+          -1.17526,
+          -1.54124
+         ],
+         [
+          -1.13402,
+          -1.5433
+         ],
+         [
+          -1.09278,
+          -1.54536
+         ],
+         [
+          -1.05155,
+          -1.54742
+         ],
+         [
+          -1.01031,
+          -1.54948
+         ],
+         [
+          -0.96907,
+          -1.55155
+         ],
+         [
+          -0.92784,
+          -1.55361
+         ],
+         [
+          -0.8866,
+          -1.55567
+         ],
+         [
+          -0.84536,
+          -1.55773
+         ],
+         [
+          -0.80412,
+          -1.55979
+         ],
+         [
+          -0.76289,
+          -1.56186
+         ],
+         [
+          -0.72165,
+          -1.56392
+         ],
+         [
+          -0.68041,
+          -1.56598
+         ],
+         [
+          -0.63918,
+          -1.56804
+         ],
+         [
+          -0.59794,
+          -1.5701
+         ],
+         [
+          -0.5567,
+          -1.57216
+         ],
+         [
+          -0.51546,
+          -1.57423
+         ],
+         [
+          -0.47423,
+          -1.57629
+         ],
+         [
+          -0.43299,
+          -1.57835
+         ],
+         [
+          -0.39175,
+          -1.58041
+         ],
+         [
+          -0.35052,
+          -1.58247
+         ],
+         [
+          -0.30928,
+          -1.58454
+         ],
+         [
+          -0.26804,
+          -1.5866
+         ],
+         [
+          -0.2268,
+          -1.58866
+         ],
+         [
+          -0.18557,
+          -1.59072
+         ],
+         [
+          -0.14433,
+          -1.59278
+         ],
+         [
+          -0.10309,
+          -1.59485
+         ],
+         [
+          -0.06186,
+          -1.59691
+         ],
+         [
+          -0.02062,
+          -1.59897
+         ],
+         [
+          0.02062,
+          -1.60103
+         ],
+         [
+          0.06186,
+          -1.60309
+         ],
+         [
+          0.10309,
+          -1.60515
+         ],
+         [
+          0.14433,
+          -1.60722
+         ],
+         [
+          0.18557,
+          -1.60928
+         ],
+         [
+          0.2268,
+          -1.61134
+         ],
+         [
+          0.26804,
+          -1.6134
+         ],
+         [
+          0.30928,
+          -1.61546
+         ],
+         [
+          0.35052,
+          -1.61753
+         ],
+         [
+          0.39175,
+          -1.61959
+         ],
+         [
+          0.43299,
+          -1.62165
+         ],
+         [
+          0.47423,
+          -1.62371
+         ],
+         [
+          0.51546,
+          -1.62577
+         ],
+         [
+          0.5567,
+          -1.62784
+         ],
+         [
+          0.59794,
+          -1.6299
+         ],
+         [
+          0.63918,
+          -1.63196
+         ],
+         [
+          0.68041,
+          -1.63402
+         ],
+         [
+          0.72165,
+          -1.63608
+         ],
+         [
+          0.76289,
+          -1.63814
+         ],
+         [
+          0.80412,
+          -1.64021
+         ],
+         [
+          0.84536,
+          -1.64227
+         ],
+         [
+          0.8866,
+          -1.64433
+         ],
+         [
+          0.92784,
+          -1.64639
+         ],
+         [
+          0.96907,
+          -1.64845
+         ],
+         [
+          1.01031,
+          -1.65052
+         ],
+         [
+          1.05155,
+          -1.65258
+         ],
+         [
+          1.09278,
+          -1.65464
+         ],
+         [
+          1.13402,
+          -1.6567
+         ],
+         [
+          1.17526,
+          -1.65876
+         ],
+         [
+          1.21649,
+          -1.66082
+         ],
+         [
+          1.25773,
+          -1.66289
+         ],
+         [
+          1.29897,
+          -1.66495
+         ],
+         [
+          1.34021,
+          -1.66701
+         ],
+         [
+          1.38144,
+          -1.66907
+         ],
+         [
+          1.42268,
+          -1.67113
+         ],
+         [
+          1.46392,
+          -1.6732
+         ],
+         [
+          1.50515,
+          -1.67526
+         ],
+         [
+          1.54639,
+          -1.67732
+         ],
+         [
+          1.58763,
+          -1.67938
+         ],
+         [
+          1.62887,
+          -1.68144
+         ],
+         [
+          1.6701,
+          -1.68351
+         ],
+         [
+          1.71134,
+          -1.68557
+         ],
+         [
+          1.75258,
+          -1.68763
+         ],
+         [
+          1.79381,
+          -1.68969
+         ],
+         [
+          1.83505,
+          -1.69175
+         ],
+         [
+          1.87629,
+          -1.69381
+         ],
+         [
+          1.91753,
+          -1.69588
+         ],
+         [
+          1.95876,
+          -1.69794
+         ],
+         [
+          2.0,
+          -1.7
+         ]
+        ],
+        "closed": false,
+        "kind": "chiral",
+        "lambda_set_um": 1.0,
+        "lambda_um": 1.0,
+        "normal": [
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ],
+         [
+          0.049938,
+          0.998752
+         ]
+        ],
+        "periods": 4.004996878900156,
+        "phase_rad": 0.0,
+        "v0": 6.0,
+        "v_k": 1.0,
+        "y_amp_um": 0.2
+       },
+       "speed_um_s": 4.0,
+       "v_profile": {
+        "first": 6.0,
+        "last": 6.031,
+        "number_list_len": 98,
+        "sha256_f32le_16": "5cebdfa68e0fbe7d"
+       },
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "error": "chiral: lambda_um must be a finite number, got 'wide'; nothing was changed",
+    "field": "lambda_um",
+    "reason": "chiral_bad_setting"
+   },
+   "status": 200,
+   "step": "POST /api/design/chiral (bad number)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Chiral off: 1 path(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": false,
+     "indices": [
+      2
+     ]
+    },
+    "method": "POST",
+    "path": "/api/design/chiral"
+   },
+   "response": {
+    "clamp": null,
+    "design": {
+     "name": "door-test",
+     "objects": [
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           2.007596123493896,
+           1.4131759111665347
+          ],
+          "kind": "smooth",
+          "x": 1.6020163358212571,
+          "y": 0.8339479458269656
+         },
+         {
+          "h_in": [
+           2.992403876506104,
+           1.5868240888334653
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 3.397983664178743,
+          "y": 2.1660520541730346
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire-copy",
+       "points_um": [
+        [
+         1.602,
+         0.8339
+        ],
+        [
+         1.6846,
+         0.938
+        ],
+        [
+         1.779,
+         1.0337
+        ],
+        [
+         1.8836,
+         1.1223
+        ],
+        [
+         1.9967,
+         1.205
+        ],
+        [
+         2.1166,
+         1.2829
+        ],
+        [
+         2.2416,
+         1.3573
+        ],
+        [
+         2.5,
+         1.5
+        ],
+        [
+         2.7584,
+         1.6427
+        ],
+        [
+         2.8834,
+         1.7171
+        ],
+        [
+         3.0033,
+         1.795
+        ],
+        [
+         3.1164,
+         1.8777
+        ],
+        [
+         3.221,
+         1.9663
+        ],
+        [
+         3.3154,
+         2.062
+        ],
+        [
+         3.398,
+         2.1661
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": false,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": [
+           0.5,
+           0.5
+          ],
+          "kind": "smooth",
+          "x": 0.0,
+          "y": 0.0
+         },
+         {
+          "h_in": [
+           1.5,
+           0.5
+          ],
+          "h_out": null,
+          "kind": "smooth",
+          "x": 2.0,
+          "y": 1.0
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0994,
+         0.0881
+        ],
+        [
+         0.209,
+         0.166
+        ],
+        [
+         0.3274,
+         0.2351
+        ],
+        [
+         0.4531,
+         0.2969
+        ],
+        [
+         0.5847,
+         0.3528
+        ],
+        [
+         0.7207,
+         0.4043
+        ],
+        [
+         1.0,
+         0.5
+        ],
+        [
+         1.2793,
+         0.5957
+        ],
+        [
+         1.4153,
+         0.6472
+        ],
+        [
+         1.5469,
+         0.7031
+        ],
+        [
+         1.6726,
+         0.7649
+        ],
+        [
+         1.791,
+         0.834
+        ],
+        [
+         1.9006,
+         0.9119
+        ],
+        [
+         2.0,
+         1.0
+        ]
+       ],
+       "speed_um_s": 3.0,
+       "v_profile": null,
+       "voltage": 7.5,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "door-test-2",
+       "points_um": [
+        [
+         -2.0,
+         -1.5
+        ],
+        [
+         2.0,
+         -1.7
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      },
+      {
+       "bezier": {
+        "closed": true,
+        "nodes": [
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": 1.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": 0.5,
+          "y": -0.5
+         },
+         {
+          "h_in": null,
+          "h_out": null,
+          "kind": "cusp",
+          "x": -1.5,
+          "y": -0.5
+         }
+        ]
+       },
+       "enabled": true,
+       "fill_spacing_um": 0.25,
+       "kind": "shape",
+       "name": "door-test-1",
+       "points_um": [
+        [
+         -1.5,
+         1.5
+        ],
+        [
+         0.5,
+         1.5
+        ],
+        [
+         0.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         -0.5
+        ],
+        [
+         -1.5,
+         1.5
+        ]
+       ],
+       "speed_um_s": 4.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/design/chiral (disable)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/litho/estimate"
+   },
+   "response": {
+    "objects": [
+     {
+      "enabled": true,
+      "id": "wire-copy",
+      "length_um": 2.256,
+      "seconds": 1.138,
+      "speed_um_s": 2.0
+     },
+     {
+      "enabled": true,
+      "id": "wire",
+      "length_um": 2.256,
+      "seconds": 0.759,
+      "speed_um_s": 3.0
+     },
+     {
+      "enabled": true,
+      "id": "door-test-2",
+      "length_um": 4.005,
+      "seconds": 1.008,
+      "speed_um_s": 4.0
+     },
+     {
+      "enabled": true,
+      "id": "door-test-1",
+      "length_um": 29.968,
+      "seconds": 7.552,
+      "speed_um_s": 4.0
+     }
+    ],
+    "total_s": 45.458,
+    "trajectory_s": 10.458
+   },
+   "status": 200,
+   "step": "GET /api/litho/estimate (with design)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "POST",
+    "path": "/api/litho/toolpath"
+   },
+   "response": {
+    "segments": [
+     {
+      "name": "wire-copy",
+      "object": "wire-copy",
+      "path_um": [
+       [
+        1.6020163358212571,
+        0.8339479458269655
+       ],
+       [
+        1.6918921463119532,
+        0.9454240005051316
+       ],
+       [
+        1.8896353669853139,
+        1.1267392849300057
+       ],
+       [
+        2.1259609302033486,
+        1.2884812498909475
+       ],
+       [
+        3.009169325031099,
+        1.7992968762713422
+       ],
+       [
+        3.220006104767678,
+        1.9654248656106161
+       ],
+       [
+        3.397983664178743,
+        2.1660520541730346
+       ]
+      ],
+      "voltage": 6.0,
+      "volts": [
+       6.0,
+       6.0,
+       6.0,
+       6.0,
+       6.0,
+       6.0,
+       0.0
+      ]
+     },
+     {
+      "name": "wire",
+      "object": "wire",
+      "path_um": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.10786800872785605,
+        0.09417571221422279
+       ],
+       [
+        0.33409213427612605,
+        0.23839866013953373
+       ],
+       [
+        0.5949135786359597,
+        0.35664589783157535
+       ],
+       [
+        1.553406256032542,
+        0.7063335587888023
+       ],
+       [
+        1.7898877739454881,
+        0.8333262680960272
+       ],
+       [
+        2.0,
+        1.0
+       ]
+      ],
+      "voltage": 7.5,
+      "volts": [
+       7.5,
+       7.5,
+       7.5,
+       7.5,
+       7.5,
+       7.5,
+       0.0
+      ]
+     },
+     {
+      "name": "door-test-2",
+      "object": "door-test-2",
+      "path_um": [
+       [
+        -2.0,
+        -1.5
+       ],
+       [
+        2.0,
+        -1.7
+       ]
+      ],
+      "voltage": 6.0,
+      "volts": [
+       6.0,
+       0.0
+      ]
+     },
+     {
+      "name": "door-test-1",
+      "object": "door-test-1",
+      "path_um": [
+       [
+        -1.4999999999999998,
+        -0.5
+       ],
+       [
+        0.49798633048293783,
+        -0.4997482913103672
+       ],
+       [
+        -1.4885830924614598,
+        -0.25142711344231755
+       ],
+       [
+        0.49052358392527995,
+        -0.25
+       ],
+       [
+        -1.4966423557360995,
+        -0.00041970553298746886
+       ],
+       [
+        0.49864556614797273,
+        0.0
+       ],
+       [
+        -1.4952617919626405,
+        0.25000000000000006
+       ],
+       [
+        0.49328471147219805,
+        0.2508394110659752
+       ],
+       [
+        -1.487139809739947,
+        0.5000000000000001
+       ],
+       [
+        0.4952617919626408,
+        0.5000000000000001
+       ],
+       [
+        -1.498645566147971,
+        0.7499999999999999
+       ],
+       [
+        0.49664235573609816,
+        0.7504197055329879
+       ],
+       [
+        -1.4905235839252806,
+        1.0
+       ],
+       [
+        0.4885830924614583,
+        1.0014271134423176
+       ],
+       [
+        -1.4979863304829393,
+        1.249748291310367
+       ],
+       [
+        0.5,
+        1.25
+       ]
+      ],
+      "voltage": 8.0,
+      "volts": [
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       0.0
+      ]
+     }
+    ]
+   },
+   "status": 200,
+   "step": "POST /api/litho/toolpath"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design saved as door-test (4 objects)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "name": "door-test"
+    },
+    "method": "POST",
+    "path": "/api/design/save"
+   },
+   "response": {
+    "name": "door-test",
+    "object_count": 4,
+    "ok": true,
+    "overwrote": false,
+    "saved_at": "<masked>"
+   },
+   "status": 200,
+   "step": "POST /api/design/save"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design saved as door-test (4 objects), replacing the earlier file",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "name": "door-test"
+    },
+    "method": "POST",
+    "path": "/api/design/save"
+   },
+   "response": {
+    "name": "door-test",
+    "object_count": 4,
+    "ok": true,
+    "overwrote": true,
+    "saved_at": "<masked>"
+   },
+   "status": 200,
+   "step": "POST /api/design/save (overwrite)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "name": ""
+    },
+    "method": "POST",
+    "path": "/api/design/save"
+   },
+   "response": {
+    "error": "a design needs a name",
+    "param": "name",
+    "reason": "bad_name"
+   },
+   "status": 200,
+   "step": "POST /api/design/save (empty name)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/files"
+   },
+   "response": {
+    "designs": [
+     {
+      "name": "door-test",
+      "object_count": 4,
+      "saved_at": "<masked>"
+     }
+    ],
+    "ok": true
+   },
+   "status": 200,
+   "step": "GET /api/design/files (one saved)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "mode": "bogus",
+     "name": "door-test"
+    },
+    "method": "POST",
+    "path": "/api/design/open"
+   },
+   "response": {
+    "error": "mode must be \"add\" or \"replace\"",
+    "param": "mode",
+    "reason": "bad_mode"
+   },
+   "status": 200,
+   "step": "POST /api/design/open (bad mode)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "name": "no-such"
+    },
+    "method": "POST",
+    "path": "/api/design/open"
+   },
+   "response": {
+    "error": "there is no saved design named no-such",
+    "param": "name",
+    "reason": "not_found"
+   },
+   "status": 200,
+   "step": "POST /api/design/open (unknown name)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design door-test opened (replace): 4 objects; the earlier design is kept as _previous",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "replace",
+     "name": "door-test"
+    },
+    "method": "POST",
+    "path": "/api/design/open"
+   },
+   "response": {
+    "frame_differs": false,
+    "frame_now": {
+     "litho": {
+      "angle_deg": 0.0,
+      "fast_offset_um": 0.0,
+      "fast_size_um": 0.0,
+      "slow_offset_um": 0.0,
+      "slow_size_um": 0.0
+     },
+     "scan": {
+      "angle_deg": 0.0,
+      "size_um": 5.0,
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     }
+    },
+    "frame_saved": {
+     "litho": {
+      "angle_deg": 0.0,
+      "fast_offset_um": 0.0,
+      "fast_size_um": 0.0,
+      "slow_offset_um": 0.0,
+      "slow_size_um": 0.0
+     },
+     "scan": {
+      "angle_deg": 0.0,
+      "size_um": 5.0,
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     }
+    },
+    "left_out": [],
+    "missing_ports": [],
+    "mode": "replace",
+    "name": "door-test",
+    "object_count": 4,
+    "objects": [
+     {
+      "name": "wire-copy",
+      "renamed": false,
+      "saved_name": "wire-copy"
+     },
+     {
+      "name": "wire",
+      "renamed": false,
+      "saved_name": "wire"
+     },
+     {
+      "name": "door-test-2",
+      "renamed": false,
+      "saved_name": "door-test-2"
+     },
+     {
+      "name": "door-test-1",
+      "renamed": false,
+      "saved_name": "door-test-1"
+     }
+    ],
+    "ok": true,
+    "previous_saved": true,
+    "total_objects": 4
+   },
+   "status": 200,
+   "step": "POST /api/design/open (replace)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design door-test opened (add): 4 objects, 4 renamed",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "name": "door-test"
+    },
+    "method": "POST",
+    "path": "/api/design/open"
+   },
+   "response": {
+    "frame_differs": false,
+    "frame_now": {
+     "litho": {
+      "angle_deg": 0.0,
+      "fast_offset_um": 0.0,
+      "fast_size_um": 0.0,
+      "slow_offset_um": 0.0,
+      "slow_size_um": 0.0
+     },
+     "scan": {
+      "angle_deg": 0.0,
+      "size_um": 5.0,
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     }
+    },
+    "frame_saved": {
+     "litho": {
+      "angle_deg": 0.0,
+      "fast_offset_um": 0.0,
+      "fast_size_um": 0.0,
+      "slow_offset_um": 0.0,
+      "slow_size_um": 0.0
+     },
+     "scan": {
+      "angle_deg": 0.0,
+      "size_um": 5.0,
+      "x_offset_um": 0.0,
+      "y_offset_um": 0.0
+     }
+    },
+    "left_out": [],
+    "missing_ports": [],
+    "mode": "add",
+    "name": "door-test",
+    "object_count": 4,
+    "objects": [
+     {
+      "name": "wire-copy-2",
+      "renamed": true,
+      "saved_name": "wire-copy"
+     },
+     {
+      "name": "wire-2",
+      "renamed": true,
+      "saved_name": "wire"
+     },
+     {
+      "name": "door-test-2-2",
+      "renamed": true,
+      "saved_name": "door-test-2"
+     },
+     {
+      "name": "door-test-1-2",
+      "renamed": true,
+      "saved_name": "door-test-1"
+     }
+    ],
+    "ok": true,
+    "previous_saved": false,
+    "total_objects": 8
+   },
+   "status": 200,
+   "step": "POST /api/design/open (add)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/background/channels"
+   },
+   "response": {
+    "channels": [
+     "height"
+    ],
+    "stem": "<scan-stamp>"
+   },
+   "status": 200,
+   "step": "GET /api/design/background/channels (after a scan)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design background updated: <scan-stamp>_height_door-test.svg <- <scan-stamp>_height.png (5 um)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "channel": "height"
+    },
+    "method": "POST",
+    "path": "/api/design/background"
+   },
+   "response": {
+    "channel": "height",
+    "ok": true,
+    "path": "<RUNTIME>/scans/svg/<scan-stamp>_height_door-test.svg"
+   },
+   "status": 200,
+   "step": "POST /api/design/background"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "channel": "phase"
+    },
+    "method": "POST",
+    "path": "/api/design/background"
+   },
+   "response": {
+    "detail": "no 'phase' scan PNG yet -- the latest scan (<scan-stamp>) has: height"
+   },
+   "status": 400,
+   "step": "POST /api/design/background (400: no such channel)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design background updated: <scan-stamp>_height_door-test.svg <- <scan-stamp>_height.png (5 um)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/design/background"
+   },
+   "response": {
+    "channel": "height",
+    "ok": true,
+    "path": "<RUNTIME>/scans/svg/<scan-stamp>_height_door-test.svg"
+   },
+   "status": 200,
+   "step": "POST /api/design/background (no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Deleted 8 object(s): wire-copy, wire, door-test-2, door-test-1…",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "op": "delete"
+    },
+    "method": "POST",
+    "path": "/api/design/op"
+   },
+   "response": {
+    "design": {
+     "name": "door-test",
+     "objects": []
+    },
+    "message": "Deleted 8 object(s): wire-copy, wire, door-test-2, door-test-1…",
+    "ok": true,
+    "selection": [],
+    "undo_steps": 10
+   },
+   "status": 200,
+   "step": "POST /api/design/op delete (several)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "source": "no-such-design"
+    },
+    "method": "POST",
+    "path": "/api/litho/load"
+   },
+   "response": {
+    "error": "no such design: no-such-design"
+   },
+   "status": 200,
+   "step": "POST /api/litho/load (unknown source)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design loaded from auto-router (40 contacts): auto-device (8 objects)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/litho/load"
+   },
+   "response": {
+    "name": "auto-device",
+    "objects": [
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-source",
+      "points_um": [
+       [
+        -40.8807,
+        -5.5724
+       ],
+       [
+        -4.8089,
+        -2.1495
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-drain",
+      "points_um": [
+       [
+        39.2272,
+        2.0291
+       ],
+       [
+        3.1554,
+        -1.3938
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "wire",
+      "points_um": [
+       [
+        -4.8089,
+        -2.1495
+       ],
+       [
+        3.1554,
+        -1.3938
+       ]
+      ],
+      "speed_um_s": 2.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-probe-1",
+      "points_um": [
+       [
+        10.8324,
+        34.944
+       ],
+       [
+        -3.3268,
+        1.1911
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "probe-1",
+      "points_um": [
+       [
+        -3.3268,
+        1.1911
+       ],
+       [
+        -3.3268,
+        -2.0089
+       ]
+      ],
+      "speed_um_s": 2.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-probe-2",
+      "points_um": [
+       [
+        17.2822,
+        32.4282
+       ],
+       [
+        1.6732,
+        1.6656
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "probe-2",
+      "points_um": [
+       [
+        1.6732,
+        1.6656
+       ],
+       [
+        1.6732,
+        -1.5344
+       ]
+      ],
+      "speed_um_s": 2.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "erase-barrier",
+      "points_um": [
+       [
+        -0.8268,
+        -0.5716
+       ],
+       [
+        -0.8268,
+        -2.9716
+       ]
+      ],
+      "speed_um_s": 1.5,
+      "v_profile": null,
+      "voltage": -8.0,
+      "voltage_end": null
+     }
+    ]
+   },
+   "status": 200,
+   "step": "POST /api/litho/load (auto, no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": 0.0010846170017877637,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": 0.0010846170017877637,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (final)"
+  }
+ ],
+ "group": "design_edit"
+}

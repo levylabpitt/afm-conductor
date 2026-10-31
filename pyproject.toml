@@ -1,0 +1,133 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "afm-conductor"
+version = "0.0.1"
+description = "Pass-based unified c-AFM lithography: digital twin, Asylum/ARC driver, OASIS compiler, session-recording service"
+license = "BSD-3-Clause"
+requires-python = ">=3.11"
+dependencies = [
+    "nptdms",
+    "numpy",
+    "scipy",
+    "fastapi",
+    "uvicorn",
+    # The front panel is entirely WebSocket-driven (telemetry, scan lines,
+    # write progress, log). Plain uvicorn has no WebSocket implementation,
+    # so without this the panel loads and then sits dead.
+    "websockets",
+]
+
+[project.scripts]
+afm-conductor = "afm_litho.keeper.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff==0.17.1",
+    # fastapi's TestClient (via starlette) imports httpx; without it the
+    # service tests fail to even collect on a clean machine. Test-only, so it
+    # belongs here rather than in the runtime dependencies.
+    "httpx",
+    # coverage measurement (`coverage run -m pytest` / `pytest --cov`). Used to
+    # find untested endpoints before the app.py -> routers split.
+    "coverage",
+    "pytest-cov",
+    # per-test timeout and parallel runs (slice 0.0, suite health).
+    "pytest-timeout",
+    "pytest-xdist",
+    # edit-cockpit browser tests (tests/usertwin/); then `python -m playwright install chromium`.
+    "playwright",
+    # the cockpit browser tests drive the FLEX door over ZMQ; without it 34 skip.
+    "pyzmq",
+    # tools/make_local_cert.py and tests/test_local_cert.py build X.509 certificates.
+    "cryptography",
+]
+geometry = [
+    "klayout",
+]
+# The windowed application. Without pywebview the app still runs and opens
+# the default browser, so this is genuinely optional at runtime -- but the
+# packaged build needs it, and packaging/build.ps1 installs it.
+desktop = [
+    "pywebview",
+    "pyinstaller",
+]
+# The real-instrument bridge (afm_litho.hardware): drives Igor 6.38 on the AFM
+# PC over its ActiveX/COM automation server. Windows + instrument only; every
+# higher layer develops against the twin, and the bridge imports win32com
+# lazily, so this stays optional and off the dev/test path.
+hardware = [
+    "pywin32",
+    "pyserial",   # VDT2 serial data-out from Igor (scripts/test_serial_stream.py)
+]
+# The FLEX provider's transport (afm_litho.service.flex_provider): ZMQ REQ/REP
+# sockets. Optional at runtime; the dev extra also carries it.
+flex = [
+    "pyzmq",
+]
+# Old name of `flex`, kept so existing install lines (`.[hardware,measure]`) still work.
+measure = [
+    "pyzmq",
+]
+
+[tool.pytest.ini_options]
+# An xfail that starts passing fails the run, so an unplanned fix is loud.
+xfail_strict = true
+# A hung test must not hold a suite for ever. Windows has only the thread method.
+timeout = 180
+timeout_method = "thread"
+markers = ["time_sensitive: runs on the real-time clock (an abort or timer set by another real thread lands during a wait)", "safety_core: stays in the fast run (abort, park, dead-man, interlock goldens and two safety tests)", "slow: heavy group (goldens, journal replays, safe-state matrix, browser tests); skip with -m 'not slow'"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Data that has to travel with the code: the front panel.
+[tool.setuptools.package-data]
+"afm_litho.web" = ["*.js", "*.css", "*.html", "fonts/*.ttf", "fonts/*.txt"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Ruff 0.17.1 enables a broad default set. Style/modernisation rules the codebase
+# does not follow are dropped here; bug and safety classes (F, B, BLE001, S110,
+# S112, PLW1510, SIM115, PLR0124) stay on and are never ignored globally.
+extend-ignore = [
+    "I001",    # import sorting: repo has never been isort-ordered
+    "UP037",   # quoted annotations: harmless, widespread
+    "UP035",   # deprecated typing imports: style
+    "UP041",   # TimeoutError alias: style
+    "UP017",   # datetime.UTC: style
+    "UP031",   # printf-style formatting: style
+    "RUF046",  # redundant int() around round/floor: style
+    "RUF059",  # unused unpacked variable: tuple-unpack idiom
+    "RUF022",  # sorted __all__: curated order is deliberate
+    "RUF023",  # sorted __slots__: style
+    "RUF007",  # zip vs pairwise: style
+    "RUF100",  # unused noqa: stale noqa is hygiene, not a bug
+    "FURB167", # re flag aliases (re.I vs IGNORECASE): style
+    "FURB188", # removeprefix/suffix: style
+    "FURB122", # for-loop writes: style
+    "ISC004",  # implicit concat in collection literal: used for long strings
+    "PIE804",  # unnecessary dict kwargs: test style
+    "PLR0402", # manual from-import: style
+    "PLR1711", # useless return: style
+    "SIM102",  # collapsible if: style
+    "SIM103",  # needless bool: style
+    "SIM117",  # multiple with statements: style
+    "PYI034",  # __enter__ return type: style
+    "RET501",  # explicit return None: style
+    "C408",    # dict()/list() calls: style
+    "TRY004",  # TypeError vs ValueError choice: style
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Rig and diagnostic scripts are interactive; swallowing errors there cannot
+# affect a running pass.
+"scripts/**" = ["BLE001", "S110", "S112", "PLW1510"]
+"tools/**" = ["PLW1510"]
+# Tests probe failure paths and shell out to node/openssl; exit codes are asserted elsewhere.
+"tests/**" = ["BLE001", "PLW1510"]

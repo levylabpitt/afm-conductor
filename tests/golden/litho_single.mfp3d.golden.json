@@ -1,0 +1,60 @@
+{
+ "door": "flex",
+ "fixture": {
+  "igor_values.json": "f5309e5e82bea16183a66098fe92c1c3ffeb32718521cde3fdb8b4d665b14fe2",
+  "instrument.toml": "fcd34371cbb13348b963ee0a2111eaedb10df6356e0b1593c0042539449da90f"
+ },
+ "format": 2,
+ "ipf_sha256": {
+  "igor/afm_igor.ipf": "f872d554da9633006288fe88b670d40929d005ce030f19ecb5918e5855adfd05",
+  "igor/afm_litho_run.ipf": "303ff69ebf767486f2e20c745fc4c75f705244d50be9a5184a497dbddc306f8d",
+  "igor/afm_sockit.ipf": "e7041374992885d45d699caa8cc94f3b91732ff302047dd6e7b0899ea09f6cf0"
+ },
+ "known_defects": [],
+ "microscope_id": 1,
+ "scenario": "litho_single",
+ "wire": {
+  "actuation": [
+   "CLEARFAULT",
+   "SERVOLOOP 2 Deflection -10 0 1000 Height 0 150",
+   "SERVOLOOP 0 XSensor 0 0 0 Output.X -10 150",
+   "SERVOLOOP 1 YSensor 0 0 0 Output.Y -10 150",
+   "WAVE wave(XYTransitA,n=237,first=0,last=-0.629999995,sha=eef986ee73cb5a6c)",
+   "WAVE wave(XYTransitB,n=237,first=0,last=0.0700000003,sha=ef78a3b1450bee4a)",
+   "OUTPAIR 0 0 PIDSLoop.0.Setpoint XYTransitA PIDSLoop.1.Setpoint XYTransitB -200",
+   "INPAIR 0 0 XSensor YSensor 256 200",
+   "FIRE a1 XYTransit 0",
+   "@FILL",
+   "SERVOLOOP 2 Deflection 0 0 1200 Height",
+   "WAVE wave(XLitho,n=32,first=-0.629999995,last=-0.589785516,sha=41a6370ee7309d8f)",
+   "WAVE wave(YLitho,n=32,first=0.0700000003,last=0.0700000003,sha=ac7791b36f57b328)",
+   "WAVE wave(VLitho,n=32,first=0.200000003,last=0,sha=d146df07a6ca9207)",
+   "ARMFIRE a2 wire -500 32 500",
+   "@FILL",
+   "SERVOLOOP 2 Deflection -10 0 1200 Height",
+   "SERVOLOOP 2 Deflection -10 0 1000 Height 0 150"
+  ],
+  "reads": [
+   "ABORTFAULT",
+   "GETGV XLVDTOffset",
+   "GETGV XLVDTSens",
+   "GETGV YLVDTOffset",
+   "GETGV YLVDTSens",
+   "GETVALUE Deflection",
+   "GETVALUE DeflectionValue",
+   "GETVALUE DetectorSum",
+   "GETVALUE Height",
+   "GETVALUE PIDSLoop.0.Status",
+   "GETVALUE PIDSLoop.1.Status",
+   "GETVALUE PIDSLoop.2.Status",
+   "GETVALUE PIDSLoop.3.Status",
+   "GETVALUE PIDSLoop.4.Status",
+   "GETVALUE PIDSLoop.5.Status",
+   "GETVALUE XSensor",
+   "GETVALUE YSensor",
+   "GETVALUE height",
+   "READXPT Crosspoint",
+   "STARTUP 2"
+  ]
+ }
+}

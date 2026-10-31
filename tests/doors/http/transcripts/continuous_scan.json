@@ -1,0 +1,532 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": null,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 4.0
+    },
+    "started_at": null,
+    "stopped_reason": null
+   },
+   "status": 200,
+   "step": "GET /api/scan/continuous (off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Continuous imaging: off",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "count": 0,
+     "elapsed_s": "<masked>",
+     "enabled": false,
+     "stopped_reason": "disabled",
+     "type": "continuous"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": false
+    },
+    "method": "POST",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": null,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 4.0
+    },
+    "started_at": null,
+    "stopped_reason": "disabled"
+   },
+   "status": 200,
+   "step": "POST /api/scan/continuous (off, already off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "enabled": true
+    },
+    "method": "POST",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "error": "no scan config -- start a scan (or send `config`) first, then enable continuous imaging"
+   },
+   "status": 200,
+   "step": "POST /api/scan/continuous (on, no config)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Relative setpoint: on (settle 0.5 s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "effective_v": null,
+     "enabled": true,
+     "free_air_v": null,
+     "settle_s": 0.5,
+     "type": "relative_setpoint"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": true,
+     "settle_s": 0.5
+    },
+    "method": "POST",
+    "path": "/api/scan/relative"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": null,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": true,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 0.5
+    },
+    "started_at": null,
+    "stopped_reason": "disabled"
+   },
+   "status": 200,
+   "step": "POST /api/scan/relative (on)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Relative setpoint: off (settle 0.5 s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "effective_v": null,
+     "enabled": false,
+     "free_air_v": null,
+     "settle_s": 0.5,
+     "type": "relative_setpoint"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": false
+    },
+    "method": "POST",
+    "path": "/api/scan/relative"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": null,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 0.5
+    },
+    "started_at": null,
+    "stopped_reason": "disabled"
+   },
+   "status": 200,
+   "step": "POST /api/scan/relative (off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Relative setpoint: off (settle 0.5 s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "effective_v": null,
+     "enabled": false,
+     "free_air_v": null,
+     "settle_s": 0.5,
+     "type": "relative_setpoint"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/scan/relative"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": null,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 0.5
+    },
+    "started_at": null,
+    "stopped_reason": "disabled"
+   },
+   "status": 200,
+   "step": "POST /api/scan/relative (no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.00074777206341474,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": -0.00074777206341474,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (baseline)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "count": 4,
+     "type": "continuous"
+    },
+    {
+     "count": 8,
+     "type": "line"
+    },
+    {
+     "count": 12,
+     "type": "log"
+    },
+    {
+     "count": 1,
+     "type": "safe_park"
+    },
+    {
+     "count": 2,
+     "type": "scan_done"
+    },
+    {
+     "count": 2,
+     "type": "sessions_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "config": {
+      "line_rate_hz": 200.0,
+      "lines": 4,
+      "mode": "contact",
+      "pixels": 16,
+      "size_um": 5.0
+     },
+     "enabled": true,
+     "interval_s": 0.0,
+     "max_frames": 2
+    },
+    "method": "POST",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "count": 0,
+    "elapsed_s": "<masked>",
+    "enabled": true,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": 2,
+    "max_seconds": null,
+    "rail": {
+     "armed": true,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": null,
+     "line_frac": null,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 0.5
+    },
+    "started_at": "<masked>",
+    "stopped_reason": null
+   },
+   "status": 200,
+   "step": "POST /api/scan/continuous (arm, 2 frames)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "count": 2,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": 2,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": 3,
+     "line_frac": 0.0,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 0.5
+    },
+    "started_at": "<masked>",
+    "stopped_reason": "max_frames"
+   },
+   "status": 200,
+   "step": "GET /api/scan/continuous (after run)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Continuous imaging: off",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "count": 2,
+     "elapsed_s": "<masked>",
+     "enabled": false,
+     "stopped_reason": "disabled",
+     "type": "continuous"
+    }
+   ],
+   "request": {
+    "body": {
+     "enabled": false
+    },
+    "method": "POST",
+    "path": "/api/scan/continuous"
+   },
+   "response": {
+    "count": 2,
+    "elapsed_s": "<masked>",
+    "enabled": false,
+    "errors": 0,
+    "interval_s": 0.0,
+    "max_frames": 2,
+    "max_seconds": null,
+    "rail": {
+     "armed": false,
+     "consec": 0,
+     "consec_limit": 5,
+     "frame_frac": 0.0,
+     "frame_frac_limit": 0.5,
+     "last_row": 3,
+     "line_frac": 0.0,
+     "tripped": null,
+     "v_hi": 140.0,
+     "v_lo": 0.0
+    },
+    "relative": {
+     "enabled": false,
+     "last_effective_v": null,
+     "last_free_air_v": null,
+     "settle_s": 0.5
+    },
+    "started_at": "<masked>",
+    "stopped_reason": "disabled"
+   },
+   "status": 200,
+   "step": "POST /api/scan/continuous (stop)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.0006817199540021083,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": -0.0006817199540021083,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (final)"
+  }
+ ],
+ "group": "continuous_scan"
+}

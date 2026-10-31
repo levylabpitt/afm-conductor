@@ -1,0 +1,1681 @@
+[
+  {
+    "reply": {
+      "id": "1",
+      "jsonrpc": "2.0",
+      "result": "ACK"
+    },
+    "request": {
+      "id": "1",
+      "jsonrpc": "2.0",
+      "method": "ACK"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "2",
+      "jsonrpc": "2.0",
+      "result": {
+        "Backend": "twin",
+        "Firmware": "0.0.1",
+        "Manufacturer": "Levy Lab",
+        "Model": "afm-litho",
+        "Serial Number": "twin"
+      }
+    },
+    "request": {
+      "id": "2",
+      "jsonrpc": "2.0",
+      "method": "IDN"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "3",
+      "jsonrpc": "2.0",
+      "result": [
+        "ACK",
+        "HELP",
+        "IDN",
+        "abort",
+        "abortWrite",
+        "acquireControl",
+        "getCapabilities",
+        "getEstimate",
+        "getInstrument",
+        "getLastPark",
+        "getMode",
+        "getPattern",
+        "getScanResult",
+        "getState",
+        "getStatus",
+        "getTelemetry",
+        "getWriteResult",
+        "getWritten",
+        "heartbeat",
+        "loadPattern",
+        "releaseControl",
+        "safePark",
+        "setContinuous",
+        "setMode",
+        "setObjects",
+        "setZGain",
+        "startApproach",
+        "startScan",
+        "startWrite",
+        "withdraw"
+      ]
+    },
+    "request": {
+      "id": "3",
+      "jsonrpc": "2.0",
+      "method": "HELP"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "4",
+      "jsonrpc": "2.0",
+      "result": "idle"
+    },
+    "request": {
+      "id": "4",
+      "jsonrpc": "2.0",
+      "method": "getState"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "5",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": null,
+        "deadman_armed": true,
+        "detail": null,
+        "progress": null,
+        "run_id": null,
+        "run_kind": null,
+        "safe_park": {
+          "active": false,
+          "critical": false,
+          "reason": null,
+          "transport": null,
+          "verified": null
+        },
+        "state": "idle"
+      }
+    },
+    "request": {
+      "id": "5",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "6",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "in_banks": 3,
+        "inline_cap_bytes": 2097152,
+        "is_cypher": false,
+        "max_outwave_points": 87000,
+        "method_bounds": {
+          "ACK": 0.005,
+          "HELP": 0.02,
+          "IDN": 0.02,
+          "abort": 10.0,
+          "abortWrite": 10.0,
+          "acquireControl": 0.05,
+          "getCapabilities": 0.02,
+          "getEstimate": 0.1,
+          "getInstrument": 0.05,
+          "getLastPark": 0.05,
+          "getMode": 0.05,
+          "getPattern": 0.1,
+          "getScanResult": 0.2,
+          "getState": 0.05,
+          "getStatus": 0.05,
+          "getTelemetry": 0.02,
+          "getWriteResult": 0.2,
+          "getWritten": 0.1,
+          "heartbeat": 0.05,
+          "loadPattern": 2.0,
+          "releaseControl": 0.05,
+          "safePark": 10.0,
+          "setContinuous": 5.0,
+          "setMode": 2.0,
+          "setObjects": 2.0,
+          "setZGain": 1.0,
+          "startApproach": 1.0,
+          "startScan": 1.0,
+          "startWrite": 1.0,
+          "withdraw": 6.5
+        },
+        "microscope_id": null,
+        "modes": [
+          "contact",
+          "ac"
+        ],
+        "ports": {
+          "command": "<PORT>",
+          "read": "<PORT>"
+        },
+        "twin_only": [
+          "force_curve",
+          "tune_thermal",
+          "tune_sweep",
+          "td_ReadString",
+          "td_WriteString",
+          "td_StopOutWaveBank",
+          "td_StopInWaveBank"
+        ]
+      }
+    },
+    "request": {
+      "id": "6",
+      "jsonrpc": "2.0",
+      "method": "getCapabilities"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "7",
+      "jsonrpc": "2.0",
+      "result": {
+        "ac_setpoint_fraction_band": {
+          "source": "platform_default",
+          "value": [
+            0.3,
+            0.95
+          ]
+        },
+        "config_path": "<RUNTIME>\\instrument.toml",
+        "contact_setpoint_band_v": {
+          "source": "platform_default",
+          "value": [
+            0.0,
+            1.0
+          ]
+        },
+        "dac_rail_v": {
+          "source": "platform_default",
+          "value": 10.0
+        },
+        "free_air": null,
+        "free_air_abs_band_v": {
+          "source": "platform_default",
+          "value": 0.02
+        },
+        "free_air_max_age_s": {
+          "source": "platform_default",
+          "value": 30
+        },
+        "interlock_s": {
+          "source": "platform_default",
+          "value": 5.0
+        },
+        "last_park": null,
+        "last_scan_params": {},
+        "last_write_params": {},
+        "overrides_tail": [],
+        "platform": {
+          "source": "platform_default",
+          "value": "twin"
+        },
+        "sum_ceiling_frac": {
+          "source": "platform_default",
+          "value": 0.9
+        },
+        "sum_floor_v": {
+          "source": "platform_default",
+          "value": 0.5
+        },
+        "tip_amp_gain": {
+          "source": "platform_default",
+          "value": 25.0
+        },
+        "tip_voltage_window_v": {
+          "source": "override",
+          "value": [
+            -8.0,
+            30.0
+          ]
+        },
+        "write_setpoint_relative_v": {
+          "source": "platform_default",
+          "value": 0.1
+        },
+        "xy_cal": {
+          "error": null,
+          "refreshed_at": null,
+          "source": null,
+          "unsupported": false,
+          "x_lvdt_offset": null,
+          "x_lvdt_sens": null,
+          "y_lvdt_offset": null,
+          "y_lvdt_sens": null
+        },
+        "xy_range_um": {
+          "source": "platform_default",
+          "value": [
+            90.0,
+            90.0
+          ]
+        },
+        "z_out_channel": {
+          "source": "platform_default",
+          "value": "Height"
+        },
+        "z_park_tol_v": {
+          "source": "platform_default",
+          "value": 0.5
+        },
+        "z_park_v": {
+          "source": "platform_default",
+          "value": 0.0
+        },
+        "z_rail_v": {
+          "source": "platform_default",
+          "value": 140.0
+        },
+        "z_verify_channels": {
+          "source": "platform_default",
+          "value": [
+            "ZSensor",
+            "Deflection"
+          ]
+        }
+      }
+    },
+    "request": {
+      "id": "7",
+      "jsonrpc": "2.0",
+      "method": "getInstrument"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "8",
+      "jsonrpc": "2.0",
+      "result": {}
+    },
+    "request": {
+      "id": "8",
+      "jsonrpc": "2.0",
+      "method": "getLastPark"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "9",
+      "jsonrpc": "2.0",
+      "result": {
+        "objects": [],
+        "total_s": 0.0,
+        "trajectory_s": 0.0
+      }
+    },
+    "request": {
+      "id": "9",
+      "jsonrpc": "2.0",
+      "method": "getEstimate"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "10",
+      "jsonrpc": "2.0",
+      "result": {
+        "age_s": "<TIME>",
+        "amp_v": "<LIVE>",
+        "backend": "twin",
+        "defl_v": "<LIVE>",
+        "row": null,
+        "sum_v": "<LIVE>",
+        "t": "<TIME>",
+        "x_um": "<LIVE>",
+        "y_um": "<LIVE>",
+        "zdrive_v": "<LIVE>"
+      }
+    },
+    "request": {
+      "id": "10",
+      "jsonrpc": "2.0",
+      "method": "getTelemetry"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "11",
+      "jsonrpc": "2.0",
+      "result": {
+        "frame": {
+          "angle_deg": 0.0,
+          "fast_offset_um": 0.0,
+          "fast_size_um": 0.0,
+          "slow_offset_um": 0.0,
+          "slow_size_um": 0.0
+        },
+        "name": null,
+        "objects": []
+      }
+    },
+    "request": {
+      "id": "11",
+      "jsonrpc": "2.0",
+      "method": "getPattern"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "12",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": false,
+        "backend": "twin",
+        "objects": [],
+        "run_id": null
+      }
+    },
+    "request": {
+      "id": "12",
+      "jsonrpc": "2.0",
+      "method": "getWritten"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "kind": "scan"
+        },
+        "message": "no completed scan run to return"
+      },
+      "id": "13",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "13",
+      "jsonrpc": "2.0",
+      "method": "getScanResult"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "kind": "write"
+        },
+        "message": "no completed write run to return"
+      },
+      "id": "14",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "14",
+      "jsonrpc": "2.0",
+      "method": "getWriteResult"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "15",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "engaged": false,
+        "gate": null,
+        "mode": null
+      }
+    },
+    "request": {
+      "id": "15",
+      "jsonrpc": "2.0",
+      "method": "getMode"
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "16",
+      "jsonrpc": "2.0",
+      "result": "ACK"
+    },
+    "request": {
+      "id": "16",
+      "jsonrpc": "2.0",
+      "method": "ACK"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "17",
+      "jsonrpc": "2.0",
+      "result": {
+        "Backend": "twin",
+        "Firmware": "0.0.1",
+        "Manufacturer": "Levy Lab",
+        "Model": "afm-litho",
+        "Serial Number": "twin"
+      }
+    },
+    "request": {
+      "id": "17",
+      "jsonrpc": "2.0",
+      "method": "IDN"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "18",
+      "jsonrpc": "2.0",
+      "result": [
+        "ACK",
+        "HELP",
+        "IDN",
+        "abort",
+        "abortWrite",
+        "acquireControl",
+        "getCapabilities",
+        "getEstimate",
+        "getInstrument",
+        "getLastPark",
+        "getMode",
+        "getPattern",
+        "getScanResult",
+        "getState",
+        "getStatus",
+        "getTelemetry",
+        "getWriteResult",
+        "getWritten",
+        "heartbeat",
+        "loadPattern",
+        "releaseControl",
+        "safePark",
+        "setContinuous",
+        "setMode",
+        "setObjects",
+        "setZGain",
+        "startApproach",
+        "startScan",
+        "startWrite",
+        "withdraw"
+      ]
+    },
+    "request": {
+      "id": "18",
+      "jsonrpc": "2.0",
+      "method": "HELP"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "19",
+      "jsonrpc": "2.0",
+      "result": "idle"
+    },
+    "request": {
+      "id": "19",
+      "jsonrpc": "2.0",
+      "method": "getState"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "20",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "bridge": {
+          "closed": false,
+          "closed_at": null
+        },
+        "commander": null,
+        "deadman_armed": true,
+        "detail": null,
+        "progress": null,
+        "run_id": null,
+        "run_kind": null,
+        "safe_park": {
+          "active": false,
+          "critical": false,
+          "reason": null,
+          "transport": null,
+          "verified": null
+        },
+        "state": "idle"
+      }
+    },
+    "request": {
+      "id": "20",
+      "jsonrpc": "2.0",
+      "method": "getStatus"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "21",
+      "jsonrpc": "2.0",
+      "result": {
+        "arc_backend": "sim",
+        "backend": "twin",
+        "in_banks": 3,
+        "inline_cap_bytes": 2097152,
+        "is_cypher": false,
+        "max_outwave_points": 87000,
+        "method_bounds": {
+          "ACK": 0.005,
+          "HELP": 0.02,
+          "IDN": 0.02,
+          "abort": 10.0,
+          "abortWrite": 10.0,
+          "acquireControl": 0.05,
+          "getCapabilities": 0.02,
+          "getEstimate": 0.1,
+          "getInstrument": 0.05,
+          "getLastPark": 0.05,
+          "getMode": 0.05,
+          "getPattern": 0.1,
+          "getScanResult": 0.2,
+          "getState": 0.05,
+          "getStatus": 0.05,
+          "getTelemetry": 0.02,
+          "getWriteResult": 0.2,
+          "getWritten": 0.1,
+          "heartbeat": 0.05,
+          "loadPattern": 2.0,
+          "releaseControl": 0.05,
+          "safePark": 10.0,
+          "setContinuous": 5.0,
+          "setMode": 2.0,
+          "setObjects": 2.0,
+          "setZGain": 1.0,
+          "startApproach": 1.0,
+          "startScan": 1.0,
+          "startWrite": 1.0,
+          "withdraw": 6.5
+        },
+        "microscope_id": null,
+        "modes": [
+          "contact",
+          "ac"
+        ],
+        "ports": {
+          "command": "<PORT>",
+          "read": "<PORT>"
+        },
+        "twin_only": [
+          "force_curve",
+          "tune_thermal",
+          "tune_sweep",
+          "td_ReadString",
+          "td_WriteString",
+          "td_StopOutWaveBank",
+          "td_StopInWaveBank"
+        ]
+      }
+    },
+    "request": {
+      "id": "21",
+      "jsonrpc": "2.0",
+      "method": "getCapabilities"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "22",
+      "jsonrpc": "2.0",
+      "result": {
+        "ac_setpoint_fraction_band": {
+          "source": "platform_default",
+          "value": [
+            0.3,
+            0.95
+          ]
+        },
+        "config_path": "<RUNTIME>\\instrument.toml",
+        "contact_setpoint_band_v": {
+          "source": "platform_default",
+          "value": [
+            0.0,
+            1.0
+          ]
+        },
+        "dac_rail_v": {
+          "source": "platform_default",
+          "value": 10.0
+        },
+        "free_air": null,
+        "free_air_abs_band_v": {
+          "source": "platform_default",
+          "value": 0.02
+        },
+        "free_air_max_age_s": {
+          "source": "platform_default",
+          "value": 30
+        },
+        "interlock_s": {
+          "source": "platform_default",
+          "value": 5.0
+        },
+        "last_park": null,
+        "last_scan_params": {},
+        "last_write_params": {},
+        "overrides_tail": [],
+        "platform": {
+          "source": "platform_default",
+          "value": "twin"
+        },
+        "sum_ceiling_frac": {
+          "source": "platform_default",
+          "value": 0.9
+        },
+        "sum_floor_v": {
+          "source": "platform_default",
+          "value": 0.5
+        },
+        "tip_amp_gain": {
+          "source": "platform_default",
+          "value": 25.0
+        },
+        "tip_voltage_window_v": {
+          "source": "override",
+          "value": [
+            -8.0,
+            30.0
+          ]
+        },
+        "write_setpoint_relative_v": {
+          "source": "platform_default",
+          "value": 0.1
+        },
+        "xy_cal": {
+          "error": null,
+          "refreshed_at": null,
+          "source": null,
+          "unsupported": false,
+          "x_lvdt_offset": null,
+          "x_lvdt_sens": null,
+          "y_lvdt_offset": null,
+          "y_lvdt_sens": null
+        },
+        "xy_range_um": {
+          "source": "platform_default",
+          "value": [
+            90.0,
+            90.0
+          ]
+        },
+        "z_out_channel": {
+          "source": "platform_default",
+          "value": "Height"
+        },
+        "z_park_tol_v": {
+          "source": "platform_default",
+          "value": 0.5
+        },
+        "z_park_v": {
+          "source": "platform_default",
+          "value": 0.0
+        },
+        "z_rail_v": {
+          "source": "platform_default",
+          "value": 140.0
+        },
+        "z_verify_channels": {
+          "source": "platform_default",
+          "value": [
+            "ZSensor",
+            "Deflection"
+          ]
+        }
+      }
+    },
+    "request": {
+      "id": "22",
+      "jsonrpc": "2.0",
+      "method": "getInstrument"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "23",
+      "jsonrpc": "2.0",
+      "result": {}
+    },
+    "request": {
+      "id": "23",
+      "jsonrpc": "2.0",
+      "method": "getLastPark"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "24",
+      "jsonrpc": "2.0",
+      "result": {
+        "objects": [],
+        "total_s": 0.0,
+        "trajectory_s": 0.0
+      }
+    },
+    "request": {
+      "id": "24",
+      "jsonrpc": "2.0",
+      "method": "getEstimate"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "25",
+      "jsonrpc": "2.0",
+      "result": {
+        "age_s": "<TIME>",
+        "amp_v": "<LIVE>",
+        "backend": "twin",
+        "defl_v": "<LIVE>",
+        "row": null,
+        "sum_v": "<LIVE>",
+        "t": "<TIME>",
+        "x_um": "<LIVE>",
+        "y_um": "<LIVE>",
+        "zdrive_v": "<LIVE>"
+      }
+    },
+    "request": {
+      "id": "25",
+      "jsonrpc": "2.0",
+      "method": "getTelemetry"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "26",
+      "jsonrpc": "2.0",
+      "result": {
+        "frame": {
+          "angle_deg": 0.0,
+          "fast_offset_um": 0.0,
+          "fast_size_um": 0.0,
+          "slow_offset_um": 0.0,
+          "slow_size_um": 0.0
+        },
+        "name": null,
+        "objects": []
+      }
+    },
+    "request": {
+      "id": "26",
+      "jsonrpc": "2.0",
+      "method": "getPattern"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "27",
+      "jsonrpc": "2.0",
+      "result": {
+        "aborted": false,
+        "backend": "twin",
+        "objects": [],
+        "run_id": null
+      }
+    },
+    "request": {
+      "id": "27",
+      "jsonrpc": "2.0",
+      "method": "getWritten"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "kind": "scan"
+        },
+        "message": "no completed scan run to return"
+      },
+      "id": "28",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "28",
+      "jsonrpc": "2.0",
+      "method": "getScanResult"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "kind": "write"
+        },
+        "message": "no completed write run to return"
+      },
+      "id": "29",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "29",
+      "jsonrpc": "2.0",
+      "method": "getWriteResult"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "30",
+      "jsonrpc": "2.0",
+      "result": {
+        "backend": "twin",
+        "engaged": false,
+        "gate": null,
+        "mode": null
+      }
+    },
+    "request": {
+      "id": "30",
+      "jsonrpc": "2.0",
+      "method": "getMode"
+    },
+    "socket": "command"
+  },
+  {
+    "reply": {
+      "id": "31",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.005,
+        "doc": "Liveness. Reads no hub state, so it answers while a write runs.",
+        "method": "ACK",
+        "params": "-",
+        "result": "\"ACK\""
+      }
+    },
+    "request": {
+      "id": "31",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "ACK"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "32",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.02,
+        "doc": "Discovery -- the only mechanism FLEX has.",
+        "method": "HELP",
+        "params": "{command?: str} | [name]",
+        "result": "[method names] | {method, params, result, bound_s, doc}"
+      }
+    },
+    "request": {
+      "id": "32",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "HELP"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "33",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.02,
+        "doc": "Identity. `Backend` is the anti-fallback field: hardware | twin | disconnected, derived live from the bridge.",
+        "method": "IDN",
+        "params": "-",
+        "result": "{Manufacturer, Model, Serial Number, Firmware, Backend}"
+      }
+    },
+    "request": {
+      "id": "33",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "IDN"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "34",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 10.0,
+        "doc": "TOKEN-FREE emergency stop: cooperative stop of whatever is in flight PLUS a verified retract, through the same safe_park the GUI Abort fires. Never the non-retracting COM AFM_Abort.",
+        "method": "abort",
+        "params": "{token?, scope?}",
+        "result": "{ok, state, reason, safe_park}"
+      }
+    },
+    "request": {
+      "id": "34",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "abort"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "35",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 10.0,
+        "doc": "TOKEN-FREE stop of a write PLUS a verified retract, through the same safe_park the GUI Abort button fires. The partial result stays retrievable: getWriteResult reports aborted:true with the objects that did complete, and getWritten lists exactly those.",
+        "method": "abortWrite",
+        "params": "{token?}",
+        "result": "{ok, state, backend, safe_park}"
+      }
+    },
+    "request": {
+      "id": "35",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "abortWrite"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "36",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "Become the single commander. Refused -32040 control_held while an operator holds control or another script holds an unexpired token. deadman_s is clamped to [5, 300] and can never be disabled.",
+        "method": "acquireControl",
+        "params": "{client, deadman_s?=30, withdraw_on_deadman?=false}",
+        "result": "{token, expires_s, deadman_s, withdraw_on_deadman}"
+      }
+    },
+    "request": {
+      "id": "36",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "acquireControl"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "37",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.02,
+        "doc": "Lets a script refuse rather than discover a limit by tripping it. method_bounds is what the FLEX driver derives its timeouts from.",
+        "method": "getCapabilities",
+        "params": "-",
+        "result": "{microscope_id, is_cypher, backend, modes, max_outwave_points, in_banks, inline_cap_bytes, method_bounds, twin_only, ports}"
+      }
+    },
+    "request": {
+      "id": "37",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getCapabilities"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "38",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.1,
+        "doc": "The write-time estimate for the loaded design, computed from the service's own enabled set (docs/INSTRUMENT_MODEL_SPEC.md sections 4/10). Per-object `seconds` is trajectory time; `trajectory_s` sums the enabled objects' trajectory and `total_s` adds the per-object overhead + margin the write-start estimate charges (one estimator). Disabled objects are listed with enabled:false and excluded from both totals. Same shape as GET /api/litho/estimate.",
+        "method": "getEstimate",
+        "params": "-",
+        "result": "{total_s, trajectory_s, objects:[{id, seconds, length_um, speed_um_s, enabled}]}"
+      }
+    },
+    "request": {
+      "id": "38",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getEstimate"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "39",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "The instrument model (docs/INSTRUMENT_MODEL_SPEC.md section 10), read only -- same shape as GET /api/instrument. Served on BOTH sockets.",
+        "method": "getInstrument",
+        "params": "-",
+        "result": "{platform, z_out_channel, ..., overrides_tail, last_write_params, last_scan_params, xy_cal}"
+      }
+    },
+    "request": {
+      "id": "39",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getInstrument"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "40",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "The most recent park outcome (E1), read only -- same shape as GET /api/park/last. {} until the first safe_park. Served on BOTH sockets.",
+        "method": "getLastPark",
+        "params": "-",
+        "result": "{verified, method, z_out_v, zsensor_v, defl_v, critical, reason, ts} | {}"
+      }
+    },
+    "request": {
+      "id": "40",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getLastPark"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "41",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "The instrument's imaging mode, plus the live engaged/scanning gate that says whether setMode would be accepted right now. A pure memory read, so the READ socket serves it too.",
+        "method": "getMode",
+        "params": "-",
+        "result": "{mode, engaged, gate, backend}"
+      }
+    },
+    "request": {
+      "id": "41",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getMode"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "42",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.1,
+        "doc": "The loaded design as a summary, with point COUNTS rather than points. Each object also carries the shared listing block -- `id`, `vertices_um` (the source polyline; a chiral wire's base axis) and `properties` (voltage, speed_um_s, enabled, and the chiral/fill block setObjects edits).",
+        "method": "getPattern",
+        "params": "-",
+        "result": "{name, objects:[{index, name, id, kind, voltage, speed, points, segments, strokes, enabled, written, vertices_um, properties}], frame}"
+      }
+    },
+    "request": {
+      "id": "42",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getPattern"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "43",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.2,
+        "doc": "run_id omitted = the last COMPLETED scan. `completed` is true only after the pump's persistence block finished, so the paths in `files` are whole.",
+        "method": "getScanResult",
+        "params": "{run_id?, inline?, decimate?}",
+        "result": "{run_id, kind, backend, completed, aborted, partial, shape, channels, files, stats, preview?, data?}"
+      }
+    },
+    "request": {
+      "id": "43",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getScanResult"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "44",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "The poll verb. Pure in-memory read; never issues a bridge read. See the derivation table in the flex_dispatch module docstring.",
+        "method": "getState",
+        "params": "-",
+        "result": "disconnected|idle|approaching|engaged|scanning|writing|measuring|parked|fault"
+      }
+    },
+    "request": {
+      "id": "44",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getState"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "45",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "The richer sibling of getState; getState stays a bare string so it registers cleanly as a FLEX Parameter.",
+        "method": "getStatus",
+        "params": "-",
+        "result": "{state, backend, run_id, run_kind, progress, detail, safe_park, commander, deadman_armed, bridge}"
+      }
+    },
+    "request": {
+      "id": "45",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getStatus"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "46",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.02,
+        "doc": "The last cached telemetry frame -- never a new instrument round-trip. On the twin the same shape is built from the twin's own state.",
+        "method": "getTelemetry",
+        "params": "-",
+        "result": "{t, age_s, x_um, y_um, zdrive_v, defl_v, sum_v, amp_v, row, backend}"
+      }
+    },
+    "request": {
+      "id": "46",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getTelemetry"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "47",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.2,
+        "doc": "The written pass's raw capture (UserIn2 measured bias + sensors). With `inline` it also carries `trace`: the per-object written path with the tip voltage along it, from memory and bounded -- the x-axis a lock-in series gets correlated against. An ABORTED run still returns its partial trace.",
+        "method": "getWriteResult",
+        "params": "{run_id?, inline?, decimate?}",
+        "result": "as getScanResult, kind=write, plus `trace` when inline"
+      }
+    },
+    "request": {
+      "id": "47",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getWriteResult"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "48",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.1,
+        "doc": "What this session has written so far. ONE ENTRY PER STROKE, not per object: a filled shape arrives as several entries named \"<object>#k\"; group by `object` for per-object totals. A CHAIN CHUNK IS NOT AN ENTRY -- an over-cap stroke is several out-waves but one continuous tip path, so one entry; the extra arms show up in `segments`.",
+        "method": "getWritten",
+        "params": "-",
+        "result": "{objects:[{index, name, object, segments, voltage, length_um, points, t_start, t_end}], run_id, aborted, backend}"
+      }
+    },
+    "request": {
+      "id": "48",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "getWritten"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "49",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "Refresh the dead-man. Any OTHER request bearing a valid token refreshes it too, so a polling loop refreshes for free.",
+        "method": "heartbeat",
+        "params": "{token}",
+        "result": "{state, expires_s, valid}"
+      }
+    },
+    "request": {
+      "id": "49",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "heartbeat"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "50",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 2.0,
+        "doc": "Compile and validate a design. ARMS NOTHING -- no claim, no thread, no tip motion. EXACTLY ONE of `source` or `objects`. `source` is \"auto\", a design name in data/designs, a file path, or an inline SVG document. `objects` orders geometry BY PARAMETERS -- [{kind:\"chiral\", points_um, lambda_um, y_amp_um, v0, v_k, phase_deg, hand?, speed_um_s?}] for a sinusoidal wire whose tip voltage is modulated at a chosen PHASE to the deviation, and [{kind:\"region\", shape:\"rect\", x_um, y_um, w_um, h_um, pitch_um, voltage, fill?, speed_um_s?}] for a filled rectangle at a SIGNED voltage (an erase is a negative one); `angle_deg` sets the sweep direction of a `directional` fill and is refused on the others, which ignore it. A design file carries no tip voltage, so neither could be ordered through `source` at all. A chiral entry's `profile` echoes what was BUILT -- including `y_amp_built_um` and `curvature_clamped_fraction`, the magnitude of a curvature clamp and not just its boolean -- and any entry carries `speed_achieved_um_s` when the tick quantisation floored the speed asked for. NO SIZE REFUSAL ON THE OUT-WAVE CAP: an object over it CHAINS. There IS a size policy on `objects` -- per-object extent (2,000 um), per-object and whole-pattern compiled-point budgets, and a fill pitch no wider than half the shape -- all checked as arithmetic BEFORE anything is rendered, so an absurd request is -32602 in milliseconds; a build or compile that still runs past this verb's own published bound is -32021 refused with the previous pattern left untouched. `strokes` is continuous tip paths (one transit and one getWritten entry each); `segments` is out-waves armed, which exceeds it only where a stroke is over max_outwave_points and is fired as a seamless chunk chain -- tip down and bias live across the boundary. Those objects are listed in multi_segment_objects and named in a WARNING. NO max_segment_points: the compiler's 8,192-point cut is opt-in and off (it was a lift mid-stroke).",
+        "method": "loadPattern",
+        "params": "{token, source?|objects?}",
+        "result": "{name, object_count, objects:[{index, name, id, kind, points, segments, strokes, vertices_um, properties, profile?, speed_achieved_um_s?}], total_points, bbox_um, segments, strokes, multi_segment_objects, max_outwave_points, duration_s}"
+      }
+    },
+    "request": {
+      "id": "50",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "loadPattern"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "51",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 0.05,
+        "doc": "Give up control. NEVER an error: a stale or unknown token returns {ok:true, stale:true}, so a script can call it from a finally block.",
+        "method": "releaseControl",
+        "params": "{token}",
+        "result": "{ok, stale}"
+      }
+    },
+    "request": {
+      "id": "51",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "releaseControl"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "52",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 10.0,
+        "doc": "TOKEN-FREE verified retract. Reports verified:false with verify_timeout:true rather than blocking on a stalled bridge.",
+        "method": "safePark",
+        "params": "{reason?}",
+        "result": "{ok, state, backend, transport, verified, z_v, critical, verify_timeout}"
+      }
+    },
+    "request": {
+      "id": "52",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "safePark"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "53",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 5.0,
+        "doc": "Arm or stop the auto-repeat imaging loop; the state stays `scanning` for as long as it runs and every frame gets its own run_id. `rail` may only TIGHTEN the rail-dwell guard, never loosen it. Disabling is never refused for backend reasons -- a dead bridge is exactly when you want it stopped.",
+        "method": "setContinuous",
+        "params": "{token, enabled, config?, max_frames?, max_seconds?, interval_s?, withdraw_on_stop?, rail?}",
+        "result": "{ok, enabled, state, max_frames, max_seconds, interval_s, withdraw_on_stop, rail}"
+      }
+    },
+    "request": {
+      "id": "53",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "setContinuous"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "54",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 2.0,
+        "doc": "Switch contact <-> AC. REFUSED -32021 while the tip is engaged, scanning or writing: the vendor switch changes the Z feedback channel and gain sign and does NOT withdraw, so with the tip down it is a crash. Withdraw first. Returns only after a settle, so a following startApproach cannot engage into a half-applied mode change.",
+        "method": "setMode",
+        "params": "{token, mode:contact|ac}",
+        "result": "{ok, mode, backend}"
+      }
+    },
+    "request": {
+      "id": "54",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "setMode"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "55",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 2.0,
+        "doc": "Edit the loaded pattern in place -- a map of {id: {property: value}} merged onto it and recompiled. ARMS NOTHING and moves no tip. Settable properties: `voltage`, `speed_um_s`, `enabled`, plus `chiral` (a path only) and `fill` (a rect/taper/shape only). `chiral: {lambda_um, y_amp_um, v_k, phase_deg, hand}` rebuilds the wire through the same chiral_profile the cockpit uses (v0 IS the object's voltage); merging needs only the fields that change, but turning chirality on from a plain path needs all five. `chiral: null` collapses the wire back to its plain base axis. `fill` merges likewise. The WHOLE call is atomic: an unknown id/property, a wrong type, or a property invalid for an object's kind is -32602 naming the id and field, with the previous pattern kept -- as it is when a recompile runs past this verb's bound. REFUSED -32020 busy while a write is in flight. Returns the same per-object listing as loadPattern and getPattern.",
+        "method": "setObjects",
+        "params": "{token, updates:{id:{property:value}}}",
+        "result": "{name, object_count, objects:[{index, name, id, kind, points, segments, strokes, vertices_um, properties, profile?}], total_points, bbox_um, segments, strokes, multi_segment_objects, max_outwave_points, duration_s}"
+      }
+    },
+    "request": {
+      "id": "55",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "setObjects"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "56",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 1.0,
+        "doc": "Re-arm the running Z loop with new P/I gains, without withdrawing. HARDWARE ONLY -- on the twin it answers -32010 rather than reporting a tune it did not make.",
+        "method": "setZGain",
+        "params": "{token, pgain?, igain?, setpoint?, mode?}",
+        "result": "{ok, backend, snapshot}"
+      }
+    },
+    "request": {
+      "id": "56",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "setZGain"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "57",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 1.0,
+        "doc": "START+POLL fine engage: closes the Z feedback loop so the tip tracks the surface. Poll getState -> approaching, then engaged. A FAILED engage fires safe_park and lands in parked, and the run record carries why.",
+        "method": "startApproach",
+        "params": "{token, setpoint?, pgain?, igain?, settle_s?, mode?}",
+        "result": "{run_id, est_s, state}"
+      }
+    },
+    "request": {
+      "id": "57",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "startApproach"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "58",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 1.0,
+        "doc": "START+POLL raster. Poll getState, then getScanResult(run_id) -- whose `completed` is gated on persistence, so the paths in `files` are whole. On hardware a `setpoint`, `pgain` or `igain` without `engage:true` is REJECTED -32602 rather than accepted and ignored. pgain/igain are PANEL gains (the setZGain convention) and override this scan's default Z gains when given.",
+        "method": "startScan",
+        "params": "{token, size_um, pixels, lines, line_rate_hz, x_offset_um, y_offset_um, angle_deg?, direction?, trace_retrace?, mode?, setpoint?, engage?, pgain?, igain?}",
+        "result": "{run_id, est_s, state, backend, config}"
+      }
+    },
+    "request": {
+      "id": "58",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "startScan"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "59",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 1.0,
+        "doc": "START+POLL lithography. `setpoint` (volts) is REQUIRED; `setpoint_reference` is \"absolute\" (default: used as given) or \"free_air\" (volts above the fresh free-air deflection). CONTACT-ONLY: on hardware the AC-guard reads the live crosspoint and refuses -32021 in AC/tapping, and an unreadable crosspoint refuses rather than assuming contact. `objects` is \"all\" (every ENABLED object, in pattern order), or a list mixing integer indices and string ids; an unknown id is -32602. Poll getState -> writing, then getWriteResult(run_id). A second start while one runs is -32020 busy with the in-flight run_id, never queued.",
+        "method": "startWrite",
+        "params": "{token, objects?=\"all\"|[idx|id], setpoint, setpoint_reference?=\"absolute\"|\"free_air\", amp_gain?, deadman_s?, twin_speed?}",
+        "result": "{run_id, est_s, objects, segments, state, backend}"
+      }
+    },
+    "request": {
+      "id": "59",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "startWrite"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "60",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 6.5,
+        "doc": "Retract, from any state. TOKEN OPTIONAL and no backend gate, for the same reason abort and safePark are token-free: getting the tip OFF the surface must never be refused by bookkeeping. `verified` means Z parked within 0.5 V with no read that timed out.",
+        "method": "withdraw",
+        "params": "{token?}",
+        "result": "{ok, z_v, verified, verify_timeout, backend, state, snapshot}"
+      }
+    },
+    "request": {
+      "id": "60",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "withdraw"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "id": "61",
+      "jsonrpc": "2.0",
+      "result": {
+        "bound_s": 2.0,
+        "doc": "Switch contact <-> AC. REFUSED -32021 while the tip is engaged, scanning or writing: the vendor switch changes the Z feedback channel and gain sign and does NOT withdraw, so with the tip down it is a crash. Withdraw first. Returns only after a settle, so a following startApproach cannot engage into a half-applied mode change.",
+        "method": "setMode",
+        "params": "{token, mode:contact|ac}",
+        "result": "{ok, mode, backend}"
+      }
+    },
+    "request": {
+      "id": "61",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": [
+        "setMode"
+      ]
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "methods": [
+            "ACK",
+            "HELP",
+            "IDN",
+            "abort",
+            "abortWrite",
+            "acquireControl",
+            "getCapabilities",
+            "getEstimate",
+            "getInstrument",
+            "getLastPark",
+            "getMode",
+            "getPattern",
+            "getScanResult",
+            "getState",
+            "getStatus",
+            "getTelemetry",
+            "getWriteResult",
+            "getWritten",
+            "heartbeat",
+            "loadPattern",
+            "releaseControl",
+            "safePark",
+            "setContinuous",
+            "setMode",
+            "setObjects",
+            "setZGain",
+            "startApproach",
+            "startScan",
+            "startWrite",
+            "withdraw"
+          ]
+        },
+        "message": "no such method: noSuchVerb"
+      },
+      "id": "62",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "62",
+      "jsonrpc": "2.0",
+      "method": "HELP",
+      "params": {
+        "command": "noSuchVerb"
+      }
+    },
+    "socket": "read"
+  },
+  {
+    "reply": {
+      "error": {
+        "code": -32602,
+        "data": {
+          "known": []
+        },
+        "message": "unknown run_id: unknown-run"
+      },
+      "id": "63",
+      "jsonrpc": "2.0"
+    },
+    "request": {
+      "id": "63",
+      "jsonrpc": "2.0",
+      "method": "getScanResult",
+      "params": {
+        "run_id": "unknown-run"
+      }
+    },
+    "socket": "command"
+  }
+]

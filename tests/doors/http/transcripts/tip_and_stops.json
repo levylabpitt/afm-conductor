@@ -1,0 +1,1082 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Approach: z servo armed at setpoint 0.2 V, engaging…",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Engaged at z = -0.013 um, defl = 0.198 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 0.0,
+     "bias_v": 0.0,
+     "defl_v": 0.19841559253895463,
+     "engaged": true,
+     "t": "<masked>",
+     "type": "engaged",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": -0.012753688494066015
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/approach"
+   },
+   "response": {
+    "amp_v": 0.0,
+    "bias_v": 0.0,
+    "defl_v": 0.19841559253895463,
+    "engaged": true,
+    "ok": true,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": -0.012753688494066015
+   },
+   "status": 200,
+   "step": "POST /api/approach (no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": 0.00027457320212038354,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": 0.00027457320212038354,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (tip already off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Approach: z servo armed at setpoint 0.2 V, engaging…",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Engaged at z = -0.013 um, defl = 0.197 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 0.0,
+     "bias_v": 0.0,
+     "defl_v": 0.1967323648858303,
+     "engaged": true,
+     "t": "<masked>",
+     "type": "engaged",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": -0.012699221426645075
+    }
+   ],
+   "request": {
+    "body": {
+     "igain": 12.0,
+     "mode": "contact",
+     "setpoint": 0.2
+    },
+    "method": "POST",
+    "path": "/api/approach"
+   },
+   "response": {
+    "amp_v": 0.0,
+    "bias_v": 0.0,
+    "defl_v": 0.1967323648858303,
+    "engaged": true,
+    "ok": true,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": -0.012699221426645075
+   },
+   "status": 200,
+   "step": "POST /api/approach (engages)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/state"
+   },
+   "response": {
+    "amp_v": 0.0,
+    "arc_backend": "sim",
+    "backend": "twin",
+    "bias_v": 0.0,
+    "bridge": {
+     "closed": false,
+     "closed_at": null
+    },
+    "defl_v": 0.1967323648858303,
+    "design_autosave": {
+     "error": null,
+     "ok": true,
+     "saved_at": null
+    },
+    "engaged": true,
+    "fault": null,
+    "instrument": {
+     "Q": 20.0,
+     "dual_lockin": false,
+     "f0_khz": 65.713,
+     "id": 3,
+     "igain": 12.0,
+     "invols_nm_v": 100.0,
+     "k_nm": 1.0,
+     "model": "MFP3D",
+     "range_um": 90.0,
+     "x_sensor": "Input.X"
+    },
+    "lever": {
+     "Q": 20.0,
+     "f0_khz": 65.713,
+     "k_nm": 1.0
+    },
+    "safe_park": {
+     "active": false,
+     "at": null,
+     "count": 0,
+     "critical": false,
+     "last_reason": null,
+     "transport": null,
+     "verified": null,
+     "z_v": null
+    },
+    "sample": "SA40656B0000",
+    "scanning": false,
+    "speed": 8.0,
+    "state": "idle",
+    "t": "<masked>",
+    "writing": false,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": -0.012699221426645075
+   },
+   "status": 200,
+   "step": "GET /api/state (engaged)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "ac"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "error": "Mode switch REFUSED: the tip is engaged. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+    "reason": "engaged"
+   },
+   "status": 200,
+   "step": "POST /api/mode (refused while engaged)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "igain": 3.0,
+     "mode": "contact",
+     "setpoint": 0.2
+    },
+    "method": "POST",
+    "path": "/api/zgain"
+   },
+   "response": {
+    "error": "Z gain adjust is hardware-only; no bridge connected."
+   },
+   "status": 200,
+   "step": "POST /api/zgain (twin refuses)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan stopped; tip withdrawn",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "aborted",
+     "withdraw": true
+    }
+   ],
+   "request": {
+    "body": {
+     "withdraw": true
+    },
+    "method": "POST",
+    "path": "/api/scan/abort"
+   },
+   "response": {
+    "ok": true,
+    "withdraw": true
+   },
+   "status": 200,
+   "step": "POST /api/scan/abort (nothing scanning)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/state"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "arc_backend": "sim",
+    "backend": "twin",
+    "bias_v": 0.0,
+    "bridge": {
+     "closed": false,
+     "closed_at": null
+    },
+    "defl_v": -0.0002775639472215866,
+    "design_autosave": {
+     "error": null,
+     "ok": true,
+     "saved_at": null
+    },
+    "engaged": false,
+    "fault": null,
+    "instrument": {
+     "Q": 20.0,
+     "dual_lockin": false,
+     "f0_khz": 65.713,
+     "id": 3,
+     "igain": 12.0,
+     "invols_nm_v": 100.0,
+     "k_nm": 1.0,
+     "model": "MFP3D",
+     "range_um": 90.0,
+     "x_sensor": "Input.X"
+    },
+    "lever": {
+     "Q": 20.0,
+     "f0_khz": 65.713,
+     "k_nm": 1.0
+    },
+    "safe_park": {
+     "active": false,
+     "at": null,
+     "count": 0,
+     "critical": false,
+     "last_reason": null,
+     "transport": null,
+     "verified": null,
+     "z_v": null
+    },
+    "sample": "SA40656B0000",
+    "scanning": false,
+    "speed": 8.0,
+    "state": "idle",
+    "t": "<masked>",
+    "writing": false,
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "GET /api/state (after scan/abort)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Imaging mode -> ac (twin): tracked on the hub (no real switch).",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "mode: free air re-read after switch to ac: 1.0000 V",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "ac"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "backend": "twin",
+    "mode": "ac",
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/mode (ac, tip off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/mode"
+   },
+   "response": {
+    "backend": "twin",
+    "engaged": false,
+    "gate": null,
+    "mode": "ac"
+   },
+   "status": 200,
+   "step": "GET /api/mode (after switch)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "mode": "banana"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "error": "mode must be 'contact' or 'ac'",
+    "reason": "bad_mode"
+   },
+   "status": 200,
+   "step": "POST /api/mode (bad mode)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Imaging mode -> contact (twin): tracked on the hub (no real switch).",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "mode: free air re-read after switch to contact: 0.0000 V",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "contact"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "backend": "twin",
+    "mode": "contact",
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/mode (back to contact)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan started: -1 um, 16 px, 200 Hz, contact",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "bulk": "line",
+     "count": 4,
+     "first_row": 0,
+     "keys": [
+      "angle_deg",
+      "direction",
+      "errName",
+      "error",
+      "height",
+      "pixels",
+      "retrace",
+      "row",
+      "rows",
+      "size_um",
+      "slow_idx",
+      "slow_um",
+      "type",
+      "zsensor"
+     ],
+     "last_row": 3,
+     "type": "line"
+    },
+    {
+     "msg": "End-of-scan withdraw sent: Z not confirmed at 0 V (Height None, readback timed out: False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": -0.0007893733748959854,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    },
+    {
+     "msg": "Scan complete",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Scan cached: 4x16 frame -> scans/npz/<scan-stamp>.height.npz",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "PNG/JSON written -> scans/png/<scan-stamp>_height.png, scans/json/<scan-stamp>.json",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "sessions_changed"
+    },
+    {
+     "aborted": false,
+     "type": "scan_done"
+    }
+   ],
+   "request": {
+    "body": {
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pixels": 16,
+     "size_um": -1.0
+    },
+    "method": "POST",
+    "path": "/api/scan/start"
+   },
+   "response": {
+    "config": {
+     "angle_deg": 0.0,
+     "bias_v": 1.0,
+     "chained": true,
+     "direction": "up",
+     "engage": false,
+     "igain": null,
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pgain": null,
+     "pixels": 16,
+     "setpoint": 0.2,
+     "size_um": -1.0,
+     "trace_retrace": true,
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "ok": true,
+    "run_id": "scan-1"
+   },
+   "status": 200,
+   "step": "POST /api/scan/start (negative size is accepted)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan started: 5 um, 256 px, 200 Hz, contact",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "line_rate_hz": 200.0,
+     "lines": 256,
+     "mode": "contact",
+     "pixels": 256,
+     "size_um": 5.0
+    },
+    "method": "POST",
+    "path": "/api/scan/start"
+   },
+   "response": {
+    "config": {
+     "angle_deg": 0.0,
+     "bias_v": 1.0,
+     "chained": true,
+     "direction": "up",
+     "engage": false,
+     "igain": null,
+     "line_rate_hz": 200.0,
+     "lines": 256,
+     "mode": "contact",
+     "pgain": null,
+     "pixels": 256,
+     "setpoint": 0.2,
+     "size_um": 5.0,
+     "trace_retrace": true,
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "ok": true,
+    "run_id": "scan-2"
+   },
+   "status": 200,
+   "step": "POST /api/scan/start (long scan)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pixels": 16,
+     "size_um": 5.0
+    },
+    "method": "POST",
+    "path": "/api/scan/start"
+   },
+   "response": {
+    "error": "scan already running"
+   },
+   "status": 200,
+   "step": "POST /api/scan/start (refused: one already running)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Mode switch REFUSED: the tip is scanning. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "mode": "ac"
+    },
+    "method": "POST",
+    "path": "/api/mode"
+   },
+   "response": {
+    "error": "Mode switch REFUSED: the tip is scanning. Switching imaging mode changes the Z feedback channel + gain sign and does NOT withdraw -- withdraw first, then change the mode.",
+    "reason": "engaged"
+   },
+   "status": 200,
+   "step": "POST /api/mode (refused while scanning)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "aborted": true,
+     "type": "scan_done"
+    },
+    {
+     "msg": "Scan stopped; tip withdrawn",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "aborted",
+     "withdraw": true
+    }
+   ],
+   "request": {
+    "body": {
+     "withdraw": true
+    },
+    "method": "POST",
+    "path": "/api/scan/abort"
+   },
+   "response": {
+    "ok": true,
+    "withdraw": true
+   },
+   "status": 200,
+   "step": "POST /api/scan/abort (mid-scan)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan started: 5 um, 16 px, 200 Hz, contact",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "bulk": "line",
+     "count": 4,
+     "first_row": 0,
+     "keys": [
+      "angle_deg",
+      "direction",
+      "errName",
+      "error",
+      "height",
+      "pixels",
+      "retrace",
+      "row",
+      "rows",
+      "size_um",
+      "slow_idx",
+      "slow_um",
+      "type",
+      "zsensor"
+     ],
+     "last_row": 3,
+     "type": "line"
+    },
+    {
+     "msg": "End-of-scan withdraw sent: Z not confirmed at 0 V (Height None, readback timed out: False)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": 0.0015150630957738646,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    },
+    {
+     "msg": "Scan complete",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Scan cached: 4x16 frame -> scans/npz/<scan-stamp>.height.npz",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "PNG/JSON written -> scans/png/<scan-stamp>_height.png, scans/json/<scan-stamp>.json",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "sessions_changed"
+    },
+    {
+     "aborted": false,
+     "type": "scan_done"
+    }
+   ],
+   "request": {
+    "body": {
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pixels": 16,
+     "size_um": 5.0
+    },
+    "method": "POST",
+    "path": "/api/scan/start"
+   },
+   "response": {
+    "config": {
+     "angle_deg": 0.0,
+     "bias_v": 1.0,
+     "chained": true,
+     "direction": "up",
+     "engage": false,
+     "igain": null,
+     "line_rate_hz": 200.0,
+     "lines": 4,
+     "mode": "contact",
+     "pgain": null,
+     "pixels": 16,
+     "setpoint": 0.2,
+     "size_um": 5.0,
+     "trace_retrace": true,
+     "x_offset_um": 0.0,
+     "y_offset_um": 0.0
+    },
+    "ok": true,
+    "run_id": "scan-3"
+   },
+   "status": 200,
+   "step": "POST /api/scan/start (tiny scan, completes)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/scan/last"
+   },
+   "response": {
+    "angle_deg": 0.0,
+    "height": {
+     "number_list_len": 64,
+     "values": "<masked>"
+    },
+    "pixels": 16,
+    "rows": 4,
+    "size_um": 5.0,
+    "x_offset_um": 0.0,
+    "y_offset_um": 0.0
+   },
+   "status": 200,
+   "step": "GET /api/scan/last (after scans)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Scan stopped; tip withdrawn",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "aborted",
+     "withdraw": true
+    }
+   ],
+   "request": {
+    "body": {
+     "withdraw": true
+    },
+    "method": "POST",
+    "path": "/api/scan/abort"
+   },
+   "response": {
+    "ok": true,
+    "withdraw": true
+   },
+   "status": 200,
+   "step": "POST /api/scan/abort (after scan)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design/background/channels"
+   },
+   "response": {
+    "channels": [
+     "height"
+    ],
+    "stem": "<scan-stamp>"
+   },
+   "status": 200,
+   "step": "GET /api/design/background/channels (after scan)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "backend": "twin",
+     "critical": false,
+     "reason": "door transcript",
+     "transport": "twin",
+     "type": "safe_park",
+     "verified": true,
+     "z_v": 0.0
+    },
+    {
+     "msg": "SAFETY safe_park: door transcript -- tip retracted (verified; Height=0.000 V, ZSensor=0.000 V, Deflection=0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "SAFETY safe_park: door transcript -- tip retracted (verified=True) (Height = 0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "reason": "door transcript"
+    },
+    "method": "POST",
+    "path": "/api/safe_park"
+   },
+   "response": {
+    "ok": true,
+    "safe_park": {
+     "backend": "twin",
+     "com_error": null,
+     "critical": false,
+     "reason": "door transcript",
+     "transport": "twin",
+     "verified": true,
+     "verify_timeout": false,
+     "z_v": 0.0
+    }
+   },
+   "status": 200,
+   "step": "POST /api/safe_park"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "backend": "twin",
+     "critical": false,
+     "reason": "operator abort",
+     "transport": "twin",
+     "type": "safe_park",
+     "verified": true,
+     "z_v": 0.0
+    },
+    {
+     "msg": "SAFETY safe_park: operator abort -- tip retracted (verified; Height=0.000 V, ZSensor=0.000 V, Deflection=0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "SAFETY safe_park: operator abort -- tip retracted (verified=True) (Height = 0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/safe_park"
+   },
+   "response": {
+    "ok": true,
+    "safe_park": {
+     "backend": "twin",
+     "com_error": null,
+     "critical": false,
+     "reason": "operator abort",
+     "transport": "twin",
+     "verified": true,
+     "verify_timeout": false,
+     "z_v": 0.0
+    }
+   },
+   "status": 200,
+   "step": "POST /api/safe_park (no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "backend": "twin",
+     "critical": false,
+     "reason": "operator vendor withdraw",
+     "transport": "twin",
+     "type": "safe_park",
+     "verified": true,
+     "z_v": 0.0
+    },
+    {
+     "msg": "SAFETY safe_park: operator vendor withdraw -- tip retracted (verified; Height=0.000 V, ZSensor=0.000 V, Deflection=0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "SAFETY safe_park: operator vendor withdraw -- tip retracted (verified=True) (Height = 0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "reason": "operator vendor withdraw"
+    },
+    "method": "POST",
+    "path": "/api/safe_park"
+   },
+   "response": {
+    "ok": true,
+    "safe_park": {
+     "backend": "twin",
+     "com_error": null,
+     "critical": false,
+     "reason": "operator vendor withdraw",
+     "transport": "twin",
+     "verified": true,
+     "verify_timeout": false,
+     "z_v": 0.0
+    }
+   },
+   "status": 200,
+   "step": "POST /api/safe_park (the vendor-withdraw button's reason)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/park/last"
+   },
+   "response": {
+    "critical": false,
+    "defl_v": 0.0,
+    "method": "abort",
+    "reason": "operator vendor withdraw",
+    "ts": "<masked>",
+    "verified": true,
+    "z_out_v": 0.0,
+    "zsensor_v": 0.0
+   },
+   "status": 200,
+   "step": "GET /api/park/last (after park)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Show tip on: no hardware bridge (twin no-op)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "on": true
+    },
+    "method": "POST",
+    "path": "/api/tip/show"
+   },
+   "response": {
+    "backend": "twin",
+    "ok": true,
+    "on": true
+   },
+   "status": 200,
+   "step": "POST /api/tip/show (on)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Show tip off: no hardware bridge (twin no-op)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "on": false
+    },
+    "method": "POST",
+    "path": "/api/tip/show"
+   },
+   "response": {
+    "backend": "twin",
+    "ok": true,
+    "on": false
+   },
+   "status": 200,
+   "step": "POST /api/tip/show (off)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Show tip on: no hardware bridge (twin no-op)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/tip/show"
+   },
+   "response": {
+    "backend": "twin",
+    "ok": true,
+    "on": true
+   },
+   "status": 200,
+   "step": "POST /api/tip/show (no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": 0.0009376335016623545,
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": 4.702509,
+     "y_um": -0.492996,
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": 0.0009376335016623545,
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": 4.702509,
+    "y_um": -0.492996,
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (final)"
+  }
+ ],
+ "group": "tip_and_stops"
+}

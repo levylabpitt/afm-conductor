@@ -1,0 +1,702 @@
+{
+ "entries": [
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/design"
+   },
+   "response": {
+    "name": null,
+    "objects": []
+   },
+   "status": 200,
+   "step": "GET /api/design (the twin starts with a demo design)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/litho/estimate"
+   },
+   "response": {
+    "objects": [],
+    "total_s": 0.0,
+    "trajectory_s": 0.0
+   },
+   "status": 200,
+   "step": "GET /api/litho/estimate (demo design)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "write: free air re-read (reason: missing)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "write: free-air baseline 0.0000 V (contact, age <n> s)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "setpoint_relative": 0.1
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "error": "amp_gain is required and was not given",
+    "reason": "amp_gain_missing"
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (amp_gain missing)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "amp_gain": 25.0
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "error": "litho/write: `setpoint` (volts) is required, with `setpoint_reference` \"absolute\" (default) or \"free_air\"",
+    "reason": "setpoint_missing"
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (a write with no setpoint is refused)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "amp_gain": 25.0,
+     "objects": [
+      99
+     ],
+     "setpoint_relative": 0.1
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "error": "startWrite: object index 99 is out of range -- the loaded design has 4 object(s)",
+    "reason": "bad_params"
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (no such object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "count": 1,
+     "type": "litho_done"
+    },
+    {
+     "count": 4,
+     "type": "litho_object_done"
+    },
+    {
+     "count": 4,
+     "type": "litho_object_start"
+    },
+    {
+     "count": 1,
+     "type": "litho_pattern_armed"
+    },
+    {
+     "count": 4,
+     "type": "litho_progress"
+    },
+    {
+     "count": 4,
+     "type": "litho_transit"
+    },
+    {
+     "count": 21,
+     "type": "log"
+    },
+    {
+     "count": 1,
+     "type": "sessions_changed"
+    },
+    {
+     "count": 4,
+     "type": "surface_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "amp_gain": 25.0,
+     "setpoint_relative": 0.1
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "ok": true,
+    "run_id": "write-1",
+    "skipped": 0,
+    "writing": 4
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (tip off, writes every object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/litho/written"
+   },
+   "response": {
+    "g": "<masked>",
+    "n": 256
+   },
+   "status": 200,
+   "step": "GET /api/litho/written (after a write)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Nothing new to write. Everything in the design has already been written; use Write all to repeat it.",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "body": {
+     "amp_gain": 25.0,
+     "setpoint_relative": 0.1
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "error": "nothing new to write",
+    "objects": 4,
+    "reason": "already_written"
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (refused: nothing new to write)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Added path extra: 3 point(s)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "kind": "path",
+     "name": "extra",
+     "points_um": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       0.5
+      ]
+     ],
+     "speed_um_s": 2.0,
+     "voltage": 6.0
+    },
+    "method": "POST",
+    "path": "/api/design/add"
+   },
+   "response": {
+    "design": {
+     "name": "sketchfet-demo",
+     "objects": [
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "wire",
+       "points_um": [
+        [
+         -8.0,
+         0.0
+        ],
+        [
+         8.0,
+         0.0
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "gate-left",
+       "points_um": [
+        [
+         -2.5,
+         5.0
+        ],
+        [
+         -2.5,
+         0.9
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "gate-right",
+       "points_um": [
+        [
+         2.5,
+         5.0
+        ],
+        [
+         2.5,
+         0.9
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "erase-notch",
+       "points_um": [
+        [
+         0.0,
+         1.6
+        ],
+        [
+         0.0,
+         -1.6
+        ]
+       ],
+       "speed_um_s": 1.5,
+       "v_profile": null,
+       "voltage": -8.0,
+       "voltage_end": null
+      },
+      {
+       "enabled": true,
+       "fill_spacing_um": 0.15,
+       "kind": "path",
+       "name": "extra",
+       "points_um": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         1.0,
+         1.0
+        ],
+        [
+         2.0,
+         0.5
+        ]
+       ],
+       "speed_um_s": 2.0,
+       "v_profile": null,
+       "voltage": 6.0,
+       "voltage_end": null
+      }
+     ]
+    },
+    "index": 4,
+    "name": "extra",
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/design/add (path)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "count": 1,
+     "type": "litho_done"
+    },
+    {
+     "count": 1,
+     "type": "litho_object_done"
+    },
+    {
+     "count": 1,
+     "type": "litho_object_start"
+    },
+    {
+     "count": 1,
+     "type": "litho_pattern_armed"
+    },
+    {
+     "count": 1,
+     "type": "litho_progress"
+    },
+    {
+     "count": 1,
+     "type": "litho_transit"
+    },
+    {
+     "count": 12,
+     "type": "log"
+    },
+    {
+     "count": 1,
+     "type": "sessions_changed"
+    },
+    {
+     "count": 1,
+     "type": "surface_changed"
+    }
+   ],
+   "request": {
+    "body": {
+     "amp_gain": 25.0,
+     "setpoint_relative": 0.1
+    },
+    "method": "POST",
+    "path": "/api/litho/write"
+   },
+   "response": {
+    "ok": true,
+    "run_id": "write-2",
+    "skipped": 4,
+    "writing": 1
+   },
+   "status": 200,
+   "step": "POST /api/litho/write (writes only the new object)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "backend": "twin",
+     "critical": false,
+     "reason": "litho abort",
+     "transport": "twin",
+     "type": "safe_park",
+     "verified": true,
+     "z_v": 0.0
+    },
+    {
+     "msg": "SAFETY safe_park: litho abort -- tip retracted (verified; Height=0.000 V, ZSensor=0.000 V, Deflection=0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "SAFETY safe_park: litho abort -- tip retracted (verified=True) (Height = 0.000 V)",
+     "t": "<masked>",
+     "type": "log"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/litho/abort"
+   },
+   "response": {
+    "backend": "twin",
+    "ok": true
+   },
+   "status": 200,
+   "step": "POST /api/litho/abort (nothing writing)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "method": "GET",
+    "path": "/api/park/last"
+   },
+   "response": {
+    "critical": false,
+    "defl_v": 0.0,
+    "method": "abort",
+    "reason": "litho abort",
+    "ts": "<masked>",
+    "verified": true,
+    "z_out_v": 0.0,
+    "zsensor_v": 0.0
+   },
+   "status": 200,
+   "step": "GET /api/park/last (after litho/abort)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [],
+   "request": {
+    "body": {
+     "source": "no-such-design"
+    },
+    "method": "POST",
+    "path": "/api/litho/load"
+   },
+   "response": {
+    "error": "no such design: no-such-design"
+   },
+   "status": 200,
+   "step": "POST /api/litho/load (unknown source)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "Design loaded from auto-router (40 contacts): auto-device (8 objects)",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "type": "design_changed"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/litho/load"
+   },
+   "response": {
+    "name": "auto-device",
+    "objects": [
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-source",
+      "points_um": [
+       [
+        -40.8807,
+        -5.5724
+       ],
+       [
+        -4.8089,
+        -2.1495
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-drain",
+      "points_um": [
+       [
+        39.2272,
+        2.0291
+       ],
+       [
+        3.1554,
+        -1.3938
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "wire",
+      "points_um": [
+       [
+        -4.8089,
+        -2.1495
+       ],
+       [
+        3.1554,
+        -1.3938
+       ]
+      ],
+      "speed_um_s": 2.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-probe-1",
+      "points_um": [
+       [
+        10.8324,
+        34.944
+       ],
+       [
+        -3.3268,
+        1.1911
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "probe-1",
+      "points_um": [
+       [
+        -3.3268,
+        1.1911
+       ],
+       [
+        -3.3268,
+        -2.0089
+       ]
+      ],
+      "speed_um_s": 2.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.25,
+      "kind": "taper",
+      "name": "lead-probe-2",
+      "points_um": [
+       [
+        17.2822,
+        32.4282
+       ],
+       [
+        1.6732,
+        1.6656
+       ]
+      ],
+      "speed_um_s": 4.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "probe-2",
+      "points_um": [
+       [
+        1.6732,
+        1.6656
+       ],
+       [
+        1.6732,
+        -1.5344
+       ]
+      ],
+      "speed_um_s": 2.0,
+      "v_profile": null,
+      "voltage": 8.0,
+      "voltage_end": null
+     },
+     {
+      "enabled": true,
+      "fill_spacing_um": 0.15,
+      "kind": "path",
+      "name": "erase-barrier",
+      "points_um": [
+       [
+        -0.8268,
+        -0.5716
+       ],
+       [
+        -0.8268,
+        -2.9716
+       ]
+      ],
+      "speed_um_s": 1.5,
+      "v_profile": null,
+      "voltage": -8.0,
+      "voltage_end": null
+     }
+    ]
+   },
+   "status": 200,
+   "step": "POST /api/litho/load (auto, no body)"
+  },
+  {
+   "content_type": "application/json",
+   "events": [
+    {
+     "msg": "withdraw: imaging mode unknown, free-air baseline taken as 'contact'",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "msg": "Withdrawn: tip parked at -10 V",
+     "t": "<masked>",
+     "type": "log"
+    },
+    {
+     "amp_v": 1.0,
+     "bias_v": 0.0,
+     "defl_v": "<masked>",
+     "engaged": false,
+     "t": "<masked>",
+     "type": "withdrawn",
+     "x_um": "<masked>",
+     "y_um": "<masked>",
+     "z_um": 13.035999999999992
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "path": "/api/withdraw"
+   },
+   "response": {
+    "amp_v": 1.0,
+    "bias_v": 0.0,
+    "defl_v": "<masked>",
+    "engaged": false,
+    "t": "<masked>",
+    "x_um": "<masked>",
+    "y_um": "<masked>",
+    "z_um": 13.035999999999992
+   },
+   "status": 200,
+   "step": "POST /api/withdraw (final)"
+  }
+ ],
+ "group": "litho_write"
+}
